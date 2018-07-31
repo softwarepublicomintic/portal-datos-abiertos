@@ -1,0 +1,6 @@
+name = Socrata Import
+description = Cron y funciones de importación de datos desde Socrata
+package = Socrata
+core = 7.x
+dependencies[] = socrata
+dependencies[] = views

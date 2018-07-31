@@ -1,0 +1,74 @@
+#GButton {
+    display: inline-block;
+    background: white;
+    color: #444;
+    width: 303px;
+    border-radius: 0px;
+    border: thin solid #888;
+    /*box-shadow: 1px 1px 1px grey; */
+    white-space: nowrap;
+  }
+  #GButton:hover {
+    cursor: pointer;
+  }
+  span.label {
+    font-family: serif;
+    font-weight: normal;
+  }
+  span.icon {
+    background: url('https://google-developers.appspot.com/identity/sign-in/g-normal.png') transparent 5px 50% no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+  }
+  span.buttonText {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 0px;
+    padding-right: 42px;
+    font-size: 22px;
+    font-weight: 100;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: "OpenSans-Regular-webfont";
+  }
+
+  span._4z_f.fwb {
+      font-size: 12px !important;
+  }
+
+  .fwb {
+      font-size: 22px !important;
+      font-weight: 100;
+      line-height: 30px;
+      padding: 3px 8px;
+  }
+
+  ._4z_c ._55a2 {
+    height: 39px;
+    width: 41px;
+    padding-right: 13px;
+}
+
+.fb_iframe_widget {
+      height: 53px;
+}
+
+._4z_b {
+    height: 53px;
+}
+
+.pane-associal-social td {
+    padding-bottom: 12px;
+}
+
+td._51m-._51mw {
+    position: relative;
+    top: 6px;
+}
+
+svg._55a2 {
+    position: relative;
+    top: 6px;
+    left: 3px;
+}

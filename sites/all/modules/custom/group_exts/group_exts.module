@@ -1,0 +1,117 @@
+<?php
+
+/**
+ * @file
+ * Group extras. Some group tweaks.
+ */
+ 
+/**
+ * Implements hook_menu().
+ */
+function group_exts_menu() {
+  $items['admin/config/group-exts'] = array(
+    'title' => 'Group extras',
+    'description' => 'Settings for Socrata integration',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer c4c socrata'),
+    'position' => 'right',
+    'weight' => -20,
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/config/group-exts/settings'] = array(
+    'title' => 'Group extras settings',
+    'description' => 'Configure extra settings for groups.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('group_extras_settings'),
+    'access arguments' => array('administer group extras'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'includes/group_extras.settings.inc',
+  );
+  $items['group-exts/user/autocomplete'] = array(
+    'title' => 'User autocomplete',
+    'page callback' => 'group_exts_user_autocomplete',
+    'access callback' => 'user_access',
+    'access arguments' => array('access user profiles'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function group_exts_permission() {
+  return array(
+    'administer group extras' => array(
+      'title' => t('Administer group extras'),
+      'description' => t('Configure settings for Group extras.'),
+    ),
+  );
+}
+
+/**
+ * Menu callback; Retrieve a JSON object containing autocomplete suggestions for existing users.
+ */
+function group_exts_user_autocomplete($string = '') {
+  $matches = array();
+  $field_name = variable_get('gextras_group_add_field', '');
+  
+  if ($string && $field_name) {
+    $table_name = 'field_data_' . $field_name;
+    
+    $query=db_select('users','u')->fields('u', array('uid', 'name'));
+    $query->join($table_name, 'tn', 'u.uid = tn.entity_id');
+    $db_or = db_or();
+    $db_or->condition('u.name', db_like($string) . '%', 'LIKE');
+    $db_or->condition('tn.' . $field_name . '_value', db_like($string) . '%', 'LIKE');
+    $query->condition($db_or);
+    $result = $query->range(0, 10)->execute();
+    
+    foreach ($result as $user) {
+      $matches[$user->name] = check_plain($user->name);
+    }
+  }
+
+  drupal_json_output($matches);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function group_exts_form_gadd_add_member_form_alter(&$form, &$form_state, $form_id) {
+  $override = variable_get('gextras_group_add_enabled', 0);
+  $field_name = variable_get('gextras_group_add_field', '');
+  if ($override && $field_name) {
+    $form['user']['#autocomplete_path'] = 'group-exts/user/autocomplete';
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function group_exts_entity_presave($entity, $type) {
+  if ($type == 'group_membership') {
+    $auto_roles = explode(',', variable_get('gextras_autoroles', ''));
+    if (count($auto_roles) > 0) {
+      foreach($auto_roles as $key => $role) {
+        $rolename = trim($role);
+        if (!in_array($rolename, $entity->roles)) {
+          $entity->roles[$rolename] = $rolename;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implement hook_form_alter
+ */
+/*
+function group_exts_form_alter(&$form, &$form_state, $form_id){
+  
+}
+*/
+
+

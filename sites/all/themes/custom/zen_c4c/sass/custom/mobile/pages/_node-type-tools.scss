@@ -1,0 +1,15 @@
+// Página principal sección herramientas
+@media only screen and (max-width: $size-break2) {
+	.node-type-tools {
+		.views-exposed-form .views-exposed-widget {
+			float: none;
+			display: block;
+			width: auto;
+		}
+
+		.jspContainer::before,
+		.jspContainer::after {
+			display: none;
+		}
+	}
+}

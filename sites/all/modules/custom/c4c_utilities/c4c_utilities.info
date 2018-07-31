@@ -1,0 +1,4 @@
+name = C4C Utilities
+description = Custom small functions
+core = 7.x
+package = Commons For Colombia

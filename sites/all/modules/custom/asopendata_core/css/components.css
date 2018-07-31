@@ -1,0 +1,1743 @@
+.asset-icon {
+ margin-bottom:2px
+}
+.asset-icon[data-display-type] {
+ background:none;
+ text-indent:0
+}
+.asset-icon[data-display-type]::before {
+ font-family:'socrata-icons';
+ speak:none;
+ font-style:normal;
+ font-weight:normal;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ font-size:13px
+}
+.asset-icon[data-display-type='data_lens']::before {
+ content:'';
+ color:#80acca
+}
+.asset-icon[data-display-type='calendar']::before {
+ content:'';
+ color:blue
+}
+.asset-icon[data-display-type='datasets']::before,.asset-icon[data-display-type='table']::before,.asset-icon[data-display-type='blist']::before {
+ content:'';
+ color:#cf7532
+}
+.asset-icon[data-display-type='charts']::before,.asset-icon[data-display-type='chart']::before {
+ content:'';
+ color:#e6be65
+}
+.asset-icon[data-display-type='filters']::before,.asset-icon[data-display-type='filter']::before {
+ content:'';
+ color:#8db7df
+}
+.asset-icon[data-display-type='blob']::before {
+ content:'';
+ color:#88bb50
+}
+.asset-icon[data-display-type='maps']::before,.asset-icon[data-display-type='map']::before {
+ content:'';
+ color:#619858
+}
+.asset-icon[data-display-type='unpublished']::before {
+ content:'';
+ color:blue
+}
+.settings-icon {
+ background:none;
+ text-indent:0
+}
+.settings-icon::before {
+ font-family:'socrata-icons';
+ speak:none;
+ font-style:normal;
+ font-weight:normal;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ font-size:13px;
+ color:gray;
+ content:''
+}
+@keyframes busy-spinner {
+ 100% {
+  -webkit-transform:rotate(360deg);
+  -moz-transform:rotate(360deg);
+  -ms-transform:rotate(360deg);
+  -o-transform:rotate(360deg);
+  transform:rotate(360deg)
+ }
+}
+body.socrata-page .cfEditSwitch {
+ background-image:url(/stylesheets/images/component/pagepeel.png);
+ height:68px;
+ left:0;
+ position:absolute;
+ top:0;
+ width:68px;
+ z-index:10000
+}
+body.socrata-page.configuring .cfEditSwitch {
+ display:none
+}
+body.socrata-page>.loadingOverlay,body.socrata-page>.loadingSpinnerContainer {
+ position:fixed
+}
+.socrata-component {
+ position:relative;
+ min-height:1em
+}
+.socrata-component:last-child {
+ margin-bottom:0
+}
+.socrata-component .disabledMessage,.socrata-component .disabledOverlay,.socrata-component .disabledIcon {
+ display:none
+}
+.socrata-component .content-wrapper {
+ height:100%;
+ width:100%
+}
+.socrata-component .content-wrapper.controlPane {
+ background-color:#f7f7f7
+}
+.socrata-component .fullHeight {
+ height:100%
+}
+.component-Container,.component-HorizontalContainer,.component-Box {
+ height:auto
+}
+.component-Box-inside {
+ padding:12px
+}
+.component-HorizontalContainer {
+ position:relative
+}
+.component-HorizontalContainer>.component-wrapper {
+ position:relative;
+ float:left;
+ left:100%
+}
+.component-HorizontalContainer>.component-wrapper>* {
+ margin:0 0 0 16px
+}
+.component-HorizontalContainer>.component-wrapper.first-child>* {
+ margin-left:0
+}
+.component-HorizontalContainer.inlineDisplay>.component-wrapper {
+ display:inline;
+ float:none;
+ left:0;
+ position:static
+}
+.component-HorizontalContainer.inlineDisplay>.component-wrapper>* {
+ display:inline;
+ margin:0
+}
+.component-Box {
+ min-height:100px;
+ border:solid 1px #cecece;
+ background-color:white
+}
+.component-Box-container {
+ margin:8px
+}
+.socrata-ct-clear {
+ clear:both
+}
+.component-Carousel {
+ overflow:hidden
+}
+.component-Title h2 {
+ padding:0.25em 0
+}
+.component-Pager {
+ padding:0.5em 0
+}
+.component-Pager .radioWrapper {
+ display:inline-block;
+ margin:0.2em 0.5em
+}
+.component-Pager .radioWrapper div.uniform.radio {
+ margin-right:0.2em
+}
+.component-Pager .radioWrapper label {
+ font-size:1.2em;
+ line-height:18px
+}
+.component-Pager .navigateLink {
+ font-size:1.2em;
+ margin:0.2em 0.5em
+}
+.component-Pager .navigateLink.button {
+ font-size:1em;
+ padding:0.3em;
+ margin:0 0.25em
+}
+.component-Pager .navigateLink.button .icon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/menu_icons.png?3);
+ height:13px;
+ width:13px
+}
+.component-Pager .navigateLink.button .icon {
+ background-position:0 0
+}
+.component-Pager .navigateLink.button.none .icon {
+ background-position:0 13px
+}
+.component-Pager .navigateLink.button.downArrow .icon,.component-Pager .navigateLink.button.downArrowNoHover .icon,.component-Pager .navigateLink.button.headerSortUp .icon {
+ background-position:0 0
+}
+.component-Pager .navigateLink.button.downArrow:hover .icon,.component-Pager .navigateLink.button.downArrowHighlight .icon,.component-Pager .navigateLink.button.collapsed .icon {
+ background-position:0 -13px
+}
+.component-Pager .navigateLink.button.upArrow .icon,.component-Pager .navigateLink.button.upArrowNoHover .icon,.component-Pager .navigateLink.button.headerSortDown .icon {
+ background-position:0 -26px
+}
+.component-Pager .navigateLink.button.upArrow:hover .icon,.component-Pager .navigateLink.button.upArrowHighlight .icon,.component-Pager .navigateLink.button.expanded .icon {
+ background-position:0 -39px
+}
+.component-Pager .navigateLink.button.rightArrow .icon,.component-Pager .navigateLink.button.next .icon {
+ background-position:0 -52px
+}
+.component-Pager .navigateLink.button.rightArrow:hover .icon,.component-Pager .navigateLink.button.rightArrowHighlight .icon {
+ background-position:0 -65px
+}
+.component-Pager .navigateLink.button.leftArrow .icon,.component-Pager .navigateLink.button.leftArrowNoHover .icon,.component-Pager .navigateLink.button.previous .icon {
+ background-position:0 -78px
+}
+.component-Pager .navigateLink.button.leftArrow:hover .icon,.component-Pager .navigateLink.button.leftArrowHighlight .icon {
+ background-position:0 -91px
+}
+.component-Pager .navigateLink.button.add .icon {
+ background-position:0 -104px
+}
+.component-Pager .navigateLink.button.search .icon {
+ background-position:0 -117px
+}
+.component-Pager .navigateLink.button.about .icon {
+ background-position:0 -130px
+}
+.component-Pager .navigateLink.button.fullscreen .icon {
+ background-position:0 -143px
+}
+.component-Pager .navigateLink.button.share .icon {
+ background-position:0 -156px
+}
+.component-Pager .navigateLink.button.checked .icon {
+ background-position:0 -169px
+}
+.component-Pager .navigateLink.button.iconView .icon {
+ background-position:0 -182px
+}
+.component-Pager .navigateLink.button.listView .icon {
+ background-position:0 -195px
+}
+.component-Pager .navigateLink.button.fatrowView .icon {
+ background-position:0 -208px
+}
+.component-Pager .navigateLink.button.gridView .icon {
+ background-position:0 -221px
+}
+.component-Pager .navigateLink.button.typeFilter .icon {
+ background-position:0 -234px
+}
+.component-Pager .navigateLink.button.typeChart .icon {
+ background-position:0 -247px
+}
+.component-Pager .navigateLink.button.typeMap .icon {
+ background-position:0 -260px
+}
+.component-Pager .navigateLink.button.typeBlist .icon {
+ background-position:0 -273px
+}
+.component-Pager .navigateLink.button.feed .icon {
+ background-position:0 -286px
+}
+.component-Pager .navigateLink.button.typeApi .icon,.component-Pager .navigateLink.button.embed .icon {
+ background-position:0 -299px
+}
+.component-Pager .navigateLink.button.views .icon {
+ background-position:0 -312px
+}
+.component-Pager .navigateLink.button.downloads .icon {
+ background-position:0 -325px
+}
+.component-Pager .navigateLink.button.delicious .icon {
+ background-position:0 -338px
+}
+.component-Pager .navigateLink.button.digg .icon {
+ background-position:0 -351px
+}
+.component-Pager .navigateLink.button.facebook .icon {
+ background-position:0 -364px
+}
+.component-Pager .navigateLink.button.twitter .icon {
+ background-position:0 -377px
+}
+.component-Pager .navigateLink.button.email .icon {
+ background-position:0 -390px
+}
+.component-Pager .navigateLink.button.rateUp .icon {
+ background-position:0 -403px
+}
+.component-Pager .navigateLink.button.ratedUp .icon {
+ background-position:0 -416px
+}
+.component-Pager .navigateLink.button.rateDown .icon {
+ background-position:0 -429px
+}
+.component-Pager .navigateLink.button.ratedDown .icon {
+ background-position:0 -442px
+}
+.component-Pager .navigateLink.button.typeForm .icon {
+ background-position:0 -455px
+}
+.component-Pager .navigateLink.button.typeCalendar .icon {
+ background-position:0 -468px
+}
+.component-Pager .navigateLink.button.typeBlob .icon {
+ background-position:0 -481px
+}
+.component-Pager .navigateLink.button.typeGrouped .icon {
+ background-position:0 -494px
+}
+.component-Pager .navigateLink.button.close .icon,.component-Pager .navigateLink.button.remove .icon {
+ background-position:0 -507px
+}
+.component-Pager .navigateLink.button.alert .icon,.component-Pager .navigateLink.button.warning .icon {
+ background-position:0 -520px
+}
+.component-Pager .navigateLink.button.subscribe .icon {
+ background-position:0 -533px
+}
+.component-Pager .navigateLink.button.start .icon {
+ background-position:0 -546px
+}
+.component-Pager .navigateLink.button.end .icon {
+ background-position:0 -559px
+}
+.component-Pager .navigateLink.button.options .icon {
+ background-position:0 -572px
+}
+.component-Pager .navigateLink.button.typeHref .icon {
+ background-position:0 -585px
+}
+.component-Pager .navigateLink.button.typeData_lens .icon {
+ background:none;
+ text-indent:0
+}
+.component-Pager .navigateLink.button.typeData_lens .icon::before {
+ font-family:'socrata-icons';
+ speak:none;
+ font-style:normal;
+ font-weight:normal;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ font-size:13px;
+ color:#80acca
+}
+.component-Pager .navigateLink.button.error .icon {
+ background-position:0 -598px
+}
+.component-Pager .navigateLink.button.typeUnpublished .icon {
+ background-position:0 -611px
+}
+.component-Pager .navigateLink.prevLink {
+ margin-right:1em
+}
+.component-Pager .navigateLink.nextLink {
+ margin-left:1em
+}
+.component-Pager .navigateLink.firstLink {
+ margin-right:0
+}
+.component-Pager .navigateLink.lastLink {
+ margin-left:0
+}
+.component-Pager .navigateLink.disabled {
+ color:#888;
+ cursor:auto
+}
+.component-Pager .navigateInfo {
+ display:inline-block
+}
+.component-Pager .navigateInfo span {
+ font-size:1.2em;
+ font-weight:bold;
+ padding:0 0.1em
+}
+.component-Pager .navigatePaging {
+ display:inline-block
+}
+.component-Pager .navigatePaging .pageLink,.component-Pager .navigatePaging .currentPage,.component-Pager .navigatePaging .pageFillIn {
+ font-size:1.2em;
+ margin:0 0.1em
+}
+.component-Pager .navigatePaging .currentPage {
+ font-weight:bold
+}
+.component-Pager .pillButtons {
+ display:inline-block
+}
+.component-Pager .pillButtons .childLink {
+ font-size:1.1em;
+ height:13px;
+ line-height:14px
+}
+.component-Pager .pillButtons .childLink .icon {
+ display:inline-block;
+ margin-right:0.5em;
+ vertical-align:top
+}
+.component-Pager .pillButtons .childLink.noText .icon {
+ margin-right:0
+}
+.component-Pager .sidebarTabs {
+ display:inline-block
+}
+.component-Pager .sidebarTabs li {
+ float:left;
+ margin-left:0.6em;
+ position:relative
+}
+.component-Pager .sidebarTabs li a {
+ background-color:#989898;
+ border-radius:.35em;
+ -moz-border-radius:.35em;
+ -webkit-border-radius:.35em;
+ color:#fff;
+ display:block;
+ font-size:1em;
+ height:13px;
+ line-height:16px;
+ padding:0.4em 0.6em 0.5em
+}
+.component-Pager .sidebarTabs li a .icon {
+ display:inline-block;
+ margin-right:0.4em;
+ vertical-align:top
+}
+.component-Pager .sidebarTabs li a.noText .icon {
+ margin-right:0
+}
+.component-Pager .sidebarTabs li a.active {
+ box-shadow:0 0 6px rgba(106,154,255,0.9);
+ -moz-box-shadow:0 0 6px rgba(106,154,255,0.9);
+ -webkit-box-shadow:0 0 6px rgba(106,154,255,0.9);
+ font-weight:bold
+}
+.component-Text {
+ font-size:1.2em;
+ padding:2px
+}
+.component-FormattedText {
+ font-size:1.2em;
+ padding:2px
+}
+.component-FormattedText ul {
+ list-style:disc;
+ list-style-position:inside
+}
+.component-FormattedText ol {
+ list-style:decimal;
+ list-style-position:inside
+}
+.component-SafeHtml {
+ font-size:1.2em;
+ padding:2px
+}
+.component-SafeHtml ul {
+ list-style:disc;
+ list-style-position:inside
+}
+.component-SafeHtml ol {
+ list-style:decimal;
+ list-style-position:inside
+}
+.component-Picture img {
+ max-height:100%;
+ max-width:100%
+}
+.component-Property {
+ font-size:1.2em
+}
+.component-PartialText p {
+ font-size:1.2em
+}
+.component-FixedContainer>.sticky {
+ height:auto;
+ position:fixed;
+ top:0;
+ z-index:1500
+}
+.component-GridContainer>.row {
+ position:relative
+}
+.component-GridContainer>.row>.socrata-component {
+ float:left;
+ overflow:hidden
+}
+.socrata-component .dataTableWrapper {
+ background-color:#ffffff;
+ margin-bottom:5em;
+ overflow:auto
+}
+.socrata-component .dataTableWrapper .dataTable {
+ border-right:1px solid #e2e2e2;
+ border-top:1px solid #d0d0d0;
+ margin-bottom:1em
+}
+.socrata-component .dataTableWrapper thead th {
+ background-color:#e8e8e8
+}
+.socrata-component .dataTableWrapper th,.socrata-component .dataTableWrapper td {
+ font-size:1.2em;
+ padding:0.2em
+}
+.socrata-component .dataTableWrapper th.type_nested_table,.socrata-component .dataTableWrapper td.type_nested_table {
+ padding:0
+}
+.socrata-component .dataTableWrapper td .dataTable {
+ background-color:#ffffff;
+ font-size:0.8em;
+ margin:-1px
+}
+.socrata-component .dataTableWrapper td,.socrata-component .dataTableWrapper th {
+ border-left:1px solid #e2e2e2;
+ border-bottom:1px solid #d0d0d0
+}
+.socrata-component .dataTableWrapper tr.even>td,.socrata-component .dataTableWrapper tr.even>th {
+ background-color:#f6f6ff
+}
+.socrata-component .dataTableWrapper .pagination {
+ margin:1em auto;
+ margin-top:0;
+ text-align:center
+}
+.socrata-component .dataTableWrapper .pagination a {
+ font-size:1.2em;
+ margin:0 0.25em
+}
+.socrata-component .dataTableWrapper .pagination .active {
+ color:#333333;
+ cursor:auto;
+ font-weight:bold
+}
+.socrata-component .dataTableWrapper .pagination .prevLink {
+ margin-right:0.5em
+}
+.socrata-component .dataTableWrapper .pagination .prevLink,.socrata-component .dataTableWrapper .pagination .firstLink {
+ border-right:1px solid #333333;
+ padding-right:0.5em
+}
+.socrata-component .dataTableWrapper .pagination .nextLink {
+ margin-left:0.5em
+}
+.socrata-component .dataTableWrapper .pagination .nextLink,.socrata-component .dataTableWrapper .pagination .lastLink {
+ border-left:1px solid #333333;
+ padding-left:0.5em
+}
+.socrata-component .dataTableWrapper .altViewLink {
+ font-size:1.2em
+}
+.component-Comments .feed.noReplies .commentActions .actionReply {
+ display:none
+}
+.component-Share ul li {
+ display:inline-block;
+ margin-right:0.5em
+}
+.component-Share ul li a .icon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/social_media_icons.png);
+ height:16px;
+ width:16px
+}
+.component-Share ul li a.facebook .icon {
+ background-position:0 0
+}
+.component-Share ul li a.facebook:hover .icon,.component-Share ul li a.facebook:focus .icon {
+ background-position:-16px 0
+}
+.component-Share ul li a.twitter .icon {
+ background-position:0 -16px
+}
+.component-Share ul li a.twitter:hover .icon,.component-Share ul li a.twitter:focus .icon {
+ background-position:-16px -16px
+}
+.component-Share ul li a.email .icon {
+ background-position:0 -32px
+}
+.component-Share ul li a.email:hover .icon,.component-Share ul li a.email:focus .icon {
+ background-position:-16px -32px
+}
+.component-Share ul li a.subscribe .icon {
+ background-position:0 -48px
+}
+.component-Share ul li a.subscribe:hover .icon,.component-Share ul li a.subscribe:focus .icon {
+ background-position:-16px -48px
+}
+.component-Search .searchForm {
+ margin-top:2px
+}
+.component-Search .searchBoxContainer {
+ background-color:#fff;
+ border:1px solid #999;
+ border-radius:.2em;
+ -moz-border-radius:.2em;
+ -webkit-border-radius:.2em;
+ box-shadow:0 0 2px rgba(0,0,0,0.05);
+ -moz-box-shadow:0 0 2px rgba(0,0,0,0.05);
+ -webkit-box-shadow:0 0 2px rgba(0,0,0,0.05);
+ display:inline-block;
+ padding:0.4em 0.3em 0.3em;
+ position:relative
+}
+.component-Search .searchBoxContainer:hover {
+ box-shadow:0 0 2px rgba(0,0,0,0.15);
+ -moz-box-shadow:0 0 2px rgba(0,0,0,0.15);
+ -webkit-box-shadow:0 0 2px rgba(0,0,0,0.15)
+}
+.component-Search .searchBoxContainer.hasClearButton {
+ padding-right:2em
+}
+.component-Search .searchBoxContainer.hasSearchIcon {
+ padding-left:2.8em
+}
+.component-Search .searchBoxContainer .searchIcon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/dataset_toolbar_icons.png);
+ height:13px;
+ width:16px;
+ left:0.5em;
+ position:absolute;
+ top:0.3em
+}
+.component-Search .searchBoxContainer .searchField {
+ border:none;
+ display:block;
+ height:13px;
+ padding:0;
+ -webkit-appearance:none;
+ width:100%
+}
+.component-Search .searchBoxContainer .searchField.prompt {
+ font-style:normal
+}
+.component-Search .searchBoxContainer .clearSearch {
+ position:absolute;
+ right:2px;
+ top:3px
+}
+.component-Search .searchBoxContainer .clearSearch .icon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/menu_icons.png?3);
+ height:13px;
+ width:13px
+}
+.component-Search .searchBoxContainer .clearSearch .icon {
+ background-position:0 0
+}
+.component-Search .searchBoxContainer .clearSearch.none .icon {
+ background-position:0 13px
+}
+.component-Search .searchBoxContainer .clearSearch.downArrow .icon,.component-Search .searchBoxContainer .clearSearch.downArrowNoHover .icon,.component-Search .searchBoxContainer .clearSearch.headerSortUp .icon {
+ background-position:0 0
+}
+.component-Search .searchBoxContainer .clearSearch.downArrow:hover .icon,.component-Search .searchBoxContainer .clearSearch.downArrowHighlight .icon,.component-Search .searchBoxContainer .clearSearch.collapsed .icon {
+ background-position:0 -13px
+}
+.component-Search .searchBoxContainer .clearSearch.upArrow .icon,.component-Search .searchBoxContainer .clearSearch.upArrowNoHover .icon,.component-Search .searchBoxContainer .clearSearch.headerSortDown .icon {
+ background-position:0 -26px
+}
+.component-Search .searchBoxContainer .clearSearch.upArrow:hover .icon,.component-Search .searchBoxContainer .clearSearch.upArrowHighlight .icon,.component-Search .searchBoxContainer .clearSearch.expanded .icon {
+ background-position:0 -39px
+}
+.component-Search .searchBoxContainer .clearSearch.rightArrow .icon,.component-Search .searchBoxContainer .clearSearch.next .icon {
+ background-position:0 -52px
+}
+.component-Search .searchBoxContainer .clearSearch.rightArrow:hover .icon,.component-Search .searchBoxContainer .clearSearch.rightArrowHighlight .icon {
+ background-position:0 -65px
+}
+.component-Search .searchBoxContainer .clearSearch.leftArrow .icon,.component-Search .searchBoxContainer .clearSearch.leftArrowNoHover .icon,.component-Search .searchBoxContainer .clearSearch.previous .icon {
+ background-position:0 -78px
+}
+.component-Search .searchBoxContainer .clearSearch.leftArrow:hover .icon,.component-Search .searchBoxContainer .clearSearch.leftArrowHighlight .icon {
+ background-position:0 -91px
+}
+.component-Search .searchBoxContainer .clearSearch.add .icon {
+ background-position:0 -104px
+}
+.component-Search .searchBoxContainer .clearSearch.search .icon {
+ background-position:0 -117px
+}
+.component-Search .searchBoxContainer .clearSearch.about .icon {
+ background-position:0 -130px
+}
+.component-Search .searchBoxContainer .clearSearch.fullscreen .icon {
+ background-position:0 -143px
+}
+.component-Search .searchBoxContainer .clearSearch.share .icon {
+ background-position:0 -156px
+}
+.component-Search .searchBoxContainer .clearSearch.checked .icon {
+ background-position:0 -169px
+}
+.component-Search .searchBoxContainer .clearSearch.iconView .icon {
+ background-position:0 -182px
+}
+.component-Search .searchBoxContainer .clearSearch.listView .icon {
+ background-position:0 -195px
+}
+.component-Search .searchBoxContainer .clearSearch.fatrowView .icon {
+ background-position:0 -208px
+}
+.component-Search .searchBoxContainer .clearSearch.gridView .icon {
+ background-position:0 -221px
+}
+.component-Search .searchBoxContainer .clearSearch.typeFilter .icon {
+ background-position:0 -234px
+}
+.component-Search .searchBoxContainer .clearSearch.typeChart .icon {
+ background-position:0 -247px
+}
+.component-Search .searchBoxContainer .clearSearch.typeMap .icon {
+ background-position:0 -260px
+}
+.component-Search .searchBoxContainer .clearSearch.typeBlist .icon {
+ background-position:0 -273px
+}
+.component-Search .searchBoxContainer .clearSearch.feed .icon {
+ background-position:0 -286px
+}
+.component-Search .searchBoxContainer .clearSearch.typeApi .icon,.component-Search .searchBoxContainer .clearSearch.embed .icon {
+ background-position:0 -299px
+}
+.component-Search .searchBoxContainer .clearSearch.views .icon {
+ background-position:0 -312px
+}
+.component-Search .searchBoxContainer .clearSearch.downloads .icon {
+ background-position:0 -325px
+}
+.component-Search .searchBoxContainer .clearSearch.delicious .icon {
+ background-position:0 -338px
+}
+.component-Search .searchBoxContainer .clearSearch.digg .icon {
+ background-position:0 -351px
+}
+.component-Search .searchBoxContainer .clearSearch.facebook .icon {
+ background-position:0 -364px
+}
+.component-Search .searchBoxContainer .clearSearch.twitter .icon {
+ background-position:0 -377px
+}
+.component-Search .searchBoxContainer .clearSearch.email .icon {
+ background-position:0 -390px
+}
+.component-Search .searchBoxContainer .clearSearch.rateUp .icon {
+ background-position:0 -403px
+}
+.component-Search .searchBoxContainer .clearSearch.ratedUp .icon {
+ background-position:0 -416px
+}
+.component-Search .searchBoxContainer .clearSearch.rateDown .icon {
+ background-position:0 -429px
+}
+.component-Search .searchBoxContainer .clearSearch.ratedDown .icon {
+ background-position:0 -442px
+}
+.component-Search .searchBoxContainer .clearSearch.typeForm .icon {
+ background-position:0 -455px
+}
+.component-Search .searchBoxContainer .clearSearch.typeCalendar .icon {
+ background-position:0 -468px
+}
+.component-Search .searchBoxContainer .clearSearch.typeBlob .icon {
+ background-position:0 -481px
+}
+.component-Search .searchBoxContainer .clearSearch.typeGrouped .icon {
+ background-position:0 -494px
+}
+.component-Search .searchBoxContainer .clearSearch.close .icon,.component-Search .searchBoxContainer .clearSearch.remove .icon {
+ background-position:0 -507px
+}
+.component-Search .searchBoxContainer .clearSearch.alert .icon,.component-Search .searchBoxContainer .clearSearch.warning .icon {
+ background-position:0 -520px
+}
+.component-Search .searchBoxContainer .clearSearch.subscribe .icon {
+ background-position:0 -533px
+}
+.component-Search .searchBoxContainer .clearSearch.start .icon {
+ background-position:0 -546px
+}
+.component-Search .searchBoxContainer .clearSearch.end .icon {
+ background-position:0 -559px
+}
+.component-Search .searchBoxContainer .clearSearch.options .icon {
+ background-position:0 -572px
+}
+.component-Search .searchBoxContainer .clearSearch.typeHref .icon {
+ background-position:0 -585px
+}
+.component-Search .searchBoxContainer .clearSearch.typeData_lens .icon {
+ background:none;
+ text-indent:0
+}
+.component-Search .searchBoxContainer .clearSearch.typeData_lens .icon::before {
+ font-family:'socrata-icons';
+ speak:none;
+ font-style:normal;
+ font-weight:normal;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ font-size:13px;
+ color:#80acca
+}
+.component-Search .searchBoxContainer .clearSearch.error .icon {
+ background-position:0 -598px
+}
+.component-Search .searchBoxContainer .clearSearch.typeUnpublished .icon {
+ background-position:0 -611px
+}
+.component-Search .searchButton {
+ margin-top:0;
+ padding:0.2em 0.5em;
+ vertical-align:top
+}
+.component-Sort {
+ position:relative
+}
+.component-Sort .datasetSort {
+ padding-right:16px
+}
+.component-Sort .datasetSort select {
+ width:100%
+}
+.component-Sort .sortLinks .sortDir {
+ float:left
+}
+.component-Sort .sortLinks .sortDir .icon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/content/table/sort_arrow_sprites.png?1);
+ height:12px;
+ width:12px
+}
+.component-Sort .sortLinks .sortDir.sortDesc .icon {
+ background-position:0 0
+}
+.component-Sort .sortLinks .sortDir.sortDescLight .icon {
+ background-position:0 -12px
+}
+.component-Sort .sortLinks .sortDir.sortAsc .icon {
+ background-position:0 -24px
+}
+.component-Sort .sortLinks .sortDir.sortAscLight .icon {
+ background-position:0 -36px
+}
+.component-Sort .sortLinks .sortDir.filter .icon {
+ background-position:0 -50px
+}
+.component-Sort .sortLinks .sortDir.sortAsc:hover .icon {
+ background-position:0 -12px
+}
+.component-Sort .sortLinks .sortDir.sortDesc:hover .icon {
+ background-position:0 -36px
+}
+.component-Sort .sortLinks .sortClear {
+ float:left
+}
+.component-Sort .sortLinks .sortClear .icon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/menu_icons.png?3);
+ height:13px;
+ width:13px
+}
+.component-Sort .sortLinks .sortClear .icon {
+ background-position:0 0
+}
+.component-Sort .sortLinks .sortClear.none .icon {
+ background-position:0 13px
+}
+.component-Sort .sortLinks .sortClear.downArrow .icon,.component-Sort .sortLinks .sortClear.downArrowNoHover .icon,.component-Sort .sortLinks .sortClear.headerSortUp .icon {
+ background-position:0 0
+}
+.component-Sort .sortLinks .sortClear.downArrow:hover .icon,.component-Sort .sortLinks .sortClear.downArrowHighlight .icon,.component-Sort .sortLinks .sortClear.collapsed .icon {
+ background-position:0 -13px
+}
+.component-Sort .sortLinks .sortClear.upArrow .icon,.component-Sort .sortLinks .sortClear.upArrowNoHover .icon,.component-Sort .sortLinks .sortClear.headerSortDown .icon {
+ background-position:0 -26px
+}
+.component-Sort .sortLinks .sortClear.upArrow:hover .icon,.component-Sort .sortLinks .sortClear.upArrowHighlight .icon,.component-Sort .sortLinks .sortClear.expanded .icon {
+ background-position:0 -39px
+}
+.component-Sort .sortLinks .sortClear.rightArrow .icon,.component-Sort .sortLinks .sortClear.next .icon {
+ background-position:0 -52px
+}
+.component-Sort .sortLinks .sortClear.rightArrow:hover .icon,.component-Sort .sortLinks .sortClear.rightArrowHighlight .icon {
+ background-position:0 -65px
+}
+.component-Sort .sortLinks .sortClear.leftArrow .icon,.component-Sort .sortLinks .sortClear.leftArrowNoHover .icon,.component-Sort .sortLinks .sortClear.previous .icon {
+ background-position:0 -78px
+}
+.component-Sort .sortLinks .sortClear.leftArrow:hover .icon,.component-Sort .sortLinks .sortClear.leftArrowHighlight .icon {
+ background-position:0 -91px
+}
+.component-Sort .sortLinks .sortClear.add .icon {
+ background-position:0 -104px
+}
+.component-Sort .sortLinks .sortClear.search .icon {
+ background-position:0 -117px
+}
+.component-Sort .sortLinks .sortClear.about .icon {
+ background-position:0 -130px
+}
+.component-Sort .sortLinks .sortClear.fullscreen .icon {
+ background-position:0 -143px
+}
+.component-Sort .sortLinks .sortClear.share .icon {
+ background-position:0 -156px
+}
+.component-Sort .sortLinks .sortClear.checked .icon {
+ background-position:0 -169px
+}
+.component-Sort .sortLinks .sortClear.iconView .icon {
+ background-position:0 -182px
+}
+.component-Sort .sortLinks .sortClear.listView .icon {
+ background-position:0 -195px
+}
+.component-Sort .sortLinks .sortClear.fatrowView .icon {
+ background-position:0 -208px
+}
+.component-Sort .sortLinks .sortClear.gridView .icon {
+ background-position:0 -221px
+}
+.component-Sort .sortLinks .sortClear.typeFilter .icon {
+ background-position:0 -234px
+}
+.component-Sort .sortLinks .sortClear.typeChart .icon {
+ background-position:0 -247px
+}
+.component-Sort .sortLinks .sortClear.typeMap .icon {
+ background-position:0 -260px
+}
+.component-Sort .sortLinks .sortClear.typeBlist .icon {
+ background-position:0 -273px
+}
+.component-Sort .sortLinks .sortClear.feed .icon {
+ background-position:0 -286px
+}
+.component-Sort .sortLinks .sortClear.typeApi .icon,.component-Sort .sortLinks .sortClear.embed .icon {
+ background-position:0 -299px
+}
+.component-Sort .sortLinks .sortClear.views .icon {
+ background-position:0 -312px
+}
+.component-Sort .sortLinks .sortClear.downloads .icon {
+ background-position:0 -325px
+}
+.component-Sort .sortLinks .sortClear.delicious .icon {
+ background-position:0 -338px
+}
+.component-Sort .sortLinks .sortClear.digg .icon {
+ background-position:0 -351px
+}
+.component-Sort .sortLinks .sortClear.facebook .icon {
+ background-position:0 -364px
+}
+.component-Sort .sortLinks .sortClear.twitter .icon {
+ background-position:0 -377px
+}
+.component-Sort .sortLinks .sortClear.email .icon {
+ background-position:0 -390px
+}
+.component-Sort .sortLinks .sortClear.rateUp .icon {
+ background-position:0 -403px
+}
+.component-Sort .sortLinks .sortClear.ratedUp .icon {
+ background-position:0 -416px
+}
+.component-Sort .sortLinks .sortClear.rateDown .icon {
+ background-position:0 -429px
+}
+.component-Sort .sortLinks .sortClear.ratedDown .icon {
+ background-position:0 -442px
+}
+.component-Sort .sortLinks .sortClear.typeForm .icon {
+ background-position:0 -455px
+}
+.component-Sort .sortLinks .sortClear.typeCalendar .icon {
+ background-position:0 -468px
+}
+.component-Sort .sortLinks .sortClear.typeBlob .icon {
+ background-position:0 -481px
+}
+.component-Sort .sortLinks .sortClear.typeGrouped .icon {
+ background-position:0 -494px
+}
+.component-Sort .sortLinks .sortClear.close .icon,.component-Sort .sortLinks .sortClear.remove .icon {
+ background-position:0 -507px
+}
+.component-Sort .sortLinks .sortClear.alert .icon,.component-Sort .sortLinks .sortClear.warning .icon {
+ background-position:0 -520px
+}
+.component-Sort .sortLinks .sortClear.subscribe .icon {
+ background-position:0 -533px
+}
+.component-Sort .sortLinks .sortClear.start .icon {
+ background-position:0 -546px
+}
+.component-Sort .sortLinks .sortClear.end .icon {
+ background-position:0 -559px
+}
+.component-Sort .sortLinks .sortClear.options .icon {
+ background-position:0 -572px
+}
+.component-Sort .sortLinks .sortClear.typeHref .icon {
+ background-position:0 -585px
+}
+.component-Sort .sortLinks .sortClear.typeData_lens .icon {
+ background:none;
+ text-indent:0
+}
+.component-Sort .sortLinks .sortClear.typeData_lens .icon::before {
+ font-family:'socrata-icons';
+ speak:none;
+ font-style:normal;
+ font-weight:normal;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ font-size:13px;
+ color:#80acca
+}
+.component-Sort .sortLinks .sortClear.error .icon {
+ background-position:0 -598px
+}
+.component-Sort .sortLinks .sortClear.typeUnpublished .icon {
+ background-position:0 -611px
+}
+.component-Sort .sortLinks.dataset .sortDir {
+ position:absolute;
+ right:0;
+ top:8px
+}
+.component-ListItemContainer ul {
+ list-style:disc
+}
+.component-ListItemContainer ol {
+ list-style:decimal
+}
+.component-InlineFilter .tutorialSection {
+ display:none
+}
+.component-Header {
+ border-bottom:solid 2px #cecece;
+ padding-bottom:2em
+}
+.component-Header>.content-wrapper {
+ height:100%;
+ overflow:hidden;
+ text-align:center
+}
+.component-Header img {
+ max-width:100%
+}
+.component-Visualization .renderTypeNode .displayArea img {
+ max-height:99%;
+ max-width:100%
+}
+.component-Visualization .exploreLink {
+ padding:0.4em 0;
+ text-align:right
+}
+.component-Visualization .exploreLink a {
+ font-size:1.2em
+}
+.component-DatasetListFilter .title {
+ font-size:1.4em;
+ font-weight:bold;
+ margin-bottom:0.5em
+}
+.component-DatasetListFilter .listSection li {
+ margin-bottom:0.5em
+}
+.component-DatasetListFilter .listSection li a {
+ font-size:1.2em
+}
+.component-DatasetListFilter .listSection li a .icon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/menu_icons.png?3);
+ height:13px;
+ width:13px
+}
+.component-DatasetListFilter .listSection li a .icon {
+ background-position:0 0
+}
+.component-DatasetListFilter .listSection li a.none .icon {
+ background-position:0 13px
+}
+.component-DatasetListFilter .listSection li a.downArrow .icon,.component-DatasetListFilter .listSection li a.downArrowNoHover .icon,.component-DatasetListFilter .listSection li a.headerSortUp .icon {
+ background-position:0 0
+}
+.component-DatasetListFilter .listSection li a.downArrow:hover .icon,.component-DatasetListFilter .listSection li a.downArrowHighlight .icon,.component-DatasetListFilter .listSection li a.collapsed .icon {
+ background-position:0 -13px
+}
+.component-DatasetListFilter .listSection li a.upArrow .icon,.component-DatasetListFilter .listSection li a.upArrowNoHover .icon,.component-DatasetListFilter .listSection li a.headerSortDown .icon {
+ background-position:0 -26px
+}
+.component-DatasetListFilter .listSection li a.upArrow:hover .icon,.component-DatasetListFilter .listSection li a.upArrowHighlight .icon,.component-DatasetListFilter .listSection li a.expanded .icon {
+ background-position:0 -39px
+}
+.component-DatasetListFilter .listSection li a.rightArrow .icon,.component-DatasetListFilter .listSection li a.next .icon {
+ background-position:0 -52px
+}
+.component-DatasetListFilter .listSection li a.rightArrow:hover .icon,.component-DatasetListFilter .listSection li a.rightArrowHighlight .icon {
+ background-position:0 -65px
+}
+.component-DatasetListFilter .listSection li a.leftArrow .icon,.component-DatasetListFilter .listSection li a.leftArrowNoHover .icon,.component-DatasetListFilter .listSection li a.previous .icon {
+ background-position:0 -78px
+}
+.component-DatasetListFilter .listSection li a.leftArrow:hover .icon,.component-DatasetListFilter .listSection li a.leftArrowHighlight .icon {
+ background-position:0 -91px
+}
+.component-DatasetListFilter .listSection li a.add .icon {
+ background-position:0 -104px
+}
+.component-DatasetListFilter .listSection li a.search .icon {
+ background-position:0 -117px
+}
+.component-DatasetListFilter .listSection li a.about .icon {
+ background-position:0 -130px
+}
+.component-DatasetListFilter .listSection li a.fullscreen .icon {
+ background-position:0 -143px
+}
+.component-DatasetListFilter .listSection li a.share .icon {
+ background-position:0 -156px
+}
+.component-DatasetListFilter .listSection li a.checked .icon {
+ background-position:0 -169px
+}
+.component-DatasetListFilter .listSection li a.iconView .icon {
+ background-position:0 -182px
+}
+.component-DatasetListFilter .listSection li a.listView .icon {
+ background-position:0 -195px
+}
+.component-DatasetListFilter .listSection li a.fatrowView .icon {
+ background-position:0 -208px
+}
+.component-DatasetListFilter .listSection li a.gridView .icon {
+ background-position:0 -221px
+}
+.component-DatasetListFilter .listSection li a.typeFilter .icon {
+ background-position:0 -234px
+}
+.component-DatasetListFilter .listSection li a.typeChart .icon {
+ background-position:0 -247px
+}
+.component-DatasetListFilter .listSection li a.typeMap .icon {
+ background-position:0 -260px
+}
+.component-DatasetListFilter .listSection li a.typeBlist .icon {
+ background-position:0 -273px
+}
+.component-DatasetListFilter .listSection li a.feed .icon {
+ background-position:0 -286px
+}
+.component-DatasetListFilter .listSection li a.typeApi .icon,.component-DatasetListFilter .listSection li a.embed .icon {
+ background-position:0 -299px
+}
+.component-DatasetListFilter .listSection li a.views .icon {
+ background-position:0 -312px
+}
+.component-DatasetListFilter .listSection li a.downloads .icon {
+ background-position:0 -325px
+}
+.component-DatasetListFilter .listSection li a.delicious .icon {
+ background-position:0 -338px
+}
+.component-DatasetListFilter .listSection li a.digg .icon {
+ background-position:0 -351px
+}
+.component-DatasetListFilter .listSection li a.facebook .icon {
+ background-position:0 -364px
+}
+.component-DatasetListFilter .listSection li a.twitter .icon {
+ background-position:0 -377px
+}
+.component-DatasetListFilter .listSection li a.email .icon {
+ background-position:0 -390px
+}
+.component-DatasetListFilter .listSection li a.rateUp .icon {
+ background-position:0 -403px
+}
+.component-DatasetListFilter .listSection li a.ratedUp .icon {
+ background-position:0 -416px
+}
+.component-DatasetListFilter .listSection li a.rateDown .icon {
+ background-position:0 -429px
+}
+.component-DatasetListFilter .listSection li a.ratedDown .icon {
+ background-position:0 -442px
+}
+.component-DatasetListFilter .listSection li a.typeForm .icon {
+ background-position:0 -455px
+}
+.component-DatasetListFilter .listSection li a.typeCalendar .icon {
+ background-position:0 -468px
+}
+.component-DatasetListFilter .listSection li a.typeBlob .icon {
+ background-position:0 -481px
+}
+.component-DatasetListFilter .listSection li a.typeGrouped .icon {
+ background-position:0 -494px
+}
+.component-DatasetListFilter .listSection li a.close .icon,.component-DatasetListFilter .listSection li a.remove .icon {
+ background-position:0 -507px
+}
+.component-DatasetListFilter .listSection li a.alert .icon,.component-DatasetListFilter .listSection li a.warning .icon {
+ background-position:0 -520px
+}
+.component-DatasetListFilter .listSection li a.subscribe .icon {
+ background-position:0 -533px
+}
+.component-DatasetListFilter .listSection li a.start .icon {
+ background-position:0 -546px
+}
+.component-DatasetListFilter .listSection li a.end .icon {
+ background-position:0 -559px
+}
+.component-DatasetListFilter .listSection li a.options .icon {
+ background-position:0 -572px
+}
+.component-DatasetListFilter .listSection li a.typeHref .icon {
+ background-position:0 -585px
+}
+.component-DatasetListFilter .listSection li a.typeData_lens .icon {
+ background:none;
+ text-indent:0
+}
+.component-DatasetListFilter .listSection li a.typeData_lens .icon::before {
+ font-family:'socrata-icons';
+ speak:none;
+ font-style:normal;
+ font-weight:normal;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ font-size:13px;
+ color:#80acca
+}
+.component-DatasetListFilter .listSection li a.error .icon {
+ background-position:0 -598px
+}
+.component-DatasetListFilter .listSection li a.typeUnpublished .icon {
+ background-position:0 -611px
+}
+.component-DatasetListFilter .listSection li a.active {
+ color:#333333;
+ cursor:text;
+ font-weight:bold
+}
+.component-DatasetListFilter .listSection li a .icon {
+ display:inline-block;
+ margin-right:0.25em;
+ vertical-align:top
+}
+.component-DatasetListFilter .listSection li a.clearFacet .icon {
+ background-position:100px 100px
+}
+.component-DatasetListFilter .listSection li a .customIcon {
+ height:13px;
+ margin-right:0.25em;
+ vertical-align:top;
+ width:13px
+}
+.component-DatasetListFilter .listSection li .childList {
+ display:none;
+ margin-bottom:-0.25em;
+ margin-left:1em
+}
+.component-DatasetListFilter .listSection li.cutoff {
+ display:none
+}
+.component-DatasetListFilter .listSection li.cutoff ~ .viewAll {
+ display:block
+}
+.component-DatasetListFilter .listSection li.activeItem {
+ display:block
+}
+.component-DatasetListFilter .listSection li.activeItem .childList {
+ display:block
+}
+.component-DatasetListFilter .listSection li.viewAll,.component-DatasetListFilter .listSection li.viewLess {
+ display:none;
+ font-size:0.9em;
+ margin-top:1em;
+ text-transform:uppercase
+}
+.component-DatasetListFilter .listSection.expanded .cutoff {
+ display:block
+}
+.component-DatasetListFilter .listSection.expanded li.viewAll {
+ display:none
+}
+.component-DatasetListFilter .listSection.expanded li.viewLess {
+ display:block
+}
+.socrataModal {
+ padding:3em
+}
+.socrataModal .socrataDialog {
+ padding-top:3em
+}
+.socrataModal .listFilterDialog .optionsContent {
+ max-height:35em;
+ overflow-x:hidden;
+ overflow-y:auto;
+ text-align:center
+}
+.socrataModal .listFilterDialog .optionsContent a {
+ color:#3B5998;
+ font-size:1.2em;
+ line-height:1.2em;
+ margin-right:0.5em
+}
+.socrataModal .listFilterDialog .optionsContent a .customIcon {
+ height:16px;
+ vertical-align:middle;
+ width:16px
+}
+.component-NewCatalog .sidebar {
+ margin-right:2em
+}
+.component-NewCatalog .component-Sort {
+ border-bottom:1px solid #cecece;
+ margin-bottom:1em;
+ padding-bottom:1em
+}
+.component-NewCatalog .component-DatasetListFilter {
+ border-top:1px solid #cecece;
+ margin-top:1em;
+ padding-top:1em
+}
+.component-NewCatalog .header {
+ background-color:#e0e4e9;
+ padding:0.25em 1em
+}
+.component-NewCatalog .header .component-FormattedText {
+ font-weight:bold
+}
+.component-NewCatalog .noResults {
+ font-size:1.5em;
+ height:20em;
+ margin-top:5em;
+ text-align:center
+}
+.component-NewCatalog .results .item {
+ border-bottom:1px solid #cecece;
+ padding:0.5em
+}
+.component-NewCatalog .results .item.federated {
+ background-color:#f0f0f0
+}
+.component-NewCatalog .results .item .largeImage {
+ float:left;
+ margin-right:0.5em;
+ padding-right:0;
+ text-align:center;
+ width:50px;
+ z-index:1
+}
+.component-NewCatalog .results .item .largeImage .datasetIcon {
+ margin:0 auto;
+ width:50px
+}
+.component-NewCatalog .results .item .largeImage img.datasetImage {
+ max-height:50px;
+ max-width:50px
+}
+.component-NewCatalog .results .item .largeImage img.datasetImage.thumbnail {
+ padding:12px 0;
+ border:1px solid #cecece
+}
+.component-NewCatalog .results .item .largeImage .type {
+ font-size:0.8333em
+}
+.component-NewCatalog .results .item .largeImage .type .icon,.component-NewCatalog .results .item .largeImage .type .alertIcon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/type_icons_50.png);
+ height:50px;
+ width:50px
+}
+.component-NewCatalog .results .item .largeImage .type.typeFilter .icon {
+ background-position:0 0
+}
+.component-NewCatalog .results .item .largeImage .type.typeChart .icon {
+ background-position:0 -50px
+}
+.component-NewCatalog .results .item .largeImage .type.typeMap .icon {
+ background-position:0 -100px
+}
+.component-NewCatalog .results .item .largeImage .type.typeBlist .icon {
+ background-position:0 -150px
+}
+.component-NewCatalog .results .item .largeImage .type.comments .icon {
+ background-position:0 -200px
+}
+.component-NewCatalog .results .item .largeImage .type.typeApi .icon,.component-NewCatalog .results .item .largeImage .type.embed .icon {
+ background-position:0 -250px
+}
+.component-NewCatalog .results .item .largeImage .type.views .icon {
+ background-position:0 -300px
+}
+.component-NewCatalog .results .item .largeImage .type.downloads .icon {
+ background-position:0 -350px
+}
+.component-NewCatalog .results .item .largeImage .type.print .icon {
+ background-position:0 -400px
+}
+.component-NewCatalog .results .item .largeImage .type.typeForm .icon {
+ background-position:0 -450px
+}
+.component-NewCatalog .results .item .largeImage .type.typeCalendar .icon {
+ background-position:0 -500px
+}
+.component-NewCatalog .results .item .largeImage .type.typeBlob .icon {
+ background-position:0 -550px
+}
+.component-NewCatalog .results .item .largeImage .type.typeGrouped .icon {
+ background-position:0 -600px
+}
+.component-NewCatalog .results .item .largeImage .type.api .icon {
+ background-position:0 -650px
+}
+.component-NewCatalog .results .item .largeImage .type.alert .icon,.component-NewCatalog .results .item .largeImage .type .alertIcon {
+ background-position:0 -700px
+}
+.component-NewCatalog .results .item .largeImage .type.typeHref .icon {
+ background-position:0 -750px
+}
+.component-NewCatalog .results .item .largeImage .type.typeData_lens .icon {
+ background:none;
+ text-indent:0
+}
+.component-NewCatalog .results .item .largeImage .type.typeData_lens .icon::before {
+ content:'';
+ font-family:'socrata-icons';
+ font-size:50px;
+ color:#80acca
+}
+.component-NewCatalog .results .item .largeImage .type.typeUnpublished .icon {
+ background-position:0 -800px
+}
+.component-NewCatalog .results .item .largeImage .type.typeSnapshotted .icon {
+ background-position:0 -850px
+}
+.component-NewCatalog .results .item .domainIcon {
+ float:left;
+ margin-right:0.3em
+}
+.component-NewCatalog .results .item .domainIcon img {
+ height:2em;
+ width:2em
+}
+.component-NewCatalog .results .item .datasetLink {
+ font-size:1.5em
+}
+.component-NewCatalog .results .item .federationSource {
+ color:#999999;
+ margin-top:0.5em
+}
+.component-NewCatalog .results .item .description {
+ font-size:1em;
+ margin-top:0.5em
+}
+.component-NewCatalog .results .item .views {
+ color:#999999;
+ font-size:1em
+}
+.component-NewCatalog .results .item .rss .subscribe .icon {
+ background-color:transparent;
+ background-position:0 0;
+ background-repeat:no-repeat;
+ display:block;
+ text-align:left;
+ text-indent:-9999px;
+ background-image:url(/stylesheets/images/icons/menu_icons.png?3);
+ height:13px;
+ width:13px
+}
+.component-NewCatalog .results .item .rss .subscribe .icon {
+ background-position:0 0
+}
+.component-NewCatalog .results .item .rss .subscribe.none .icon {
+ background-position:0 13px
+}
+.component-NewCatalog .results .item .rss .subscribe.downArrow .icon,.component-NewCatalog .results .item .rss .subscribe.downArrowNoHover .icon,.component-NewCatalog .results .item .rss .subscribe.headerSortUp .icon {
+ background-position:0 0
+}
+.component-NewCatalog .results .item .rss .subscribe.downArrow:hover .icon,.component-NewCatalog .results .item .rss .subscribe.downArrowHighlight .icon,.component-NewCatalog .results .item .rss .subscribe.collapsed .icon {
+ background-position:0 -13px
+}
+.component-NewCatalog .results .item .rss .subscribe.upArrow .icon,.component-NewCatalog .results .item .rss .subscribe.upArrowNoHover .icon,.component-NewCatalog .results .item .rss .subscribe.headerSortDown .icon {
+ background-position:0 -26px
+}
+.component-NewCatalog .results .item .rss .subscribe.upArrow:hover .icon,.component-NewCatalog .results .item .rss .subscribe.upArrowHighlight .icon,.component-NewCatalog .results .item .rss .subscribe.expanded .icon {
+ background-position:0 -39px
+}
+.component-NewCatalog .results .item .rss .subscribe.rightArrow .icon,.component-NewCatalog .results .item .rss .subscribe.next .icon {
+ background-position:0 -52px
+}
+.component-NewCatalog .results .item .rss .subscribe.rightArrow:hover .icon,.component-NewCatalog .results .item .rss .subscribe.rightArrowHighlight .icon {
+ background-position:0 -65px
+}
+.component-NewCatalog .results .item .rss .subscribe.leftArrow .icon,.component-NewCatalog .results .item .rss .subscribe.leftArrowNoHover .icon,.component-NewCatalog .results .item .rss .subscribe.previous .icon {
+ background-position:0 -78px
+}
+.component-NewCatalog .results .item .rss .subscribe.leftArrow:hover .icon,.component-NewCatalog .results .item .rss .subscribe.leftArrowHighlight .icon {
+ background-position:0 -91px
+}
+.component-NewCatalog .results .item .rss .subscribe.add .icon {
+ background-position:0 -104px
+}
+.component-NewCatalog .results .item .rss .subscribe.search .icon {
+ background-position:0 -117px
+}
+.component-NewCatalog .results .item .rss .subscribe.about .icon {
+ background-position:0 -130px
+}
+.component-NewCatalog .results .item .rss .subscribe.fullscreen .icon {
+ background-position:0 -143px
+}
+.component-NewCatalog .results .item .rss .subscribe.share .icon {
+ background-position:0 -156px
+}
+.component-NewCatalog .results .item .rss .subscribe.checked .icon {
+ background-position:0 -169px
+}
+.component-NewCatalog .results .item .rss .subscribe.iconView .icon {
+ background-position:0 -182px
+}
+.component-NewCatalog .results .item .rss .subscribe.listView .icon {
+ background-position:0 -195px
+}
+.component-NewCatalog .results .item .rss .subscribe.fatrowView .icon {
+ background-position:0 -208px
+}
+.component-NewCatalog .results .item .rss .subscribe.gridView .icon {
+ background-position:0 -221px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeFilter .icon {
+ background-position:0 -234px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeChart .icon {
+ background-position:0 -247px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeMap .icon {
+ background-position:0 -260px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeBlist .icon {
+ background-position:0 -273px
+}
+.component-NewCatalog .results .item .rss .subscribe.feed .icon {
+ background-position:0 -286px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeApi .icon,.component-NewCatalog .results .item .rss .subscribe.embed .icon {
+ background-position:0 -299px
+}
+.component-NewCatalog .results .item .rss .subscribe.views .icon {
+ background-position:0 -312px
+}
+.component-NewCatalog .results .item .rss .subscribe.downloads .icon {
+ background-position:0 -325px
+}
+.component-NewCatalog .results .item .rss .subscribe.delicious .icon {
+ background-position:0 -338px
+}
+.component-NewCatalog .results .item .rss .subscribe.digg .icon {
+ background-position:0 -351px
+}
+.component-NewCatalog .results .item .rss .subscribe.facebook .icon {
+ background-position:0 -364px
+}
+.component-NewCatalog .results .item .rss .subscribe.twitter .icon {
+ background-position:0 -377px
+}
+.component-NewCatalog .results .item .rss .subscribe.email .icon {
+ background-position:0 -390px
+}
+.component-NewCatalog .results .item .rss .subscribe.rateUp .icon {
+ background-position:0 -403px
+}
+.component-NewCatalog .results .item .rss .subscribe.ratedUp .icon {
+ background-position:0 -416px
+}
+.component-NewCatalog .results .item .rss .subscribe.rateDown .icon {
+ background-position:0 -429px
+}
+.component-NewCatalog .results .item .rss .subscribe.ratedDown .icon {
+ background-position:0 -442px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeForm .icon {
+ background-position:0 -455px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeCalendar .icon {
+ background-position:0 -468px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeBlob .icon {
+ background-position:0 -481px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeGrouped .icon {
+ background-position:0 -494px
+}
+.component-NewCatalog .results .item .rss .subscribe.close .icon,.component-NewCatalog .results .item .rss .subscribe.remove .icon {
+ background-position:0 -507px
+}
+.component-NewCatalog .results .item .rss .subscribe.alert .icon,.component-NewCatalog .results .item .rss .subscribe.warning .icon {
+ background-position:0 -520px
+}
+.component-NewCatalog .results .item .rss .subscribe.subscribe .icon {
+ background-position:0 -533px
+}
+.component-NewCatalog .results .item .rss .subscribe.start .icon {
+ background-position:0 -546px
+}
+.component-NewCatalog .results .item .rss .subscribe.end .icon {
+ background-position:0 -559px
+}
+.component-NewCatalog .results .item .rss .subscribe.options .icon {
+ background-position:0 -572px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeHref .icon {
+ background-position:0 -585px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeData_lens .icon {
+ background:none;
+ text-indent:0
+}
+.component-NewCatalog .results .item .rss .subscribe.typeData_lens .icon::before {
+ font-family:'socrata-icons';
+ speak:none;
+ font-style:normal;
+ font-weight:normal;
+ font-variant:normal;
+ text-transform:none;
+ line-height:1;
+ -webkit-font-smoothing:antialiased;
+ -moz-osx-font-smoothing:grayscale;
+ font-size:13px;
+ color:#80acca
+}
+.component-NewCatalog .results .item .rss .subscribe.error .icon {
+ background-position:0 -598px
+}
+.component-NewCatalog .results .item .rss .subscribe.typeUnpublished .icon {
+ background-position:0 -611px
+}
+.component-NewCatalog .component-Pager {
+ margin-top:1em;
+ text-align:center
+}
+.component-NewCatalog .component-Pager .navigatePaging {
+ font-size:1.2em
+}
+.component-NewCatalog .component-Pager .navigateLink {
+ font-size:1.4em
+}
+.component-NewCatalog .component-Pager .disabled {
+ display:none
+}
+.dsgLoadingMsg {
+ display:none
+}
+@media print {
+ .component-Share {
+  display:none
+ }
+ .component-InlineFilter {
+  display:none
+ }
+ .component-Pager {
+  display:none
+ }
+ .component-Print {
+  display:none
+ }
+ .component-Search {
+  display:none
+ }
+ .component-Geolocator {
+  display:none
+ }
+ .component-Sort {
+  display:none
+ }
+ .cfEditSwitch {
+  display:none
+ }
+ .hasHeader #siteHeader {
+  display:none
+ }
+}

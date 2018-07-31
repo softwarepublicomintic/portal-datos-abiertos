@@ -1,0 +1,140 @@
+.page-oblogs {
+  .panel-pane {
+    &:nth-child(3) {
+      &.pane-c4c-news-events {
+        .pane__title {
+          font-size: 26px;
+        }
+
+        .views-row {
+          min-height: inherit;
+          max-height: inherit;
+          background-color: $color-gris-fondo-blogs;
+
+          .views-field-field-image {
+            width: initial;
+            height: initial;
+          }
+
+          .first-title-description {
+            background-color: $color-gris-fondo-blogs;
+
+            .views-field-title {
+              margin: 10px 0;
+              max-height: 62px;
+              overflow: hidden;
+
+              a {
+                color: $color-magenta;
+              }
+            }
+
+            .field-name-body {
+              color: $color-gris-claro2;
+              font-size: 14px;
+              max-height: 56px;
+              overflow: hidden;
+            }
+          }
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      &.pane-c4c-news-events {
+        .news-section-title {
+          font-size: 26px;
+        }
+
+        .views-row-even,
+        .views-row-odd,
+        .owl-carousel,
+        .disabled {
+          &.owl-carousel-block_437,
+          &.owl-carousel-block_438 {
+            width: 100%;
+
+            .views-row-odd,
+            .views-row-even {
+              padding: 15px;
+
+              .c4c-element-row {
+                display: table;
+                margin-top: 8px;
+
+                .views-field-field-image {
+                  display: table-cell;
+                  float: none;
+                  margin-right: 2%;
+                  width: 50%;
+                  vertical-align: middle;;
+
+                  img {
+                    width: 100%;
+                    border: 5px solid #F2F2F2;
+                  }
+                }
+
+                .content-title-description {
+                  display: inline-block;
+                  overflow: hidden;
+                  margin-left: 5%;
+                  min-height: 182px;
+                  max-height: 182px;
+                  width: 95%;
+                  font-size: 18px;
+				  word-break: break-all;
+
+                  .views-field-title {
+                    margin: 0;
+
+                    a {
+                      display: block;
+                      margin: 0;
+                      color: $color-magenta;
+                      font-size: 22px;
+					  word-break: break-word;
+                    }
+                  }
+
+                  .field-name-body {
+                    font-size: 18px;
+                  }
+                }
+
+                .field-name-field-event-dates,
+                .views-field-nothing-4,
+                .views-field-nothing-3,
+                .views-field-field-tags {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        .pager-load-more {
+          a {
+            position: relative;
+            padding: 10px 15px;
+            min-width: inherit;
+            width: 134px !important;
+            text-align: left;
+
+            &:after {
+              position: absolute;
+              right: 5px;
+              bottom: 11px;
+              display: inline-block;
+              width: 40px;
+              height: 22px;
+              background: url('../images/arrow-top-bottom.png') no-repeat 0 -46px;
+              background-size: 30px;
+              content: '';
+            }
+          }
+        }
+      }
+    }
+  }
+}

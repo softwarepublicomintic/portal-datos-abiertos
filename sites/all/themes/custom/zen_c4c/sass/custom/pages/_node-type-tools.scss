@@ -1,0 +1,91 @@
+// Página principal sección herramientas
+.node-type-tools {
+	background-color: $color-fondo-tools;
+
+	// Ocultar breadcrumbs
+	.pane-easy-breadcrumb-easy-breadcrumb {
+		display: none;
+	}
+
+	// URL: http://c4c.seedlabs.co/es/content/usar-los-datos
+	&.page-videoc {
+		.page-data-use {
+			@include tools-colors($color-red-purple);
+		}
+
+		.page-data-publish {
+			@include tools-colors($color-amarillo-tools);
+		}
+
+		.page-data-develop {
+			@include tools-colors($color-naranja-tools);
+		}
+	}
+
+	// Carrousel de videos
+	.jspHorizontalBar {
+		height: 30px;
+		background: none;
+		z-index: 20;
+	}
+
+	.jspTrack {
+		background-color: #F1F1F1;
+		padding: 2px;
+	}
+
+	.views-exposed-form {
+		.views-exposed-widget {
+			width: 45%;
+			float: left;
+			padding: 0;
+
+			label {
+				color: $color-red-purple;
+				font-size: 16px;
+				padding-top: 10px;
+			}
+
+			.form-text {
+				height: 45px;
+				font-size: 14px;
+			}
+		}
+
+		label {
+			display: inline-block;
+			vertical-align: top;
+			white-space: nowrap;
+			padding-right: 10px;
+		}
+
+		.views-widget {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	.description {
+		font-size: .9em;
+		line-height: 145%;
+	}
+
+	.layout-3col__full {
+		>.pd-1col {
+			.pane-tools,
+			.pane-c4c-faq-c4c-faq {
+				margin: 0 auto;
+				padding: 0;
+				max-width: 1200px;
+				width: 100%;
+			}
+		}
+	}
+
+	// color del texto en los bucadores
+	.form-type-textfield {
+		input {
+			color: $color-placeholders;
+		}
+	}
+}

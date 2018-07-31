@@ -1,0 +1,319 @@
+/* Estilos para control de postulaciones */
+
+.page-postulation .layout-3col__full h1 {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    background-color: #781d58;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 2.0em;
+}
+
+ /*BORDE*/
+.view-view-postulation .views-table thead tr {
+  /*  border-top-color: #D8DAD9;#A5AAAD
+    border-top-style: solid; */
+    border-top-color: #A5AAAD;
+}
+
+.view-view-postulation .views-table tbody tr {
+    border-top-color: #A5AAAD;
+    border-top-style: solid;
+    height: 139px;
+}
+
+.view-view-postulation .field.field-name-field-imagen.field-type-image.field-label-hidden {
+    display: inline-block;
+    border-left: 6px solid #781d58;
+}
+
+/*.view-view-postulation .view-content .views-table thead tr {
+    color: #781d58;
+} */
+
+.view-view-postulation .view-content {
+
+  padding-left: 111px;
+  min-width: 1244px;
+  width: 1250px;
+}
+
+.view-view-postulation .views-field.views-field-title a {
+    font-size: 16px;
+    color: #5F5856;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: initial;
+}
+
+.view-view-postulation .field.field-name-field-fecha-de-creaci-n.field-type-date.field-label-hidden {
+    font-size: 16px;
+    color: #5F5856;
+    text-align: center;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: initial;
+}
+
+.view-view-postulation .views-field-nothing .field-items  {
+  /*  background-color: #781d58;
+    border-radius: 9px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+    display: block;
+    height: 35px;
+    width: 110px; */
+
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.view-view-postulation .views-field-nothing .field-items [dastatus="In Process"] {
+   background-color: #1293E2 !important;
+}
+
+.view-view-postulation .views-field-nothing .field-items [dastatus="En Proceso"] {
+   background-color: #1293E2 !important;
+}
+
+.view-view-postulation .views-field-nothing .field-items [dastatus="En proceso"] {
+   background-color: #1293E2 !important;
+}
+
+.view-view-postulation .views-field-nothing .field-items [dastatus="Borrador"] {
+   background-color: #1293E2 !important;
+}
+
+.view-view-postulation .views-field-nothing .field-items [dastatus="Draft"] {
+   background-color: #1293E2 !important;
+}
+
+.view-view-postulation .views-table th {
+    color: #781d58 !important;
+    font-size: 20px;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+}
+
+.view-view-postulation .views-field.views-field-title {
+    width: 30%;
+    padding-left: 21px;
+    text-align: center;
+}
+
+.page-postulation .layout-center .layout-swap .layout-3col__full {
+    padding: 0;
+    background-color: #F1F0F2;
+}
+
+.view-view-postulation .views-row-first td {
+    background-color: #F1F0F2;
+}
+
+.view-view-postulation td {
+    background-color: #F1F0F2;
+  /*  height: 185px; */
+}
+
+.view-view-postulation  .views-field-nothing .field-item.even {
+      background-color: #781d58;
+      border-radius: 15px;
+      text-align: center;
+        width: 123px;
+      height: 45px;
+          margin: 0 auto;
+  }
+
+
+.view-view-postulation .field-name-field-imagen img {
+  border-radius: 7px;
+}
+
+.view-view-postulation .views-table th .active {
+    color: #781d58 !important;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.view-view-postulation .chosen-container-single .chosen-single {
+    height: 43px !important;
+    border-width: 1px !important;
+    border-color: #D8DAD9 !important;
+    border-style: solid !important;
+}
+
+/*.view-view-postulation .chosen-single b {
+background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+}*/
+
+.pane-view-postulation .pane-title.pane__title {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    background-color: #781d58;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 2.0em;
+}
+
+.pane-view-postulation .pane-content {
+  /*  margin: 40px; */
+}
+
+.view-view-postulation .views-exposed-form {
+  display: table;
+  width: 100%;
+}
+
+
+
+elemento {
+
+}
+.views-exposed-form label {
+
+    font-weight: bold;
+
+}
+.view-view-postulation .views-widget-filter-title label {
+  color: transparent;
+  background-image: url(/sites/all/themes/custom/zen_c4c/images/lupa.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #822250;
+  width: 28px;
+  display: table-cell;
+/*  position: relative;
+  top: 25px;
+  left: -30px;
+  height: 34px; */
+
+}
+
+.view-view-postulation .description {
+    display: none;
+}
+
+.view-view-postulation .views-widget input {
+/* border-color: #d8dad9; */
+width: 99.8%;
+border: none;
+height: 40px;
+}
+.view-view-postulation .views-widget-filter-field_estado_tid label {
+    display: table-cell;
+    width: 30%;
+    color: #781d58;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/*.view-view-postulation .chosen-single b {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+}*/
+
+.view-view-postulation .chosen-single div b {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+}
+
+.view-view-postulation .field-name-field-estado .field-items {
+    position: relative;
+    top: 11px;
+    color: white;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: bold;
+}
+
+.view-view-postulation .active img {
+    /*background: url(/sites/all/themes/custom/zen_c4c/images/spritUvaPostu.png) no-repeat -429px -117px transparent !important;*/
+    width: 21px;
+    height: 21px;
+    position: relative;
+    left: 5px;
+}
+
+.view-view-postulation .views-widget #edit_field_estado_tid_chosen {
+  width: 100% !important;
+}
+
+.view-view-postulation .views-exposed-form #edit-field-estado-tid-wrapper {
+    position: relative;
+    width: 290px;
+}
+
+.view-view-postulation .chosen-container-active.chosen-with-drop .chosen-drop li.highlighted, .chosen-container-single .chosen-drop li.highlighted {
+    background: #fff;
+    color: #812250 !important;
+}
+
+.view-view-postulation .chosen-container-active.chosen-with-drop .chosen-single div b, .chosen-container-single .chosen-single div b {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+}
+
+.view-view-postulation span.daestadofld {
+    position: relative;
+    top: 10px;
+}
+
+
+.panel-pane.pane-views.pane-view-postulation {
+    background-color: #fbfbfb;
+    max-width: 1350px;
+margin-right: auto;
+margin-left: auto;
+width: 100%;
+}
+
+.pane-view-postulation .views-table td {
+    background-color: #fbfbfb !important;
+}
+
+.pd-1col {
+    background: #fbfbfb;
+}
+
+.pane-view-postulation td.fldimg {
+    width: 12%;
+}
+
+.pane-view-postulation td.fld_date {
+    width: 35%;
+}
+
+.pane-view-postulation .views-widget-filter-title .views-widget {
+    display: table-cell;
+    width: 100%;
+    border-color: #D8DAD9;
+    border-style: solid;
+    border-width: 1px;
+}
+
+
+.view-view-postulation .views-exposed-form .views-exposed-widget {
+    display: table-cell;
+    float: none;
+    padding: .5em 1em 0 0;
+}
+
+.view-view-postulation .views-widget-filter-title {
+    position: relative;
+    top: 33px;
+    width: 862px;
+}
+
+.view-view-postulation .views-exposed-widgets.clearfix {
+    display: table-row;
+}
+
+.view-view-postulation .view-filters {
+    margin: 0 auto;
+    min-width: 1140px;
+    padding-left: 111px;
+    height: 100px;
+}
+
+.views-widget-filter-field_estado_tid .chosen-container-single .chosen-single {
+    background-color: #ffffff !important;
+}

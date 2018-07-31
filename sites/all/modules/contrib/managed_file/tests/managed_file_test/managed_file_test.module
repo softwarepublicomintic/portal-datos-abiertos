@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Managed File (Test).
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function managed_file_test_menu() {
+  $routes = [];
+
+  $routes['managed_file_test'] = [
+    'title' => 'Managed File (Test)',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => ['managed_file_test_form'],
+    'access arguments' => ['access content'],
+  ];
+
+  return $routes;
+}
+
+/**
+ * Implements hook_form().
+ */
+function managed_file_test_form(array $form, array &$form_state) {
+  $form['managed_file_test'] = [
+    '#type' => 'managed_file',
+    '#title' => t('Image'),
+    '#styles' => TRUE,
+    '#preview' => TRUE,
+    '#default_value' => variable_get('managed_file_test', []),
+    '#upload_validators' => [
+      'file_validate_size' => [2 * 1024 * 1024],
+      'file_validate_extensions' => ['png jpg jpeg gif'],
+    ],
+  ];
+
+  $form['#submit'][] = __FUNCTION__ . '_submit';
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_form_submit().
+ */
+function managed_file_test_form_submit(array $form, array &$form_state) {
+  managed_file_element_submit($form['managed_file_test'], $form_state, [
+    'managed_file_test', 'file', 1,
+  ]);
+}

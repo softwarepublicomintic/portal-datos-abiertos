@@ -1,0 +1,5 @@
+name = OpenData Core
+description = Bloques y Funciones para Datos Abiertos
+package = Asesoftware
+core = 7.x
+version = "7.x-2.1"

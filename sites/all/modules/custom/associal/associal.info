@@ -1,0 +1,6 @@
+name = AS Social Login
+description = Login a través de Redes Sociales para software Publico
+package = Asesoftware
+core = 7.x
+
+dependencies[] = entity

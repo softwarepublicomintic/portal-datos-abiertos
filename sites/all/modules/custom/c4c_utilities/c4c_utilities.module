@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * Commons For Colombia.
+ */
+
+/**
+ * Implements hook_form_alter()
+ */
+function c4c_utilities_form_alter(&$form, &$form_state, $form_id) {
+  if($form_id == 'search_block_form') {
+    $form['#submit'][] = 'c4c_utilities_form_submit';
+    return $form;
+  }
+  
+  // Alter some options at /content/aprender-sobre-datos.
+  // Workaround for translations. The f**ing "Token" has ugly bugs...
+  if ($form_id == 'views_exposed_form' && $form['#id'] == 'views-exposed-form-tools-block-3') {
+    if (isset($form['field_tool_type_value'])) {
+      foreach($form['field_tool_type_value']['#options'] as $key => $value) {
+        $form['field_tool_type_value']['#options'][$key] = t($value);
+      }
+    }
+    if (isset($form['combine'])) {
+      $form['combine']['#attributes'] = array('placeholder' => t('Search'));
+    }
+    if (isset($form['sort_by'])) {
+      $label = $form['sort_by']['#title'];
+      $form['sort_by']['#title'] = t(filter_xss($label));
+    }
+  }
+}
+
+/**
+*form_state search c4c_utilities_form_alter
+*/
+function c4c_utilities_form_submit($form, &$form_state) {
+  $valor = $form_state['values']['search_block_form'];
+  $form_state['redirect'] = "https://www.datos.gov.co/browse?q=" . $valor;
+  return $form;
+}
+

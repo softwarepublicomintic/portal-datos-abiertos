@@ -1,0 +1,278 @@
+html, body {
+	height: 100%;
+}
+
+h1 {
+  color: $color-gris-oscuro;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h2 {
+  color: $color-gris-claro;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+}
+
+body,
+p {
+  color: $color-font;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.layout-center {
+  max-width: 100%;
+  padding: 0;
+
+  .layout-swap {
+    padding-top: 0;
+    margin: 0;
+    padding: 0;
+
+    .layout-swap__top {
+      display: none;
+    }
+
+    .layout-3col__full {
+      padding: 0;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-magenta;
+}
+
+select,
+textarea,
+input {
+  @include border-radius(0);
+  border: 1px solid $color-font;
+  padding: 5px;
+  background: $color-blanco;
+  color: $color-magenta;
+}
+
+select {
+  @include border-radius(0);
+  padding: 5px;
+}
+
+a.btn,
+a.button,
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'],
+.pager-load-more a {
+  @include btn-contacto;
+  width: auto;
+}
+
+table:not(.ui-datepicker-calendar) {
+  width: 100%;
+
+  tr {
+    height: 3em;
+    background: $color-blanco !important;
+
+    td {
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: $color-gris-claro !important;
+      color: $color-gris-oscuro;
+      text-align: center;
+      vertical-align: middle;
+
+      a,
+      a.active,
+      a:visited {
+        color: $color-blanco;
+      }
+    }
+  }
+}
+
+ul.pager {
+
+  .pager-last,
+  .pager-first {
+    display: none;
+  }
+
+  .pager-previous,
+  .pager-next {
+
+    a {
+      display: inline-block;
+      text-indent: -999em;
+      background: url('../images/sprites.png') no-repeat -288px -119px rgba(0, 0, 0, 0);
+      width: 12px;
+      height: 21px;
+    }
+  }
+
+  .pager-next {
+
+    a {
+      background: url('../images/sprites.png') no-repeat -328px -119px rgba(0, 0, 0, 0);
+    }
+  }
+
+  .pager-item {
+
+    a {
+      text-decoration: none;
+      color: $color-font;
+    }
+  }
+
+  .pager-current {
+    @include border-radius(50px);
+    display: inline-block;
+    color: $color-magenta;
+    border: 1px solid $color-magenta;
+  }
+}
+
+.chosen-container-active.chosen-with-drop,
+.chosen-container-single {
+
+  .chosen-single {
+    @include border-radius(0);
+    @include box-shadow(none);
+    padding: 8px 0 5px 5px;
+    background: $color-gris-claro;
+    height: 40px;
+    border: 0;
+    font-weight: bold;
+    font-size: 14px;
+
+    .span {
+      margin-right: 40px;
+    }
+
+    div {
+      width: 40px;
+      height: 40px;
+      margin-right: -5px;
+
+      b {
+        background: url('../images/sprites.png') no-repeat -429px -117px rgba(0, 0, 0, 0) !important;
+      }
+    }
+  }
+
+  .chosen-drop {
+    @include border-radius(0);
+    @include box-shadow(none);
+    padding: 5px;
+    background: $color-blanco;
+    border: 0;
+
+    li {
+      border-bottom: 1px solid $color-gris-claro;
+      height: 30px;
+      font-weight: bold;
+
+      &.highlighted {
+        background: $color-blanco;
+        color: $color-amarillo;
+      }
+    }
+  }
+}
+
+.chosen-container-active.chosen-with-drop {
+
+  .chosen-single {
+
+    div {
+
+      b {
+        background: url('../images/sprites.png') no-repeat -496px -117px rgba(0, 0, 0, 0);
+      }
+    }
+  }
+}
+
+.fivestar-widget-static {
+  margin: 0 auto !important;
+  display: inline-block !important;
+
+  span {
+    width: 17px !important;
+    height: 17px !important;
+    background: url('../images/sprites.png') no-repeat -116px -117px rgba(0, 0, 0, 0) !important;
+
+    &.on {
+      background: url('../images/sprites.png') no-repeat -89px -117px rgba(0, 0, 0, 0) !important;
+    }
+  }
+}
+
+ul.tabs {
+  margin: 0;
+  background: $color-negro;
+
+  li {
+    @include border-radius(0);
+    margin: 0;
+    border: 0;
+    border-right: 1px solid $color-gris-oscuro;
+
+    a {
+      color: $color-blanco;
+      background: $color-negro;
+    }
+  }
+
+  li:hover {
+
+    a {
+      color: $color-negro;
+      background: $color-gris-claro;
+    }
+  }
+
+  li.is-active {
+
+    a {
+      background: $color-gris-oscuro;
+    }
+  }
+
+  li.is-active:hover {
+
+    a {
+      background: $color-gris-claro;
+    }
+  }
+}
+
+.owl-theme {
+
+  .owl-controls {
+
+    .owl-page {
+
+      span {
+        width: 20px;
+        height: 20px;
+        background: $color-gris-oscuro;
+      }
+
+      &.active {
+        span {
+          background: $color-magenta;
+        }
+      }
+    }
+  }
+}

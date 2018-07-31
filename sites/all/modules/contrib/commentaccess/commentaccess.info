@@ -1,0 +1,15 @@
+name = "Comment Access"
+description = "Provides additional permissions for comments."
+core = 7.x
+dependencies[] = comment
+files[] = commentaccess.install
+files[] = commentaccess.module
+files[] = commentaccess.admin.inc
+configure = admin/config/content/commentaccess
+
+; Information added by Drupal.org packaging script on 2015-04-22
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "commentaccess"
+datestamp = "1429732082"
+

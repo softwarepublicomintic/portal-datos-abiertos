@@ -1,0 +1,223 @@
+<?php
+
+/**
+ * @file
+ * Main module file.
+ */
+
+include 'better_jump_menu.helpers.inc';
+include 'better_jump_menu.form.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function better_jump_menu_block_info() {
+  $blocks = array();
+
+  foreach (menu_get_menus(TRUE) as $menu_machine_name => $menu_title) {
+    $blocks[$menu_machine_name]['info'] = sprintf('%s: %s [%s]', t('Better Jump Menu'), check_plain($menu_title), check_plain($menu_machine_name));
+    $blocks[$menu_machine_name]['cache'] = DRUPAL_NO_CACHE;
+  }
+
+  $blocks['localtasks']['info'] = sprintf('%s: %s', t('Better Jump Menu'), t('Local tasks'));
+  $blocks['localtasks']['cache'] = DRUPAL_NO_CACHE;
+
+  if (module_exists('book')) {
+    $blocks['booknavigation']['info'] = sprintf('%s: %s', t('Better Jump Menu'), t('Book navigation'));
+    $blocks['booknavigation']['cache'] = DRUPAL_NO_CACHE;
+
+    foreach (book_get_books() as $book) {
+      $blocks[$menu_machine_name]['info'] = sprintf('%s: %s [%s]', t('Better Jump Menu'), check_plain($book['title']), check_plain(book_menu_name($book['bid'])));
+      $blocks[$menu_machine_name]['cache'] = DRUPAL_NO_CACHE;
+    }
+  }
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function better_jump_menu_block_configure($delta = '') {
+  $configuration = _better_jump_menu_get_block_default_configuration($delta);
+
+  return array(
+    'better_jump_menu' => array(
+      '#tree' => TRUE,
+      '#type' => 'fieldset',
+      '#title' => 'Better Jump Menu configuration',
+      'external' => array(
+        '#type' => 'checkbox',
+        '#title' => t('Open links in external window'),
+        '#default_value' => !empty($configuration['external']),
+        '#description' => t('Check this to open links in external window.'),
+      ),
+      'hide' => array(
+        '#type' => 'checkbox',
+        '#title' => t('Hide the "Go" button'),
+        '#default_value' => !empty($configuration['hide']),
+        '#description' => t('If hidden, this button will only be hidden for users with javascript and the page will automatically jump when the select is changed.'),
+      ),
+      'indent' => array(
+        '#type' => 'textfield',
+        '#title' => t('Indentation character'),
+        '#default_value' => $configuration['indent'],
+        '#description' => t('The indentation character(s) to prepend to options text.'),
+      ),
+      'text' => array(
+        '#type' => 'textfield',
+        '#title' => t('Button text'),
+        '#default_value' => $configuration['text'],
+      ),
+      'title' => array(
+        '#type' => 'textfield',
+        '#title' => t('Selector label'),
+        '#default_value' => $configuration['title'],
+        '#description' => t('The text that will appear as the the label of the selector element. If blank no label tag will be used.'),
+      ),
+      'choose' => array(
+        '#type' => 'textfield',
+        '#title' => t('Choose text'),
+        '#default_value' => $configuration['choose'],
+        '#description' => t('The text that will appear as the selected option in the jump menu.'),
+      ),
+      'inline' => array(
+        '#type' => 'checkbox',
+        '#title' => t('Set this field to display inline'),
+        '#default_value' => !empty($configuration['inline']),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function better_jump_menu_block_save($delta = '', $edit = array()) {
+  $configuration = variable_get('better_jump_menu_block_configuration', array());
+  $configuration[$delta] = $edit['better_jump_menu'];
+  variable_set('better_jump_menu_block_configuration', $configuration);
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function better_jump_menu_block_view($delta = '') {
+  switch ($delta) {
+    case 'localtasks':
+      $subject = t('Local tasks');
+      break;
+
+    case 'booknavigation':
+      $subject = t('Book navigation');
+      break;
+
+    default:
+      $menus = menu_get_menus(TRUE);
+      $subject = isset($menus[$delta]) ? $menus[$delta] : $delta;
+      break;
+  }
+
+  $configuration = _better_jump_menu_get_block_default_configuration($delta);
+  $configuration = $configuration + array('delta' => $delta);
+
+  if ($delta == 'localtasks') {
+    // Collect the local tasks.
+    // This bit of code is taken from the jump menu module.
+    // See: https://www.drupal.org/project/jump_menu
+    $links = menu_local_tasks(0);
+    $links_secondary = menu_local_tasks(1);
+    $secondary = (count($links_secondary['tabs']['output']) != 0) ? TRUE : FALSE;
+
+    if ($links['tabs']['count'] > 0) {
+      $options = array();
+      foreach ($links['tabs']['output'] as $l) {
+        if ($l['#link']['access'] == TRUE) {
+          $url = url($l['#link']['href'], array('absolute' => TRUE));
+          $index = uniqid() . '::' . $url;
+          $options[$index] = t($l['#link']['title']);
+          if ($secondary && $links_secondary['tabs']['output'][0]['#link']['tab_parent_href'] == $l['#link']['href']) {
+            foreach ($links_secondary['tabs']['output'] as $sl) {
+              $url = url($sl['#link']['href'], array('absolute' => TRUE));
+              $index = uniqid() . '::' . $url;
+              $options[$index] = '- ' . t($sl['#link']['title']);
+            }
+          }
+        }
+      }
+
+      return array(
+        'subject' => $subject,
+        'content' => drupal_get_form('better_jump_menu', $options, $configuration),
+      );
+    }
+  }
+
+  if ($delta == 'booknavigation') {
+    $options = array();
+
+    $menu_machine_name = NULL;
+    if ($node = menu_get_object('node')) {
+      if (isset($node->book) && $bid = $node->book['bid']) {
+        $menu_machine_name = book_menu_name($bid);
+      }
+    }
+
+    if (is_null($menu_machine_name)) {
+      return array();
+    }
+
+    // Get the data from the menu.
+    $build = menu_tree_output(menu_tree_all_data($menu_machine_name));
+
+    if ($build) {
+      // Convert to an array of option elements.
+      _better_jump_menu_convert_to_options_array($build, $options, $configuration);
+
+      return array(
+        'subject' => $subject,
+        'content' => drupal_get_form('better_jump_menu', $options, $configuration),
+      );
+    }
+  }
+
+  if ($delta) {
+    $options = array();
+
+    // Get the data from the menu.
+    $build = menu_tree_output(menu_tree_all_data($delta));
+
+    if ($build) {
+      // Convert to an array of option elements.
+      _better_jump_menu_convert_to_options_array($build, $options, $configuration);
+
+      return array(
+        'subject' => $subject,
+        'content' => drupal_get_form('better_jump_menu', $options, $configuration),
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_block_view_alter().
+ */
+function better_jump_menu_block_view_alter(&$data, $block) {
+  // Add contextual links for better_jump_menu blocks.
+  if ($block->module == 'better_jump_menu' && !empty($data['content'])) {
+    $menus = menu_get_menus();
+    if (isset($menus[$block->delta])) {
+      $data['content']['#contextual_links']['menu'] = array('admin/structure/menu/manage', array($block->delta));
+    }
+  }
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function better_jump_menu_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'better_jump_menu') . '/views',
+  );
+}

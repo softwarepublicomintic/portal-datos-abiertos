@@ -1,0 +1,13 @@
+diff --git a/workbench_moderation.module b/workbench_moderation.module
+index eb51ba1..aece215 100644
+--- a/workbench_moderation.module
++++ b/workbench_moderation.module
+@@ -2338,7 +2338,7 @@ function workbench_moderation_set_state_action($node, $context) {
+
+   // Check access to perform this moderation, on the latest revision of the node
+   $node = workbench_moderation_node_current_load($node);
+-  if (_workbench_moderation_moderate_access($node, $context['state'])) {
++  if ($context['force_transition'] || _workbench_moderation_moderate_access($node, $context['state'])) {
+     $node->workbench_moderation_state_new = $context['state'];
+     $node->revision = 1;
+     $node->log = "Bulk moderation state change.";

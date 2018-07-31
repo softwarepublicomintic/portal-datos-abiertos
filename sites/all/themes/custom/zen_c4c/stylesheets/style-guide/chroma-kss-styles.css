@@ -1,0 +1,68 @@
+/*
+Error: File to import not found or unreadable: breakpoint.
+       Load paths:
+         Compass::SpriteImporter
+         /srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass
+         /usr/lib64/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets
+        on line 20 of /srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass/_init.scss
+        from line 2 of /srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass/style-guide/chroma-kss-styles.scss
+
+Backtrace:
+/srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass/_init.scss:20
+/srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass/style-guide/chroma-kss-styles.scss:2
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:45:in `import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:28:in `imported_file'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/import_node.rb:37:in `css_import?'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:326:in `map'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:88:in `block in with_import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:88:in `with_import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/tree/root_node.rb:20:in `render'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/engine.rb:278:in `render'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:471:in `on_file_changed'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:252:in `call'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/usr/lib64/ruby/gems/2.1.0/gems/sass-3.4.21/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: breakpoint.\A        Load paths:\A          Compass::SpriteImporter\A          /srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass\A          /usr/lib64/ruby/gems/2.1.0/gems/compass-core-1.0.3/stylesheets\A         on line 20 of /srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass/_init.scss\A         from line 2 of /srv/www/htdocs/c4c/sites/all/themes/custom/zen_c4c/sass/style-guide/chroma-kss-styles.scss"; }

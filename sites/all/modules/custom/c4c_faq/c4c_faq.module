@@ -1,0 +1,300 @@
+<?php
+
+/**
+ * @file
+ * Commons For Colombia. FAQ Block
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function c4c_faq_block_info() {
+  $blocks = array();
+
+  $blocks['c4c_faq'] = array(
+    'info' => t('C4C_FAQs'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function c4c_faq_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'c4c_faq':
+      $object = menu_get_object();
+
+      if (isset($object->type)) {
+        if ($object->type == 'tools') {
+
+          if (isset($object->field_tool_page_type['und'][0]['value'])) {
+            if ($object->field_tool_page_type['und'][0]['value'] == 'FAQ') {
+              $form = drupal_get_form('c4c_faq_form');
+
+              $block['content'] = array(
+                '#markup' =>drupal_render($form),
+                '#attached' => array(
+                    'js' => array(
+                      drupal_get_path('module', 'c4c_faq') . '/js/c4c_faq.js',
+                  ),
+                ),
+              );
+              break;
+            }
+          }
+        }
+      }
+  }
+  return $block;
+}
+
+/**
+ * Custom form to display FAQ functionality
+ */
+function c4c_faq_form($form, &$form_state) {
+  global $language;
+  $rows = array();
+  $lang_code = $language->language;
+
+  // Search by Category
+  $faq_category = NULL;
+  if (!empty($form_state['values']['category']) && isset($form_state['values']['category'])) {
+    $faq_category = $form_state['values']['category'];
+  }
+
+  if (!empty($form_state['values']['category_ext0']) && isset($form_state['values']['category_ext0'])) {
+    $faq_category = $form_state['values']['category_ext0'];
+  }
+
+  // Search by text
+  $faq_search = "";
+  if (isset($form_state['values']['search'])) {
+    $faq_search = $form_state['values']['search'];
+  }
+
+  $form['fqa_wrapper'] = array(
+    '#prefix' => '<div id="ajax-faq-wrapper">',
+    '#suffix' => '</div>',
+  );
+
+  $form['fqa_wrapper']['faq_left'] = array(
+    '#prefix' => '<div id="faq-left">',
+    '#suffix' => '</div>',
+  );
+
+  $form['fqa_wrapper']['faq_left']['search'] = array(
+    '#prefix' => '<div id="faq-search-block">',
+    '#type' => 'textfield',
+    '#title' => t('Search'),
+    '#attributes' => array('autocomplete' => 'off'),
+  );
+
+  $form['fqa_wrapper']['faq_left']['search-button'] = array(
+    '#type' => 'button',
+    '#value' => t('Search'),
+    '#ajax' => array(
+      'callback' =>'c4c_faq_search_callback',
+      'wrapper' => 'ajax-reloaded-faq-list',
+      'method' => 'replace',
+    ),
+    '#suffix' => '</div>',
+  );
+
+
+  $form['fqa_wrapper']['faq_left']['category'] = array(
+    '#type' => 'radios',
+    '#options' => drupal_map_assoc(c4c_faq_get_categories($lang_code)),
+    '#default_value' => isset($form_state['values']['category_ext0']) && !empty($form_state['values']['category']) ? $form_state['values']['category_ext0'] : '',
+    '#ajax' => array(
+      'callback' =>'c4c_faq_search_callback',
+      'wrapper' => 'ajax-reloaded-faq-list',
+      'method' => 'replace',
+    ),
+  );
+
+  $form['fqa_wrapper']['faq_left']['category_ext0'] = array(
+    '#type' => 'select',
+    '#options' => drupal_map_assoc(c4c_faq_get_categories($lang_code)),
+    '#default_value' => isset($form_state['values']['category']) && !empty($form_state['values']['category_ext0']) ? $form_state['values']['category'] : '',
+    '#size' => 50,
+    '#ajax' => array(
+      'callback' =>'c4c_faq_search_callback',
+      'wrapper' => 'ajax-reloaded-faq-list',
+      'method' => 'replace',
+    ),
+  );
+
+  $form['fqa_wrapper']['faq_right'] = array(
+    '#prefix' => '<div id="faq-right">',
+    '#suffix' => '</div>',
+    '#prefix' => '<div id="ajax-reloaded-faq-list">',
+    '#suffix' => '</div>',
+  );
+
+
+  if (!empty($faq_category) || !empty($faq_search)) {
+    $form['fqa_wrapper']['faq_right']['reset'] = array(
+      '#markup' => '<a href="#" onclick="location.reload();return false"> Reiniciar </a>',
+    );
+  }
+
+  $form['fqa_wrapper']['faq_right']['questions'] = array(
+    //'#markup' => "<ul class='questions-list'>".c4c_faq_get_questions($lang_code, $faq_search, $faq_category)."</ul>",
+    '#markup' => c4c_faq_get_questions($lang_code, $faq_search, $faq_category),
+  );
+
+  return $form;
+}
+
+/**
+ * Custom method to get the list of categories
+ *
+ * @return string
+ * A string with the category list with HTML tags and link
+ */
+function c4c_faq_get_categories($lang_code) {
+  // Get Category
+  $category = 'categoria';
+  $show_en = FALSE;
+  if ($lang_code == 'en') {
+    $category = 'categoria_en';
+    $show_en = TRUE;
+  }
+
+  $json = file_get_contents('https://www.datos.gov.co/resource/by5s-w5up.json?$select='.$category.'&$group='.$category.'&$order='.$category);
+  $obj = json_decode($json);
+
+  $category_list = array();
+  if (count($obj) > 0) {
+    foreach($obj as $value) {
+      if (isset($value->categoria) || isset($value->categoria_en)) {
+        $category_list[] = $show_en ? $value->categoria_en : $value->categoria;
+      }
+    }
+  }
+
+  return $category_list;
+}
+
+/**
+ * Custom method to get the list questions/answers
+ *
+ * @return string
+ * A string with the list of questions and answers
+ */
+function c4c_faq_get_questions($lang_code, $faq_search, $faq_category) {
+  $filter = '';
+  $show_en = FALSE;
+
+  if (!empty($faq_category)) {
+    $faq_category = str_replace(' ', '%20', $faq_category);
+
+    $filter = "?\$select=orden,pregunta,respuesta&\$where=categoria='".$faq_category."'&\$order=orden&\$offset=0";
+    if ($lang_code == 'en') {
+      $filter = "?\$select=orden,pregunta_en,respuesta_en&\$where=categoria_en='".$faq_category."'&\$order=orden&\$offset=0";
+    }
+  }
+
+  if ($lang_code == 'en') {
+    $show_en = TRUE;
+  }
+
+  $request_url = 'https://www.datos.gov.co/resource/by5s-w5up.json';
+  if(!empty($filter)) {
+    $request_url .= $filter;
+  }
+
+  $json = file_get_contents($request_url);
+  $obj = json_decode($json);
+
+
+  $questions = array();
+  $i = 1;
+  if (count($obj) > 0) {
+    $per_page = 20;
+    $current_page = pager_default_initialize(count($obj), $per_page);
+
+    $content = '<ul class="questions-list">';
+
+    foreach($obj as $value) {
+      if (isset($value->orden)) {
+        $questions[$value->orden] = '<li>'
+            .'<span class="position">'.$value->orden.'</span>'
+            .'<span class="question">'.($show_en ? $value->pregunta_en : $value->pregunta).'</span>'
+            .'<span class="link"><a href="#" class="read-more">'.t('See answer').'</a><a href="#" class="hide-answer" style="display:none;">'.t('Hide answer').'</a></span>'
+            .'<div class="answer" style="display:none;">'.($show_en ? $value->respuesta_en : $value->respuesta).'</div>'
+            .'</li>';
+
+        $i++;
+      } else if(!empty($faq_category)) {
+        $questions[$i] = '<li>'
+            .'<span class="position">'.$i.'</span>'
+            .'<span class="question">'.($show_en ? $value->pregunta_en : $value->pregunta).'</span>'
+            .'<span class="link"><a href="#" class="read-more">'.t('See answer').'</a><a href="#" class="hide-answer" style="display:none;">'.t('Hide answer').'</a></span>'
+            .'<div class="answer" style="display:none;">'.($show_en ? $value->respuesta_en : $value->respuesta).'</div>'
+            .'</li>';
+
+        $i++;
+      }
+    }
+    // Apply search filter
+    if (!empty($faq_search)) {
+      foreach ($questions as $key => $value) {
+        if (strpos($value, $faq_search) === FALSE) {
+          unset($questions[$key]);
+        }
+      }
+    }
+    natsort($questions);
+
+    if($questions && $per_page ){
+      $chunks = array_chunk($questions, $per_page, TRUE);
+      $content .= implode('', $chunks[$current_page]);
+      $content .= '</ul>';
+    }
+
+    // Quick fix. Don't do this, this is stupid...
+    if (count($questions) > $per_page) {
+      $content .= theme('pager', array('quantity',count($questions)));
+    }
+  }
+  else {
+    //$questions[] = '<li>'.t('No results available.').'</li>';
+    $content = '<div class="results-empty">' . t('No results available.') . '</div>';
+  }
+
+  /*
+  // Apply search filter
+  if (!empty($faq_search)) {
+    foreach ($questions as $key => $value) {
+      if (strpos($value, $faq_search) === FALSE) {
+        unset($questions[$key]);
+      }
+    }
+  }
+  natsort($questions);
+
+  return implode("",$questions);
+  */
+
+  return $content;
+}
+
+/**
+ * Callback when search
+ */
+function c4c_faq_search_callback(&$form, &$form_state) {
+  return $form['fqa_wrapper']['faq_right'];
+}
+
+/**
+ * Callback when reset
+ */
+function c4c_faq_reset_callback($form, &$form_state) {
+  return $form['fqa_wrapper'];
+}

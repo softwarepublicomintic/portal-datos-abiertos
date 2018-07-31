@@ -1,0 +1,1576 @@
+
+
+.image-set.views-fieldset {
+    border-bottom-style: groove;
+    border-top-style: groove;
+    border-radius: 33px;
+    border-color: white;
+
+}
+
+.field-name-field-image img {
+	border-radius: 33px;
+  margin-left: 3px;
+  top:-70px
+}
+
+.image-set.views-fieldset {
+    position: relative;
+  /*  left: 260px;
+     top: -337px; */
+    border-radius: 33px;
+    border: none;
+}
+
+.views-field.views-field-title a
+{
+    color: #812250;
+    font-size: 22px;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    position: relative;
+    top: 1px;
+    width: auto;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.field-name-field-resume .field-item.even {
+    color: #000000;
+    font-family: OpenSans-Regular-webfont;
+    font-size: 12px;
+    overflow: hidden;
+    /* white-space: nowrap; */
+    text-overflow: ellipsis;
+    display: block;
+    /* width: 148%; */
+    height: 117px;
+}
+
+.field.field-name-field-municipio.field-type-taxonomy-term-reference.field-label-hidden {
+    font-size: 16px;
+    color: #000000;
+    font-size: 13px;
+
+
+}
+
+.field.field-name-field-sector.field-type-taxonomy-term-reference.field-label-hidden {
+    color: #000000;
+    font-size: 13px;
+    font-family: OpenSans-Regular-webfont;
+    margin-left: 0px;
+
+}
+
+/*
+span {
+    font-size: 16px;
+    color: #000000;
+}*/
+
+.view.view-view-uses #edit_field_sector_tid_chosen {
+    max-width: 214px;
+}
+
+.view.view-view-uses .chosen-single b {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+}
+
+.view.view-view-uses .chosen-container-active.chosen-with-drop .chosen-single div b, .chosen-container-single .chosen-single div b {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -498px -117px transparent !important;
+}
+
+.view.view-view-uses .chosen-container-active.chosen-with-drop .chosen-drop li.highlighted, .chosen-container-single .chosen-drop li.highlighted {
+    background: #fff;
+    color: #812250 !important;
+}
+
+
+.pane-uses-header .Desc_uses {
+    display: table-cell;
+    min-height: 116px;
+    position: relative;
+  /*   min-width: 945px; */
+    background-color: #D8DAD9;
+    border-left: 6px solid #781d58;
+    padding: 25px 3%;
+    font-size: 17px;
+    color: black;
+    font-weight: normal;
+    line-height: 1.3;
+  /*  left: 18px; */
+}
+
+.pane-uses-header .postula_use a {
+    font-weight: normal;
+    text-align: center;
+}
+
+
+.pane-uses-header .postula_use {
+
+    position: relative;
+    display: table-cell;
+    height: 50px;
+    top: 30px;
+    width: 180px;
+}
+
+.pane-uses-header .postula_use .cont-postula {
+    background-color: #812250;
+    border-radius: 9px;
+    height: 62px;
+    width: 152px;
+    text-align: center;
+    position: relative;
+    /* left: 32px; */
+}
+
+.pane-uses-header .postula_use .cont-postula  a{
+  font-family: OpenSans-Regular-webfont;
+  font-weight: normal;
+  color: white;
+  text-decoration: none;
+}
+
+.postula_use .text-postula {
+    width: 117px;
+    left: 20px;
+    top: 6px;
+    position: relative;
+    /* height: 12px; */
+}
+
+.pane-uses-header .view_uses .cont-view {
+    background-color: #812250;
+    border-radius: 9px;
+    height: 62px;
+    width: 152px;
+    text-align: center;
+    position: relative;
+
+}
+
+.pane-uses-header .view_uses .cont-view  a{
+  font-family: OpenSans-Regular-webfont;
+  font-weight: normal;
+  color: white;
+  text-decoration: none;
+  /*top: 14px;
+  position: relative; */
+}
+
+.pane-uses-header .view_uses {
+    display: table-cell;
+    position: relative;
+    margin-left: 30px;
+    top: 30px;
+    left: -2px;
+}
+
+
+
+
+
+.field.field-name-field-resume.field-type-text.field-label-hidden {
+      display: table-cell;
+    font-size: 13px;
+    color: #000000;
+    position: relative;
+
+}
+
+.field.field-name-field-product-type.field-type-taxonomy-term-reference.field-label-hidden {
+  display: table-cell;
+  position: relative;
+  font-size: 13px;
+  color: #000000;
+}
+
+.fieldset-legend {
+    border: none;
+}
+
+
+.cols-2 .uses-card.views-fieldset {
+  padding: 2.525rem 1.9375rem 0.975rem;
+margin: 2px;
+margin-bottom: 40px;
+border-radius: 33px;
+/* margin-left: 50px; */
+border-width: 1px;
+border-color: #D8DAD9;
+border-style: solid;
+background-color: white;
+width: 552px;
+height: 411px;
+margin-right: 27px;
+}
+
+.fset-data.views-fieldset {
+    display: table-cell;
+    border: none;
+}
+
+.uses-card .fieldset-wrapper {
+    display: table-row;
+}
+
+.field.field-name-field-rating.field-type-fivestar.field-label-hidden {
+  text-align: right;
+/*  width: 88%; */
+  height: 25px;
+}
+
+
+.fieldset-legend {
+    display: none;
+}
+
+
+.uses-card .fieldset-maindata {
+  border: none;
+
+}
+
+/*
+
+.views-exposed-form .form-item, .views-exposed-form .form-submit {
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    top: -10px;
+    margin-left: 30px;
+}
+
+*/
+
+
+.wruc-city {
+    position: relative;
+    top: 235px;
+}
+
+.wruc-cat {
+    position: relative;
+    top: 210px;
+}
+
+.wruc-ptype {
+    position: relative;
+    top: 190px;
+}
+
+.pd-1col {
+    background-color: #f2f2f2;
+}
+
+
+.col-1.col-first {
+    background-color: #f2f2f2;
+}
+
+.col-2.col-last {
+    background-color: #f2f2f2;
+}
+
+
+
+.panel-pane.pane-block.pane-uses-header .pane-content {
+    display: table;
+    padding-top: 46px;
+/*    padding-left: 34px;
+    margin-right: auto;
+    margin-left: auto; */
+    width: 100%;
+    /*max-width: 1200px;*/
+
+}
+
+.pane-uses-header .header_uses {
+    display: table-row;
+
+}
+
+.pane-uses-header .uses_buttons {
+    display: table-row;
+
+}
+
+.pane-uses-header .img_uses {
+    display: table-cell;
+/*    position: relative;
+    text-align: center;
+    width: 200px; */
+
+
+}
+.pane-uses-header .desc_uses {
+    display: table-cell;
+}
+
+.pane-uses-header .img_uses img {
+  border-radius: 19px 19px 19px 19px;
+  -moz-border-radius: 19px 19px 19px 19px;
+  -webkit-border-radius: 19px 19px 19px 19px;
+  border: none;
+}
+
+.panel-pane.pane-views.pane-view-uses {
+  max-width: 1197px;
+width: 100%;
+margin: 0 auto;
+padding-left: 28px;
+}
+
+/* View Filters */
+
+.pane-view-uses .view-filters {
+  margin: 0 auto;
+  /*min-width: 1140px;
+  padding-left:34px;*/
+}
+
+.views-exposed-form .views-exposed-widget {
+    display: table-cell;
+    float: none;
+    top: -3px;
+position: relative;
+}
+
+.views-widget-filter-title label {
+    color: transparent;
+    background-image: url(/sites/all/themes/custom/zen_c4c/images/lupa.svg);
+     background-repeat: no-repeat;
+     background-position: center;
+    background-color: #822250;
+    width: 28px;
+    display: table-cell;
+}
+
+
+.views-widget-filter-title .views-widget {
+    display: table-cell;
+    width: 100%;
+    border-color: #D8DAD9;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.views-widget-filter-title  .form-item-title input {
+    width:99.8%;
+    border: none;
+        height: 40px;
+}
+
+.views-widget-filter-field_product_type_tid label {
+
+  color: #781d58;
+font-size: 16px;
+
+}
+
+
+.views-widget-filter-field_product_type_tid .views-widget {
+  display: table-cell;
+      width: 226px;
+}
+
+.views-widget-filter-field_product_type_tid .form-item-field-product-type-tid .description {
+  display: none;
+}
+
+.views-widget-filter-field_product_type_tid  .chosen-container {
+  width: 100% !important;
+/*    border-color: #D8DAD9;
+    border-style: solid;
+    border-width: 1px; */
+}
+
+.views-widget-filter-field_product_type_tid  .chosen-container-single .chosen-single {
+  background-color: #ffffff !important;
+}
+
+
+/******** end view filters *************/
+
+.pane-view-uses .view-id-view_uses .view-content {
+    padding-bottom: 46px;
+    /*    padding-left: 65px; */
+}
+
+.pane-view-uses fieldset {
+  border: none;
+}
+
+.pane-view-uses fieldset.Fieldset-maindata.views-fieldset {
+    display: table-cell;
+    width: 300px;
+  }
+
+.views-fieldset .views-field.views-field-title {
+    padding-bottom: 15px;
+    display: table-cell;
+vertical-align: middle;
+    height: 100px;
+
+}
+
+.pane-view-uses fieldset.image-set.views-fieldset {
+    display: table-cell;
+      width: 236px;
+}
+
+.pane-view-uses fieldset.Fieldset-dbascard.views-fieldset {
+    font-size: 13px;
+}
+
+.fieldset-dbascard .field-item.even {
+    font-size: 13px;
+}
+
+.pane-view-uses fieldset.fieldset-title.views-fieldset {
+    height: 80px;
+}
+
+.pane-view-uses .fieldset-tabledbas.views-fieldset {
+    display: table;
+    width: 412px;
+}
+
+.pane-view-uses .wruc-resume {
+    display: table-row;
+}
+
+.pane-view-uses .wruc-resume span {
+    display: table-cell;
+}
+
+.wruc-cty {
+    display: table-row;
+}
+
+.wruc-cty span {
+  display: table-cell;
+
+}
+
+.wruc-category {
+display: table-row;
+}
+
+
+.wruc-category span{
+    display: table-cell;
+}
+
+.wrcu-ptype {
+  display: table-row;
+
+}
+
+.wrcu-ptype span{
+    display: table-cell;
+}
+
+.pane-view-uses .Fieldset-maindata .fivestar-default {
+    text-align: right;
+}
+
+.pane-view-uses .Fieldset-maindata .fivestar-summary.fivestar-summary-average-count {
+    text-align: right;
+}
+
+.uses-card .fs_uniquerow.views-fieldset {
+    display: table-row;
+}
+
+.uses-card .Fieldset-maindata.views-fieldset {
+    width: 235px;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.uses-card .image-set.views-fieldset {
+    width: 249px;
+    display: table-cell;
+    padding-left: 10px;
+}
+
+.uses-card .clearfix.fivestar-average-stars.fivestar-average-text {
+    text-align: right;
+}
+
+.uses-card  .views-field.views-field-field-rating-1 {
+    text-align: right;
+ /*    width: 88%; */
+}
+
+.view_uses .text-view {
+    width: 73px;
+    left: 39px;
+    position: relative;
+    top: 6px;
+}
+
+
+.view-view-uses table.views-view-grid.cols-2 {
+    width: 55%;
+}
+
+.fivestar-widget-static span {
+
+    color: transparent;
+  }
+
+  .form-item.form-type-select.form-item-field-product-type-tid {
+    position: relative;
+
+
+}
+
+
+
+.uses-card .fivestar-widget-static span.on {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -89px -117px transparent !important;
+}
+
+.uses-card .fivestar-widget-static span {
+      background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -116px -117px transparent !important;
+
+}
+
+.wruc-cty span, .wruc-category span, .wrcu-ptype span {
+    color: black;
+    width: 74px;
+    font-size: 12px;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+}
+
+
+.fivestar-average-stars .form-item .description, .fivestar-average-stars .form-item .clearfix {
+  color: black;
+  font-size: 12px;
+  font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+
+}
+
+.views-field-field-rating-1 .clearfix {
+  color: #812250;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.views-field-field-rating-1 span.fs_count_votes {
+    display: none;
+}
+
+
+.views-field-field-rating-1 .fs_count_total {
+      background: url(/sites/all/themes/custom/zen_c4c/images/person16.svg) no-repeat transparent !important;
+      color: transparent;
+      width: 16px;
+}
+
+.field-name-field-rating .fivestar-summary.fivestar-summary-average-count {
+    display: none;
+}
+
+.panel-pane.pane-block.pane-uses-header {
+  height: 315px;
+  display: block;
+  background-color: #fbfbfb;
+  max-width: 1140px;
+  margin: 0 auto;
+  /* padding-left: 79px; */
+}
+
+.view.view-view-uses.view-id-view_uses {
+  background-color: #fbfbfb;
+}
+
+.view-view-uses .views-view-grid td {
+    background-color: #fbfbfb;
+}
+
+.node-type-uses .form-select.ajax-processed.chosen-processed {
+    display: none !important;
+}
+
+.node-type-uses  .clearfix.fivestar-average-stars.fivestar-average-text {
+    height: 30px;
+}
+
+.view-id-view_uses .views-exposed-form {
+    display: table;
+}
+
+.view-id-view_uses .views-exposed-widgets.clearfix {
+    display: table-row;
+}
+
+.view-view-uses .views-widget-filter-title {
+    position: relative;
+    top: 30px;
+    width: 692px;
+}
+
+
+.view-view-uses .views-exposed-form {
+    width: 100%;
+}
+
+.page-usos .pd-1col {
+    background-color: #fbfbfb;
+}
+
+
+
+/* .view-view-uses div.fivestar-widget .on {
+  background: url(/sites/all/modules/contrib/fivestar/widgets/default/staruva.gif) no-repeat 0 -16px;
+      text-decoration: none;
+      color:transparent;
+} */
+
+.view-view-uses .fivestar-widget .on a {
+  /*  background: url(/sites/all/modules/contrib/fivestar/widgets/default/staruva.gif) no-repeat 0 -16px !important; */
+    background: url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -108px -114px !important;
+    text-decoration: none;
+    color:transparent;
+}
+
+.view-view-uses .fivestar-widget .hover a {
+      background: url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -108px -114px !important;
+      text-decoration: none;
+      color:transparent;
+}
+
+.view-view-uses .fivestar-widget .star a {
+    /* background: url(/sites/all/modules/contrib/fivestar/widgets/default/staruva.gif) no-repeat 0 0; */
+    background: none;
+    text-decoration: none;
+    color:transparent;
+}
+
+
+.view-view-uses div.fivestar-widget .star {
+    /* background: none !important; */
+    background: url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -134px -114px transparent !important;
+    height: 17px !important;
+}
+
+
+
+.view-view-uses .fivestar-widget.clearfix.fivestar-widget-5 {
+    float: right;
+}
+
+
+.view-view-uses  .fivestar-widget div.chosen-processed {
+    display: none !important;
+
+}
+
+form#views-exposed-form-view-uses-block {
+    /* display: inline-flex; */
+    /* vertical-align: middle; */
+    position: relative;
+    top: -23px;
+}
+
+.view-view-uses .form-item.form-type-textfield.form-item-title {
+    margin-top: 1px;
+}
+
+
+.view-view-uses .chosen-container-active.chosen-with-drop .chosen-single, .chosen-container-single .chosen-single {
+  height: 43px !important;
+border-width: 1px !important;
+border-color: #D8DAD9 !important;
+border-style: solid !important;
+  }
+
+  .view-view-uses .chosen-container-active.chosen-with-drop .chosen-single div, .chosen-container-single .chosen-single div {
+        height: 42px;
+  }
+
+
+    .view-view-uses .field.field-name-field-image.field-type-image.field-label-hidden {
+      width: 255px;
+      height: 204px;
+  }
+
+    .view-view-uses .views-widget-filter-field_sector_tid label {
+      color: #781d58;
+      font-size: 16px;
+  }
+
+    .view-view-uses .form-item-field-sector-tid .description {
+    display: none;
+}
+
+.view-view-uses div#edit-field-product-type-tid-wrapper {
+    width: 226px;
+}
+
+.views-widget-filter-field_sector_tid .chosen-container-single .chosen-single {
+    background-color: #ffffff !important;
+}
+
+.view-view-uses div.fivestar-widget-static .star {
+  background: none;
+      height: 16px;
+}
+
+.pane-asopendata-core-header header#site-chrome-header {
+    /* width: 100%; */
+  /*  BACKGROUND-COLOR: #9D1F5a; */
+}
+
+
+
+/* Mobile Version */
+.view-display-id-uses_mobile .views-fieldset {
+    padding: 0.525rem 0.9375rem 1.975rem;
+    /* display: table-row; */
+    width: 98%;
+}
+
+.view-display-id-uses_mobile .fs_uniquerow.views-fieldset {
+    display: table-row;
+}
+
+.view-display-id-uses_mobile .Fieldset-maindata.views-fieldset {
+    display: table-cell;
+        width: 80%;
+}
+
+.view-display-id-uses_mobile .image-set.views-fieldset {
+    display: table-cell;
+}
+
+.view-display-id-uses_mobile tr {
+
+    background-color: #ffffff;
+}
+
+.view-display-id-uses_mobile td {
+    padding: 2.525rem 1.9375rem 1.975rem;
+      margin-bottom: 55px;
+  }
+
+
+.pane-view-uses .view-display-id-uses_mobile .view-content {
+  width: 86%;
+  margin: 0 auto;
+  padding-left: 0px;
+
+}
+
+.page-usos .panel-pane.pane-custom.pane-1 {
+    padding-top: 49px;
+}
+
+
+.view-display-id-uses_mobile td.col-1.col-first {
+
+    margin-left: 50px;
+
+}
+
+.view-display-id-uses_mobile .global-marc.views-fieldset {
+    padding: 2.525rem 1.9375rem 1.975rem;
+    background-color: #ffffff;
+    border-style: solid;
+    border-radius: 32px 32px 32px 32px;
+    border-width: 1px;
+}
+
+.view-display-id-uses_mobile .field-item.even {
+    font-size: 20px;
+}
+
+.view-display-id-uses_mobile .views-fieldset span {
+    font-size: 20px;
+}
+
+.panel-pane.pane-block.pane-asopendata-core-header {
+  /*  position: relative;
+    margin-bottom: 1em;
+    position: relative;
+    background-image: -webkit-gradient(linear,right top,left top,color-stop(0.5,#fff),color-stop(0.5,#8f264e));
+    background-image: -webkit-linear-gradient(left,#fff 50%,#9D1F5A 50%);
+    background-image: -webkit-linear-gradient(right,#fff 50%,#9D1F5A 50%);
+    background-image: linear-gradient(to left,#fff 50%,#9D1F5A 50%); */
+}
+
+
+
+@media only screen and (min-width: 813px) and (max-width: 1080px) and (-webkit-max-device-pixel-ratio:2.8) {
+  .section-usos .cols-2 tr {
+    display: table;
+    }
+  .view-view-uses .views-view-grid td {
+      display: table-row;
+    }
+  .section-usos .views-exposed-widgets.clearfix {
+    height: 170px;
+    display: table;
+    }
+
+    .section-usos div#edit-field-product-type-tid-wrapper {
+      top: 36px;
+
+    }
+
+    .section-usos div#edit-field-sector-tid-wrapper {
+      top: -38px;
+      left: 369px;
+      display: table !important;
+    }
+
+    .section-usos .pane-view-uses .view-filters {
+      padding-left: 35px;
+    /*  margin: 0 auto; */
+    }
+
+    .pane-view-uses .view-id-view_uses .view-content {
+    padding-bottom: 46px;
+    padding-left: 112px;
+    }
+
+    .cols-2 .uses-card.views-fieldset {
+      width: 600px;
+      height: 447px;
+      margin-left: -35px;
+    }
+
+    .views-exposed-form .views-exposed-widget {
+      display: table !important;
+    }
+
+    .views-widget-filter-field_product_type_tid .views-widget {
+      display: block !important;
+    }
+
+
+
+    .pane-uses-header .img_uses img {
+      height: auto;
+      width: 227px;
+      position: relative;
+      left: 64px;
+    }
+
+    .pane-uses-header .Desc_uses {
+      margin-left: 15px;
+      width: 49%;
+    }
+
+    .view_uses a {
+        font-size: 21px;
+      }
+
+    .pane-uses-header .postula_use .cont-postula {
+      width: 230px;
+          height: 74px;
+          left: 62px;
+    }
+
+    .postula_use .text-postula {
+      width: 196px;
+      left: 20px;
+      top: 14px;
+    }
+
+    .pane-uses-header .view_uses .cont-view {
+          width: 230px;
+          height: 74px;
+          left: -100px;
+    }
+
+    .panel-pane.pane-block.pane-uses-header {
+          height: 392px !important;
+    }
+
+    .view_uses .text-view {
+      width: 155px;
+      left: 39px;
+      position: relative;
+      top: 14px;
+    }
+
+    .pane-uses-header .view_uses {
+          left: 100px
+    }
+
+    .pane-uses-header .postula_use .cont-postula a {
+      font-size: 21px;
+    }
+
+    .Desc_uses span.description_use {
+        font-size: 21px;
+      }
+
+    .panel-pane.pane-block.pane-uses-header .pane-content {
+      max-width: 100%
+    }
+
+    header#site-chrome-header[template="rally"] .banner .rally-top {
+      height: 217px;
+    }
+
+   .views-widget-filter-title .form-item-title input {
+     height: 55px !important;
+     font-size: 23px;
+   }
+
+   .views-exposed-form .views-exposed-widget {
+         left: 70px;
+   }
+
+   .views-widget-filter-title label {
+    font-size: 20px !important;
+  }
+
+  .view-view-uses .views-widget-filter-title {
+    width: 641px;
+  }
+
+  .view-view-uses .views-widget-filter-field_sector_tid label {
+    font-size: 21px;
+  }
+
+  .views-exposed-form label {
+    font-size: 21px;
+  }
+
+  .chosen-container-single .chosen-single span {
+    /* font-size: 20px; */
+  }
+
+  .views-field.views-field-title a {
+        font-size: 28px;
+  }
+
+  .field-name-field-resume .field-item.even {
+    font-size: 17px;
+  }
+
+  .wruc-cty span, .wruc-category span, .wrcu-ptype span {
+    font-size: 17px;
+  }
+
+  fs_secondrow.views-fieldset {
+    position: relative;
+    top: 27px;
+  }
+
+  .fieldset-title.views-fieldset {
+     position: relative;
+     top: 4px;
+     padding-right: 21px;
+ }
+
+  .field.field-name-field-sector.field-type-taxonomy-term-reference.field-label-hidden {
+    font-size: 17px;
+  }
+
+  .field.field-name-field-product-type.field-type-taxonomy-term-reference.field-label-hidden {
+    font-size: 17px;
+  }
+
+  .field.field-name-field-municipio.field-type-taxonomy-term-reference.field-label-hidden {
+      font-size: 17px;
+  }
+
+
+
+  .banner {
+   /*  width: max-content; */
+   display: inline-block;
+}
+
+  body:not([class*='action_datasets_']) {
+    display: block;
+  }
+
+  .pane-asopendata-core-header header#site-chrome-header[template="rally"] .banner .rally-top a.logo>img {
+        width:100%;
+        height:40%;
+  }
+
+}
+
+@media only screen and (min-width: 813px) and (max-width: 1080px) and (-webkit-min-device-pixel-ratio:3) {
+
+ /* Header  */
+  .banner {
+      width: 100%
+    }
+
+    .pane-asopendata-core-header header#site-chrome-header[template="rally"] .banner .rally-top a.logo>img {
+          width:100%;
+          height:40%;
+    }
+
+ /* Cards */
+
+
+}
+
+
+/* ----------- iPhone 4 and 4S ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+     /* Canvas */
+
+     .layout-center {
+       width: 105%;
+     }
+
+     /* Header y menu  */
+
+       .banner {
+           /*  width: max-content; */
+          display: inline-block;
+       }
+
+        body:not([class*='action_datasets_']) {
+           display: block;
+        }
+
+    /* icon & desc */
+
+    .pane-uses-header .img_uses img {
+      height: auto;
+        width: 67%;
+      position: relative;
+      padding-left: 25px;
+
+    }
+
+    .pane-uses-header .Desc_uses {
+      font-size: 1em;
+      margin-left: 15px;
+      left: -33px;
+      min-width: 337px;
+      padding: 0px 13px 0px 8px;
+    }
+
+    .Desc_uses span.description_use {
+          font-size: 1.2em;
+          top: -35px;
+          position: relative;
+      }
+
+    /* buttons */
+
+    .pane-uses-header .postula_use {
+      /* width: 55%; */
+      width: 44%;
+    left: 24px;
+    top: 0px;
+    padding-top: 14px;
+
+    }
+
+    .pane-uses-header .postula_use .cont-postula {
+          width: 56%;
+          height: 92%;
+          left: 0px;
+    }
+
+    .postula_use .text-postula {
+      width: 97%;
+      left: 0px;
+      top: 7px;
+    }
+
+    .pane-uses-header .postula_use .cont-postula a {
+          font-size: 0.9em;
+          line-height: normal;
+    }
+
+
+    .pane-uses-header .view_uses {
+      left: -82px;
+      height: 72px;
+      width: 55%;
+      display: block;
+          top: 0px;
+    }
+
+      .pane-uses-header .view_uses .cont-view {
+        width: 65%;
+  height: 92%;
+  left: 16px;
+      }
+
+      .pane-uses-header .view_uses .cont-view a {
+        font-size: 0.9em;
+        line-height: normal !important;
+      }
+
+      .view_uses .text-view {
+        width: 98%;
+        left: 0px;
+        position: relative;
+        top: 14px;
+      }
+
+    /* filters */
+
+    .panel-pane.pane-block.pane-uses-header {
+            height: 54vh;
+            width: 157.9vw;
+    }
+
+    .panel-pane.pane-custom.pane-1 {
+    width: 158vw;
+    background-color: #fbfbfb;
+}
+
+    .views-exposed-form .views-exposed-widget {
+          left: 0px;
+    }
+
+    .views-exposed-form label {
+      font-size: 0.8em;
+    }
+
+
+    .views-widget-filter-title .form-item-title input {
+      height: 6vh !important;
+      font-size: 1.1em;
+    }
+
+
+    .views-widget-filter-field_product_type_tid .chosen-container-single .chosen-single {
+      font-size: 1.1em;
+}
+
+    .views-widget-filter-field_product_type_tid .chosen-container {
+      width: 65vw !important;
+    }
+
+    .chosen-container-active.chosen-with-drop .chosen-single, .chosen-container-single .chosen-single {
+      height: 32px !important
+    }
+
+    .section-usos .views-exposed-widgets.clearfix {
+      height: 170px;
+      display: table;
+      }
+
+      .views-widget-filter-title label {
+           font-size: 1.0em !important;
+     }
+
+     .view-view-uses .views-widget-filter-title {
+       width:  125vw;
+     }
+
+      .section-usos div#edit-field-product-type-tid-wrapper {
+        top: 36px;
+
+      }
+
+      .section-usos div#edit-field-sector-tid-wrapper {
+        top: -27px;
+left: 236px;
+display: table !important;
+width: 79vw;
+padding-left: 27px;
+      }
+
+      .view-view-uses .views-widget-filter-field_sector_tid label {
+        font-size: 0.8em;
+      }
+
+      .section-usos .pane-view-uses .view-filters {
+        padding-left: 35px;
+            width: 144vw;
+        }
+
+      .views-widget-filter-field_sector_tid .chosen-container-single .chosen-single {
+          font-size: 1.1em;
+      }
+
+      div#edit_field_sector_tid_chosen {
+          width: 64vw !important
+        }
+
+        .fieldset-title.views-fieldset {
+           position: relative;
+           top: 4px;
+           padding-right: 21px;
+       }
+
+
+      /* card */
+
+      .cols-2 .uses-card.views-fieldset {
+        width: 100%;
+  height: auto;
+  /* margin-left: 15px; */
+  margin-left: 8vw;
+      }
+
+      .field-name-field-image img {
+          width: 100%;
+          height: auto;
+        }
+
+        .views-field-title span.field-content {
+      line-height: 0.7em !important;
+  }
+  .views-field.views-field-title a {
+    font-size: 1.3em !important;
+    line-height: 1.2em;
+  }
+
+  .view-view-uses .views-view-grid td {
+      display: table-row;
+          max-width: 57vh;
+    }
+
+  .views-field.views-field-title {
+    line-height: 1em;
+}
+
+.field-name-field-resume .field-item.even {
+  font-size: 1em;
+  text-align: justify;
+  line-height: 1.2em;
+}
+
+.wruc-cty span, .wruc-category span, .wrcu-ptype span {
+  font-size: 1em;
+}
+
+.field.field-name-field-sector.field-type-taxonomy-term-reference.field-label-hidden {
+  font-size: 1em;
+}
+
+.field.field-name-field-product-type.field-type-taxonomy-term-reference.field-label-hidden {
+  font-size: 1em;
+}
+
+.field.field-name-field-municipio.field-type-taxonomy-term-reference.field-label-hidden {
+    font-size: 1em;
+}
+
+.view-view-uses .field.field-name-field-image.field-type-image.field-label-hidden {
+  width: 100%;
+height: auto;
+}
+     /* Pre */
+
+     .section-usos .cols-2 tr {
+       display: table;
+       }
+
+     .section-usos .views-exposed-widgets.clearfix {
+       height: 170px;
+       display: table;
+       width: 142vw;
+       background-color: #fbfbfb;
+       }
+
+       .section-usos div#edit-field-product-type-tid-wrapper {
+         top: 36px;
+         width: 142vw;
+       }
+
+
+
+       .section-usos .pane-view-uses .view-filters {
+         padding-left: 35px;
+       /*  margin: 0 auto; */
+       }
+
+       .pane-view-uses .view-id-view_uses .view-content {
+       padding-bottom: 46px;
+       padding-left: 0px;
+       width: 151.5vw;
+       }
+
+
+
+       .views-exposed-form .views-exposed-widget {
+         display: table !important;
+       }
+
+       .views-widget-filter-field_product_type_tid .views-widget {
+         display: block !important;
+         width: 98vw;
+       }
+
+
+       .panel-pane.pane-block.pane-uses-header .pane-content {
+         /* max-width: 100% */
+            /* width: 151.7vw;  */
+            width: 159.7vw;
+            padding-left: 34px;
+       }
+
+       header#site-chrome-header[template="rally"] .banner .rally-top {
+         /* height: 217px; */
+             width: 149.5vw;
+       }
+
+
+      .views-widget-filter-title label {
+        font-size: 1.0em; !important;
+     }
+
+     .view.view-view-uses.view-id-view_uses {
+       width: 158vw;
+     }
+
+     .panel-pane.pane-views.pane-view-uses {
+           padding-left: 0px;
+
+     }
+
+
+
+     fs_secondrow.views-fieldset {
+       position: relative;
+       top: 27px;
+     }
+
+     .fieldset-title.views-fieldset {
+        position: relative;
+        top: 4px;
+    }
+
+    .view-view-uses form#views-exposed-form-view-uses-block {
+      top: 23px;
+    }
+
+      header, #header {
+      background: none !important;
+    }
+
+    /* Footer responsive */
+
+    footer#site-chrome-footer {
+    width: 158vw;
+  }
+
+
+
+
+  }
+
+
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 414px)
+  and (max-device-width: 736px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) {
+
+}
+
+
+.pane-view-uses .views-widget-filter-field_sector_tid .chosen-container-active.chosen-with-drop .chosen-drop li, .pane-view-uses .views-widget-filter-field_sector_tid .chosen-container-single .chosen-drop li {
+  height: 53px !important;
+  align-items: center;
+display: flex !important;
+}
+
+.pane-view-uses #edit-field-sector-tid-wrapper {
+  padding-right: 0px;
+}
+
+/* Boton Aplicar invisible */
+.pane-view-uses input#edit-submit-view-uses {
+  visibility: hidden;
+}
+
+.pane-view-uses .link-url {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 349px;
+    height: 12px;
+    display: table-cell;
+}
+
+.pane-view-uses .link-title {
+
+    display: table-cell;
+
+}
+
+
+.node-type-socrata .layout-3col__full h1 {
+    text-align: center;
+    width: 100%;
+    background-color: #781d58;
+    color: white;
+}
+
+.pane-view-uses .btn_vwds {
+    width: auto;
+    color: #812250;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 1.3em;
+    font-weight: 600;
+    position: relative;
+    top: -124px;
+    float: right;
+    padding-right: 5%;
+}
+
+.pane-view-uses .btn_vwds:visited {
+     color: #812250;
+}
+
+.btn_vwds:visited {
+    color: #812250;
+}
+
+a.btn_vwds:hover {
+  text-decoration: none;
+}
+
+a.btn_vwds {
+    width: auto;
+    color: #812250;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 1.3em;
+    font-weight: 600;
+    position: relative;
+    top: -50px;
+    float: right;
+    padding-right: 5%;
+}

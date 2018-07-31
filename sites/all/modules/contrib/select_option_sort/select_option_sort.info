@@ -1,0 +1,13 @@
+name = Select option sort
+description = "This module allows us to sort the elements of a field which has the select list widget."
+package = Fields
+core = 7.x
+
+dependencies[] = field_ui
+
+; Information added by drupal.org packaging script on 2013-03-04
+version = "7.x-1.0"
+core = "7.x"
+project = "select_option_sort"
+datestamp = "1362429614"
+

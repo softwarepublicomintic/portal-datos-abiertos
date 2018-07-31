@@ -1,0 +1,516 @@
+<?php
+
+// PhpSoda is packaged up in a Phar archive which allows us to include the entire library with a single "include."
+// You may also use "include_once," "require," or "require_once"
+include "phpsoda-0.1.0.phar";
+
+// PhpSoda organizes its code inside namespaces; in order to use PhpSoda, you'll have to "use" the namespaces. These
+// three namespaces should suffice for most code.
+use allejo\Socrata\SodaClient;
+use allejo\Socrata\SodaDataset;
+use allejo\Socrata\SoqlQuery;
+
+
+function uses_socrata_upsert($dataset,$JSONNode) {
+  $url = "www.datos.gov.co";
+  $sc = new SodaClient($url, $token = "NP6r4TEV5af9BhQ7ioOpSQuVF", $email = "diego.castillo@myqorg.com", $password = "!Q2w3e4r5t6y");
+
+  $dsup = new SodaDataset($sc,$dataset);
+  $results = $dsup->upsert($JSONNode);
+   return $results;
+}
+
+function uses_theme(){
+
+  return array(
+  'uses_header' => array(
+     'template' => 'uses_header',
+      'variables' => array(),
+   ),
+  );
+}
+
+function uses_block_info() {
+    $blocks['header'] = array(
+    'info' => t('Uses Header'),
+  );
+
+  return $blocks;
+}
+
+
+
+
+function uses_block_view($delta = ''){
+
+  switch ($delta) {
+    case 'header':
+      $block['subject'] = t('Uses Block Header');
+      $block['content'] = array(
+            '#theme' => 'uses_header'
+            );
+      return $block;
+      break;
+
+   }
+
+}
+
+
+function uses_menu() {
+  $items = array();
+
+  $items['usos/configure'] = array( //this creates a URL that will call this form at "examples/form-example"
+    'title' => t('Configuration'), //page title
+    'description' => 'A form to mess around with.',
+    'page callback' => 'drupal_get_form', //this is the function that will be called when the page is accessed.  for a form, use drupal_get_form
+    'page arguments' => array('uses_form'), //put the name of the form here
+    'access callback' => TRUE
+  );
+
+  return $items;
+}
+
+function uses_form($form, &$form_state) {
+
+  $form['backgroundimage'] = array(
+    '#type' => 'managed_file',
+    '#name' => 'backgroundimage_image',
+    '#title' => t('Icon Image'),
+    '#widget' => 'imce',
+    '#preview' => TRUE,
+    '#default_value' => variable_get('backgroundimage', ''),
+    '#description' => t("Images in jpg, png or gif format"),
+    '#required' => TRUE,
+    '#upload_location' => 'public://',
+ );
+
+  $form['Description_uses'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Description'),
+    '#rows' => 5,
+    '#default_value' => variable_get('Description_uses', 'Usos de datos del portal de datos abiertos'),
+    '#required' => TRUE,
+   );
+
+/* $form['submit_button'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  ); */
+
+
+  $form = system_settings_form($form);
+  $form['#submit'][] = 'mf_settings_submit';
+ return $form;
+
+
+
+}
+
+function uses_form_validate($form, &$form_state) {
+
+}
+
+function uses_form_submit($form, &$form_state) {
+
+  managed_file_element_submit($form['backgroundimage'], $form_state, ['backgroundimage', 'file', 1, ]);
+  variable_set('Description_uses',$form_state['values']['Description_uses']);
+  drupal_set_message(t('Configuration Saved. '));
+
+
+  return $form;
+}
+
+
+/**
+ * our processing form for managed fields. because system settings forms unset the
+ * system variables before we get here, we need to check the default value from
+ * the form and see if it matches what we are getting from the submitted values.
+ */
+
+function mf_settings_submit($form, $form_state) {
+  /* get the original default files if one extsis */
+  $backgroundimage = (!empty($form['backgroundimage']['#default_value'])) ? $form['backgroundimage']['#default_value'] : 0;
+  /* if we have been provided files, make sure to mark them as in use */
+  if (isset($form_state['values']['backgroundimage']) && $form_state['values']['backgroundimage']) {
+    /**
+     * if the uploaded file is different than the one we already have, then we need to
+     * remove the current file and replace it with the new one
+     */
+    if (isset($backgroundimage) && $backgroundimage != $form_state['values']['backgroundimage']) {
+      mf_remove_managed_file($backgroundimage, 'one');
+        mf_add_managed_file($form_state['values']['backgroundimage'], 'image');
+    }
+    else {
+      mf_add_managed_file($form_state['values']['backgroundimage'], 'image');
+    }
+  }
+  elseif ($managed_file_one) {
+    mf_remove_managed_file($managed_file_example, 'image');
+  }
+}
+
+function mf_remove_managed_file($managed_file, $which) {
+  // Retrieve the old file's id.
+  $file = $managed_file ? file_load($managed_file) : FALSE;
+  if ($file) {
+    // When a module is managing a file, it must manage the usage count.
+    // Here we decrement the usage count with file_usage_delete().
+    file_usage_delete($file, 'mf', $which, $file->fid);
+
+    // The file_delete() function takes a file object and checks to see if
+    // the file is being used by any other modules. If it is the delete
+    // operation is cancelled, otherwise the file is deleted.
+    file_delete($file);
+    drupal_set_message(t('The image @image_name was removed.', array('@image_name' => $file->filename)));
+  }
+}
+
+function mf_add_managed_file($managed_file, $which) {
+  /* if our file is already in use, then we don't need to re-do this and increase the count */
+  $count = db_query('SELECT `count` FROM {file_usage} WHERE fid=:fid', array('fid' => $managed_file))->fetchField();
+  if (empty($count)) {
+    /* load the file via fid */
+    $file = file_load($managed_file);
+    /* change status to permanent */
+    $file->status = FILE_STATUS_PERMANENT;
+    /* save the file */
+    file_save($file);
+    /* record the file as in use */
+    file_usage_add($file, 'mf', $which, $managed_file);
+    unset($file);
+  }
+}
+
+
+
+/* Hook alter form */
+
+
+function uses_form_alter(&$form, &$form_state, $form_id) {
+
+
+  if($form_id == 'uses_node_form') {
+
+    $form['lbl_title'] = array(
+      '#type' => 'item',
+      '#weight' => -1,
+      '#title' => t('Describe your uses case'),
+      '#prefix' => '<div class="lbl_title_main">',
+      '#suffix' => '</div>',
+    );
+    /*
+    $form['lbl_prefix'] = array(
+      '#type' => 'item',
+      '#weight' => 2,
+      '#title' => '',
+      '#prefix' => '<div class="row_main_data">',
+    );*/
+
+    $form['title_field']['#prefix'] = '<div class="row_main_data">';
+
+    $form['field_resume']['#suffix'] = '</div>';
+    $form['field_resume']['#maxlength'] = 140;
+    $form['title']['#prefix'] ='<div class="row_main_data">';
+    $form['field_fecha_de_creaci_n']['#prefix']='<div class="row_auto2">';
+    $form['field_fecha_de_creaci_n']['#timepicker']  = 'timepicker';
+    $form['field_fecha_de_creaci_n']['#timepicker_options'] = array(
+     'rows' => 4,
+     'showCloseButton' => TRUE,
+     'closeButtonText' => t('Close'),
+     'showHours' => false,              // Define if the hours section is displayed or not. Set to false to get a minute only dialog
+     'showMinutes' => false,
+     'defaultTime' => '00:00'        // Define if the minutes section is displayed or not. Set to false to get an hour only dialog
+    );
+    $form['field_author']['#suffix']='</div>';
+    $form['#nombre_form'] = $form_id;
+    $form['#validate'][] = 'uses_validate';
+    $form['#submit'][] = 'uses_submit';
+
+
+
+  }
+  else {
+    //   $form['#submit'][] = 'uses_submit';
+  }
+
+
+}
+
+function uses_submit($form, $form_state){
+
+try {
+   $dataset = "4t9r-7v7i";
+  //$dataset = "nb62-nw3p";
+  $imagen = $form_state['values']['field_imagen']['es'][0]['fid'];
+  $filen = file_load($imagen);
+  $miimagen = $filen->filename;
+  $imagen = "https://herramientas.datos.gov.co/sites/default/files/styles/uses_images/public/".$miimagen;
+  $titulo = $form_state['values']['title'];
+  $lenguaje = $form_state['values']['language'];
+  if ($lenguaje=='und') {
+    $lenguaje='Neutral';
+  }
+  elseif ($lenguaje=='es') {
+    $lenguaje='Español';
+  }
+  else {
+    $lenguaje = 'Inglés';
+  }
+ $autor=  $form_state['values']['field_author']['und'][0]['value'];
+ $resumen= $form_state['values']['field_resume']['und'][0]['value'];
+ $descripci_n = $form_state['values']['field_body']['und'][0]['value'];
+ $votaci_n = 0;
+ $fecha_de_creaci_n = $form_state['values']['field_fecha_de_creaci_n']['und'][0]['value'];
+ $taxmunicipio = $form_state['values']['field_municipio']['und'][0]['tid'];
+ $Taxcity =  taxonomy_term_load($taxmunicipio);
+ $municipio = $Taxcity->name;
+ $taxdepartamento = taxonomy_get_parents($taxmunicipio);
+ if ($taxdepartamento){
+    foreach ($taxdepartamento as $taxdepto) {
+      $departamento = $taxdepto->name;
+    }
+  }else {
+    $departamento = '';
+  }
+ $taxsector = $form_state['values']['field_sector']['und'][0]['tid'];
+ $TaxSec = taxonomy_term_load($taxsector);
+ $sector = $TaxSec->name;
+ $url = $form_state['values']['field_product_url']['und'][0]['url'];
+ $adjunto =  $form_state['values']['field_attachment']['und'][0]['filename'];
+ $taxtipo_producto = $form_state['values']['field_product_type']['und'][0]['tid'];
+ $taxtprod = taxonomy_term_load($taxtipo_producto);
+ $translated_term = i18n_taxonomy_term_get_translation($taxtprod, 'es');
+ //$tipo_producto = $taxtprod->name;
+ $tipo_producto = $translated_term->name;
+ if ($form_state['values']['field_social_impact']['und'][0]['value'] == 0) {
+   $imp_social = 'No';
+ }
+ else {
+   $imp_social = 'Sí';
+ }
+
+ if (isset($form_state['values']['field_social_impact_description']['und'][0]['value'])) {
+   $desc_imp_social = $form_state['values']['field_social_impact_description']['und'][0]['value'];
+ }
+ else
+ {
+   $desc_imp_social = "";
+ }
+
+ $node_ds_0 = node_load($form_state['values']['field_dataset_er']['und'][0]['target_id']);
+ $ds_0 = $node_ds_0->title;
+
+ if(isset($form_state['values']['field_dataset_er']['und'][1]['target_id'])) {
+   $node_ds_1 = node_load($form_state['values']['field_dataset_er']['und'][1]['target_id']);
+   $ds_1 = $node_ds_1->title;
+ }
+ else {
+   $ds_1 = "";
+ }
+
+ if(isset($form_state['values']['field_dataset_er']['und'][2]['target_id'])) {
+   $node_ds_2 = node_load($form_state['values']['field_dataset_er']['und'][2]['target_id']);
+   $ds_2 = $node_ds_2->title;
+ }
+ else {
+   $ds_2 = "";
+ }
+
+
+ if(isset($form_state['values']['field_dataset_er']['und'][3]['target_id'])) {
+   $node_ds_3 = node_load($form_state['values']['field_dataset_er']['und'][3]['target_id']);
+   $ds_3 = $node_ds_3->title;
+ }
+ else {
+   $ds_3 = "";
+ }
+
+ if(isset($form_state['values']['field_dataset_er']['und'][4]['target_id'])) {
+   $node_ds_4 = node_load($form_state['values']['field_dataset_er']['und'][4]['target_id']);
+   $ds_4 = $node_ds_4->title;
+ }
+ else {
+   $ds_4 = "";
+ }
+
+
+
+ //$node_ods_0 = node_load($form_state['values']['field_other_datasets']['und'][0]['value']);
+ $collection_entity_id = $form_state['values']['field_other_datasets']['und'][0]['value'];
+ $full_entity = field_collection_item_load($collection_entity_id);
+ $ods_0 = $full_entity->field_titulo['und'][0]['value'];
+
+ if(isset($form_state['values']['field_other_datasets']['und'][1]['value'])) {
+   //$node_ods_1 = node_load($form_state['values']['field_other_datasets']['und'][1]['value']);
+   $collection_entity_id = $form_state['values']['field_other_datasets']['und'][1]['value'];
+   $full_entity = field_collection_item_load($collection_entity_id);
+   $ods_1 = $full_entity->field_titulo['und'][0]['value'];
+ }
+ else {
+   $ods_1 = "";
+ }
+
+ if(isset($form_state['values']['field_other_datasets']['und'][2]['value'])) {
+   $collection_entity_id = $form_state['values']['field_other_datasets']['und'][2]['value'];
+   $full_entity = field_collection_item_load($collection_entity_id);
+   $ods_2 = $full_entity->field_titulo['und'][0]['value'];
+ }
+ else {
+   $ods_2 = "";
+ }
+
+ if(isset($form_state['values']['field_other_datasets']['und'][3]['value'])) {
+   $collection_entity_id = $form_state['values']['field_other_datasets']['und'][3]['value'];
+   $full_entity = field_collection_item_load($collection_entity_id);
+   $ods_3 = $full_entity->field_titulo['und'][0]['value'];
+ }
+ else {
+   $ods_3 = "";
+ }
+
+ if(isset($form_state['values']['field_other_datasets']['und'][4]['value'])) {
+   $collection_entity_id = $form_state['values']['field_other_datasets']['und'][4]['value'];
+   $full_entity = field_collection_item_load($collection_entity_id);
+   $ods_4 = $full_entity->field_titulo['und'][0]['value'];
+ }
+ else {
+   $ods_4 = "";
+ }
+
+ $tx_tlicencia = $form_state['values']['field_license']['und'][0]['tid'];
+ $txtlic =  taxonomy_term_load($tx_tlicencia);
+ $Tip_licencia = $txtlic->name;
+
+ $tx_status = $form_state['values']['field_estado']['und'][0]['tid'] ;
+ $tax_status = taxonomy_term_load($tx_status);
+ $Status = $tax_status->name;
+
+
+  //$nodo = var_export($form_state['values'],true);
+
+/*  $ArrayNode = array(array('imagen'=>$imagen,
+                           'idioma'=>$lenguaje,
+                           'autor'=>$autor,
+                           't_tulo'=>$titulo,
+                           'resumen'=>$resumen,
+                           'descripci_n'=>$descripci_n,
+                           'votaci_n'=>$votaci_n,
+                           'fecha_de_creaci_n'=>$fecha_de_creaci_n,
+                           'municipio'=>$municipio,
+                           'departamento'=>$departamento,
+                           'categor_a'=>$sector,
+                           'url_del_producto'=>$url,
+                           'adjunto'=>$adjunto,
+                           'tipo_de_producto'=>$tipo_producto,
+                           'impacto_social'=>$imp_social,
+                           'descripci_n_de_impacto_social'=>$desc_imp_social,
+                           'conjunto_de_datos_1'=>$ds_0,
+                           'conjunto_de_datos_2'=>$ds_1,
+                           'conjunto_de_datos_3'=>$ds_2,
+                           'conjunto_de_datos_4'=>$ds_3,
+                           'conjunto_de_datos_5'=>$ds_4,
+                           'otro_conjunto_de_datos_1'=>$ods_0,
+                           'otro_conjunto_de_datos_2'=>$ods_1,
+                           'otro_conjunto_de_datos_3'=>$ods_2,
+                           'otro_conjunto_de_datos_4'=>$ods_3,
+                           'otro_conjunto_de_datos_5'=>$ods_4,
+                           'tipo_de_licencia'=> $Tip_licencia,
+                           'estado'=>$Status
+                            ));
+
+*/
+
+$ArrayNode = array(array('imagen'=>$imagen,
+                         'idioma'=>$lenguaje,
+                         'autor'=>$autor,
+                         't_tulo'=>$titulo,
+                         'resumen'=>$resumen,
+                         'descripci_n'=>$descripci_n,
+                         'votaci_n'=>$votaci_n,
+                         'fecha_de_creaci_n'=>$fecha_de_creaci_n,
+                         'departamento'=>$departamento,
+                         'municipio'=>$municipio,
+                         'categor_a'=>$sector,
+                         'url_del_producto'=>$url,
+                         'adjunto'=>$adjunto,
+                         'tipo_de_producto'=>$tipo_producto,
+                         'impacto_social'=>$imp_social,
+                         'descripci_n_de_impacto_social'=>$desc_imp_social,
+                         'conjunto_de_datos_1'=>$ds_0,
+                         'conjunto_de_datos_2'=>$ds_1,
+                         'conjunto_de_datos_3'=>$ds_2,
+                         'conjunto_de_datos_4'=>$ds_3,
+                         'conjunto_de_datos_5'=>$ds_4,
+                         'otro_conjunto_de_datos_1'=>$ods_0,
+                         'otro_conjunto_de_datos_2'=>$ods_1,
+                         'otro_conjunto_de_datos_3'=>$ods_2,
+                         'otro_conjunto_de_datos_4'=>$ods_3,
+                         'otro_conjunto_de_datos_5'=>$ods_4,
+                         'tipo_de_licencia'=> $Tip_licencia,
+                         'estado'=>$Status
+                          ));
+                          // Crea el json y envia la operación a socrata
+
+                            $JSONNode = json_encode($ArrayNode);
+                            $response = uses_socrata_upsert($dataset,$JSONNode);
+                        /*      $response = uses_socrata_upsert($dataset,$ArrayNode);
+                            $respuesta_grab = var_export($response,TRUE); */
+
+
+  drupal_set_message(" Se ha guardado el caso de uso, quedando en estado -En Proceso- mientras es aprobado por el administrador ");
+
+
+}
+catch (Exception $e) {
+    drupal_set_message(" Se ha guardado el caso de uso, quedando en estado -En Proceso- mientras es aprobado por el administrador ");
+}
+
+
+}
+
+function uses_validate($form, $form_state) {
+
+
+  // Valida que el campo dataset u otros dataset debe ser diligenciado
+  if (!isset($form_state['values']['field_dataset_er']['und'][0]['target_id']))
+  {
+
+     if(!isset($form_state['values']['field_other_datasets']['und'][0]['field_url']['und'][0]['url']) || ($form_state['values']['field_other_datasets']['und'][0]['field_url']['und'][0]['url']=='')) {
+                      form_set_error('field_other_datasets',t('dataset or other dataset have not value '));
+                      return $form;
+     }
+
+  }
+
+  // Valida que el campo URL del producto o adjunto  debe ser diligenciado
+
+
+//$data_exp = var_export($form_state['values']['field_attachment']['und']);
+
+
+  if (!isset($form_state['values']['field_product_url']['und'][0]['url']) || ($form_state['values']['field_product_url']['und'][0]['url'] == ''))
+  {
+     if(!isset($form_state['values']['field_attachment']['und'][0]['fid'])) {
+                      form_set_error('field_attachment',t('Product URL or File Attachment have not value'));
+                      return $form;
+     }
+
+  }
+
+
+
+  if ($form_state['values']['field_social_impact']['und'][0]['value'] == "1" ) {
+
+    if (!isset($form_state['values']['field_social_impact_description']['und'][0]['value']) || ($form_state['values']['field_social_impact_description']['und'][0]['value'] == '' )) {
+      form_set_error('field_social_impact_description',t('Social Impact have not value'));
+      return $form;
+    }
+  }
+
+
+
+
+}
+
+?>

@@ -1,0 +1,70 @@
+.node-type-tools {
+  .pd-1col {
+    .pane-tools {
+      &:nth-child(3) {
+        margin: 2em auto;
+        clear: both;
+      }
+    }
+  }
+
+  &.page-tools {
+    .pd-1col {
+      .pane-tools {
+        &:nth-child(4) {
+          margin: 2em auto;
+          clear: both;
+        }
+      }
+    }
+
+    .view-display-id-block_1 {
+  		.views-row {
+        display: table;
+
+  			@include block-main-section-tools($color-red-purple, 2.5em, inherit, none, 6px solid $color-red-purple);
+
+        .block-sobre-datos {
+          display: table-cell;
+          width: 30%;
+          vertical-align: middle;
+          padding-right: 2%;
+
+          .views-field-title {
+            width: auto;
+
+            h1 {
+              text-align: right;
+            }
+          }
+        }
+
+        .views-field-body {
+          width: 100%;
+        }
+  		}
+  	}
+  }
+
+  .view-display-id-block_8 {
+    .section--Public {
+      @include block-main-section-tools($color-aqua1, 22px, center, none, 6px solid $color-aqua1);
+    }
+
+    .data-use {
+      @include block-main-section-tools($color-red-purple, 22px, center, none, 6px solid $color-red-purple);
+    }
+
+    .data-publish {
+      @include block-main-section-tools($color-amarillo-tools, 22px, center, none, 6px solid $color-amarillo-tools);
+    }
+
+    .data-develop {
+      @include block-main-section-tools($color-naranja-tools, 22px, center, none, 6px solid $color-naranja-tools);
+    }
+
+    .section--FAQ {
+      @include block-main-section-tools($color-morado-tools, 22px, center, none, 6px solid $color-morado-tools);
+    }
+  }
+}

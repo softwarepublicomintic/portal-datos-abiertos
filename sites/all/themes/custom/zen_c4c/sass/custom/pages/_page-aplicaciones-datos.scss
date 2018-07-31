@@ -1,0 +1,32 @@
+.page-extras-dataset {
+  // Ocultar breadcrumbs
+	.pane-easy-breadcrumb-easy-breadcrumb {
+		display: none;
+	}
+
+  &.section-datasets {
+    .pane-bean-datasets-block {
+      h2 {
+        color: black;
+        text-align: center;
+        padding: 1em;
+        font-size: 26px;
+      }
+
+      .bean-single-text {
+        margin: 0 auto;
+        padding: 0 3em;
+        max-width: 800px;
+        text-align: left;
+      }
+    }
+
+    .pane-c4c-iframe-c4c-frame {
+      iframe {
+        body {
+          background-color: red;
+        }
+      }
+    }
+  }
+}

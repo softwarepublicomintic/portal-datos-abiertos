@@ -1,0 +1,65 @@
+.node-type-tools {
+	.view-display-id-block_5 {
+		padding: 45px 35px;
+		background: $color-gris-tools;
+
+		.views-row {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.views-fieldset {
+			float: left;
+			width: 49%;
+
+			&:nth-child(1) {
+				min-height: 416px;
+			}
+
+			&.video-content {
+				position: absolute;
+				top: 50%;
+				right: 1%;
+				margin: -18% 0 0 -49%;
+				width: 49%;
+				height: 42%;
+			}
+		}
+
+		.views-field-field-tool-youtube-url {
+			position: relative;
+	    overflow: hidden;
+	    padding-top: 30px;
+	    padding-bottom: 69%;
+	    height: 0;
+
+			iframe,
+			object,
+			embed {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.views-field-field-tool-title {
+			margin: 5em 9.5% .7em;
+
+			.field-content {
+				color: $color-red-purple;
+				font-weight: bold;
+				font-size: 25px;
+				line-height: 1.3;
+			}
+		}
+
+		.views-field-field-tool-description {
+			margin: 0 9.5% 5em;
+			color: black;
+			font-size: 20px;
+			line-height: 1.3;
+		}
+	}
+}

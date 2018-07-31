@@ -1,0 +1,15 @@
+name = Better Jump Menu
+description = Provides Drupal's menu in a select box and a views plugin style to display results are select box.
+core = 7.x
+
+dependencies[] = menu
+dependencies[] = ctools
+
+files[] = views/better_jump_menu_plugin_style_better_jump_menu.inc
+
+; Information added by Drupal.org packaging script on 2017-03-12
+version = "7.x-1.9"
+core = "7.x"
+project = "better_jump_menu"
+datestamp = "1489349890"
+

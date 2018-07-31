@@ -1,0 +1,13 @@
+name = Managed File (Test)
+description = Testing functionality of Managed File module.
+hidden = TRUE
+core = 7.x
+
+dependencies[] = managed_file
+
+; Information added by Drupal.org packaging script on 2017-01-29
+version = "7.x-1.2"
+core = "7.x"
+project = "managed_file"
+datestamp = "1485720187"
+

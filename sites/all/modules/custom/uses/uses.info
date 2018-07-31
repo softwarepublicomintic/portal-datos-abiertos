@@ -1,0 +1,7 @@
+name = Uses Core
+description = Bloques, Estilos y funciones para casos de usos
+package = Asesoftware
+core = 7.x
+version = "7.x-1.0"
+dependencies[] = libraries
+dependencies[] = rules

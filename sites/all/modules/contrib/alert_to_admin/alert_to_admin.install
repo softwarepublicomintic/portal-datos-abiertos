@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Removing all alert set variables.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function alert_to_admin_install() {
+  // Ensure translations do not break at install time.
+  $t = get_t();
+  // Default value of some custom varibles.
+  variable_set('alert_to_admin_message_text', $t('Warning: You are logged on to the live site as an administrator. Please think carefully about your changes before submitting this form.'));
+  $default_excluded_form_ids = array(
+    // It is highly unlikely that the administrator can cause any damage
+    // to the site by submitting the search form, so we exclude that by
+    // default.
+    'search_form',
+    'search_block_form',
+    'search_theme_form',
+  );
+  $default_value = implode("\r", $default_excluded_form_ids);
+  variable_set('alert_to_admin_excluded_form_ids', $default_value);
+  drupal_load('module', 'alert_to_admin');
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function alert_to_admin_uninstall() {
+  // Delete variables.
+  variable_del('alert_to_admin_message_text');
+  variable_del('alert_to_admin_excluded_form_ids');
+}

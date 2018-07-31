@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Commons For Colombia. Iframe Block
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function c4c_iframe_menu() {
+  $items['admin/config/user-interface/iframe_app'] = array(
+    'title' => t('Iframe App'),
+    'description' => t('Settings for the iFrame Data Apps.'),
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('c4c_iframe_admin_settings'),
+    'access arguments' => array('c4c_iframe'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'includes/c4c_iframe.settings.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function c4c_iframe_permission() {
+  return array(
+    'c4c_iframe' => array(
+      'title' => t('Access to the Settings for the iFrame Data Apps'),
+      'description' => t('Allow the access to the admin page for the Settings for the iFrame Data Apps'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function c4c_iframe_block_info() {
+  $blocks = array();
+
+  $blocks['c4c_frame'] = array(
+    'info' => t('C4C Iframe'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function c4c_iframe_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'c4c_frame':
+      global $language;
+      if($language->language == 'es'){
+        $iframe_url = variable_get('c4c_iframe_url_es', '');
+
+        if (!empty($iframe_url)) {
+          $iframe_height = variable_get('c4c_iframe_height', '');
+          $block['content'] = array(
+            '#markup' => '<iframe src="'.$iframe_url.'" height="'.$iframe_height.'" width="100%" frameBorder="0" scrolling="no"></iframe>',
+            '#attached' => array(
+                'js' => array(
+                  drupal_get_path('module', 'c4c_iframe') . '/js/c4c_iframe.js',
+              ),
+            ),
+          );
+        }
+      }elseif ($language->language == 'en') {
+        $iframe_url = variable_get('c4c_iframe_url_en', '');
+
+        if (!empty($iframe_url)) {
+          $iframe_height = variable_get('c4c_iframe_height', '');
+          $block['content'] = array(
+            '#markup' => '<iframe src="'.$iframe_url.'" height="'.$iframe_height.'" width="100%" frameBorder="0" scrolling="no"></iframe>',
+            '#attached' => array(
+                'js' => array(
+                  drupal_get_path('module', 'c4c_iframe') . '/js/c4c_iframe.js',
+              ),
+            ),
+          );
+        }
+      }
+      
+
+      break;
+  }
+
+  return $block;
+}
+

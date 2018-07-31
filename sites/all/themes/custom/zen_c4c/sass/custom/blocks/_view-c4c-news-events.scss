@@ -1,0 +1,37 @@
+/*.view-c4c-news-events {
+	&.view-display-id-block_8 {
+		background: $color-blanco;
+
+		.view-content {
+
+		}
+
+		.views-field-title {
+			padding: 0;
+			max-width: 100%;
+			text-align: left;
+
+			a {
+				font-weight: normal;
+				font-size: 24px !important;
+			}
+		}
+
+		.views-field-field-image {
+			height: 60px; // remover cuando las imágenes pongan altos fijos
+
+			img {
+				width: auto !important;
+				height: auto;
+			}
+		}
+
+		.views-row {
+			@media only screen and (max-width: $size-break2) {
+				width: 100% !important;
+				float: none !important;
+			}
+		}
+	}
+}
+*/

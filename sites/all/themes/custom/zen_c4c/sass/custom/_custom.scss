@@ -1,0 +1,41 @@
+
+//===========================================\\
+//---------------- Desktop ------------------\\
+//===========================================\\
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+@import '_fonts.scss';
+
+/**--------------- pages -------------------**/
+@import 'pages/node-type-tools';
+@import 'pages/page-novedades';
+@import 'pages/page-aplicaciones-datos';
+@import 'pages/page-oblogs';
+@import 'pages/page-node-edit';
+@import 'pages/page-user-edit';
+
+/**--------------- blocks ------------------**/
+@import 'blocks/pane-c4c-faq-c4c-faq';
+@import 'blocks/view-display-id-block_1';
+@import 'blocks/view-display-id-block_2';
+@import 'blocks/view-display-id-block_3';
+@import 'blocks/view-display-id-block_4';
+@import 'blocks/view-display-id-block_5';
+
+//===========================================\\
+//---------------- mobile -------------------\\
+//===========================================\\
+
+///**--------------- pages ------------------**/
+@import 'mobile/pages/node-type-tools';
+@import 'mobile/pages/page-oblogs';
+@import 'mobile/pages/page-node-edit';
+@import 'mobile/pages/page-user-edit';
+
+///**--------------- blocks ------------------**/
+@import 'mobile/blocks/pane-c4c-faq-c4c-faq';
+@import 'mobile/blocks/view-display-id-block_1';
+@import 'mobile/blocks/view-display-id-block_3';
+@import 'mobile/blocks/view-display-id-block_2';
+@import 'mobile/blocks/view-display-id-block_4';
+@import 'mobile/blocks/view-display-id-block_5';

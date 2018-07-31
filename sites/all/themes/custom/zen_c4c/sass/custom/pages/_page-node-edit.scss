@@ -1,0 +1,219 @@
+.page-node-edit,
+.page-node-add-news,
+.page-user-edit {
+  .overlay-processed,
+  .field-name-field-user-picture {
+
+    // Inputs
+    .form-item {
+      margin: 1em 0 0;
+    }
+
+    // Header float in the tables
+    .sticky-header {
+      z-index: 999;
+    }
+
+    // Field title and language
+    // Field language of the modal create new
+    .group-language {
+      display: inline-block;
+      width: 49%;
+      vertical-align: bottom;
+
+      .form-item-language {
+        margin: 0;
+        width: 100%;
+        vertical-align: inherit;
+      }
+    }
+
+    // Field title and language in page edit global
+    .form-item-title,
+    .form-item-language {
+      display: inline-block;
+      width: 49%;
+      vertical-align: bottom;
+
+      input,
+      .chosen-container-single {
+        width: 100% !important;
+      }
+    }
+
+    // Field title
+    .form-item-title {
+      margin-right: 1%;
+    }
+
+    // Field upload image or file
+    .field-widget-file-generic,
+    .form-field-name-field-tools-banner,
+    .form-field-name-field-image,
+    .field-name-field-image,
+    .form-field-name-field-tool-icon,
+    .field-name-field-tool-icon,
+	.form-type-managed-file {
+      overflow: hidden;
+
+      .image-widget-data,
+      .form-managed-file {
+        position: relative;
+        margin-bottom: .2em;
+        height: 42px;
+
+        .file {
+          word-break: break-all;
+        }
+
+        .zen-c4c--file-upload {
+          display: inline-block;
+          margin-right: 12px;
+          padding: 0 3px;
+          width: 49%;
+          height: 42px;
+          border: 1px solid $color-gris-claro2;
+          vertical-align: middle;
+          line-height: 40px;
+		  word-break: break-all;
+		  overflow: hidden;
+
+          .zen-c4c-button {
+            margin-right: 6px;
+            padding: 8px 10px;
+            background-color: $color-magenta;
+            color: white;
+          }
+
+          .zen-c4c-filename {
+            color: $color-magenta;
+          }
+        }
+
+        .form-file {
+          position: absolute;
+          left: 0;
+          width: 49%;
+          opacity: 0;
+        }
+      }
+
+      // Descriptions of the format for upload image
+      .description {
+        line-height: 1.3;
+      }
+    }
+
+	.form-type-managed-file {
+      .image-widget-data {
+        width: 100%;
+
+		.form-submit {
+			width: auto;
+		}
+      }
+    }
+
+    // Field body
+    .field-name-body {
+      .form-textarea {
+        overflow: auto;
+        width: 100%;
+      }
+    }
+
+    // Select category and type page in news and edit
+    .form-field-name-field-category,
+    .form-field-name-field-tool-page-type {
+      width: 100%;
+      margin-bottom: 1.5em;
+
+      .chosen-container-single {
+        width: 49% !important;
+      }
+    }
+
+    // Tables for add bocks and videos
+    .form-field-name-field-tools-open-data,
+    .form-field-name-field-tools-options,
+    .form-field-name-field-tools-video-carousel {
+      tbody {
+        td {
+
+          // Second td
+          &:nth-child(2) {
+
+            // inputs and selects
+            .field-name-field-tool-title,
+            .field-name-field-tool-destination-url,
+            .field-name-field-tools-data-options,
+            .field-name-field-tool-youtube-url,
+            .field-name-field-tool-destination-ur,
+            .field-name-field-category,
+            .field-name-field-tool-type {
+              input,
+              .chosen-container-single {
+                width: 49% !important;
+              }
+            }
+
+            // Inputs url
+            .field-name-field-tool-youtube-url,
+            .field-name-field-tool-destination-url {
+              display: inline-block;
+              width: 49%;
+
+              input {
+                width: 100% !important;
+              }
+            }
+
+            .field-name-field-tool-youtube-url {
+              margin-right: 1%;
+            }
+
+            // last button of delete
+            >.form-submit {
+              margin: 1em 0;
+              display: block;
+              width: 80px;
+            }
+          }
+
+          .ajax-new-content {
+            // last button of delete
+            >.form-submit {
+              margin: 1em 0;
+              display: block;
+              width: 80px;
+            }
+          }
+        }
+      }
+    }
+
+    // button save or delete all
+    .form-actions {
+      #edit-submit {
+        margin-right: 10px;
+        width: 80px;
+      }
+    }
+  }
+
+  .node-options-vtabs {
+    .vertical-tabs-list {
+      a {
+        &:visited {
+          color: $color-magenta;
+        }
+      }
+
+      .selected {
+        strong {
+          color: $color-morado-tools;
+        }
+      }
+    }
+  }
+}

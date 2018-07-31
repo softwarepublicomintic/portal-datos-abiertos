@@ -1,0 +1,277 @@
+<?php
+/**
+ * @file
+ * This module allows us to sort the elements of a field which has the select
+ * list widget.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function select_option_sort_permission() {
+  return array(
+    'administer select option sort field settings' => array(
+      'description' => t('Administer select option sort field settings.'),
+      'title' => t('Administer select option sort field settings'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_help().
+ */
+function select_option_sort_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#select_option_sort':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module allows us to sort the elements of a field which has the select list widget. At the moment a select list with the "Check boxes/radio buttons" widget cannot be sorted.') . '</p>';
+      $output .= '<h3>' . t('Configuration') . '</h3>';
+      $output .= '<p>' . t('In order to configure the module, you should follow the steps below:') . '</p>';
+      $output .= '<ul>';
+      $output .= '<li>' . t('Choose the content type, for which you would like to apply the module functionality, that contains the List field(fields) type and the Select list widget.') . '</li>';
+      $output .= '<li>' . t('Edit field: OPERATIONS -> Edit;') . '</li>';
+      $output .= '<li>' . t('In the "SORT OPTIONS" fieldset;') . '</li>';
+      $output .= '<li>' . t('Check "Apply sort option";') . '</li>';
+      $output .= '<li>' . t('Choose "Order by" - order by text or by the selected value;') . '</li>';
+      $output .= '<li>' . t('Choose "Sort" - Ascending or Descending.') . '</li>';
+      $output .= '<p>' . t('In our given form, we will be able to see the field elements sorted by the chosen criteria.') . '</p>';
+      $output .= '</ul>';
+
+      return $output;
+  }
+}
+
+/**
+ * Implements of hook_form_FORM_ID_alter().
+ */
+function select_option_sort_form_field_ui_field_edit_form_alter(&$form, &$form_state, $form_id) {
+  // Injects the Select option sort settings on the Edit field tab.
+  form_load_include($form_state, 'inc', 'select_option_sort', 'select_option_sort.admin');
+  return _select_option_sort_field_settings_form_alter($form, $form_state, $form_id);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function select_option_sort_form_alter(&$form, &$form_state, $form_id) {
+  // Check user permission.
+  if (user_access('administer select option sort field settings')) {
+    $rows = _select_option_sort_get_database_records();
+    if (!empty($rows)) {
+      foreach ($rows as $rows_key => $rows_value) {
+        if (!empty($form[$rows_value->field_name])) {
+          // Assign #order_by and #sort_order parameters to form elements.
+          $form[$rows_value->field_name]['#order_by'] = $rows_value->order_by;
+          $form[$rows_value->field_name]['#sort_order'] = $rows_value->sort_order;
+        }
+      }
+    }
+
+    // Get form items.
+    $form_elements = element_children($form);
+    if (!empty($form_elements)) {
+      foreach ($form_elements as $form_elements_name) {
+        if (!empty($form[$form_elements_name]['#sort_order']) &&
+          !empty($form[$form_elements_name]['#order_by'])
+        ) {
+          // Get group and sort type.
+          $order_by = $form[$form_elements_name]['#order_by'];
+          $sort_order = $form[$form_elements_name]['#sort_order'];
+
+          // Check if Undefined index is present.
+          if (!empty($form[$form_elements_name][LANGUAGE_NONE])) {
+            // Get form elements.
+            $elements = $form[$form_elements_name][LANGUAGE_NONE]['#options'];
+            // Sort and group elements.
+            $sorted_elements = _select_option_sort_sort_elements($order_by, $sort_order, $elements);
+
+            if (!empty($sorted_elements['_none'])) {
+              // Put - None - value on top of options.
+              $sorted_elements = array('_none' => $sorted_elements['_none']) + $sorted_elements;
+            }
+            // Return sorted and grouped elements back to variable.
+            $form[$form_elements_name][LANGUAGE_NONE]['#options'] = $sorted_elements;
+          }
+          // Check if special language is present.
+          elseif (!empty($form['language']) && !empty($form[$form_elements_name]{$form['language']['#default_value']})) {
+            // Get form elements.
+            $elements = $form[$form_elements_name]{$form['language']['#default_value']}['#options'];
+            // Sort and group elements.
+            $sorted_elements = _select_option_sort_sort_elements($order_by, $sort_order, $elements);
+
+            if (!empty($sorted_elements['_none'])) {
+              // Put - None - value on top of options.
+              $sorted_elements = array('_none' => $sorted_elements['_none']) + $sorted_elements;
+            }
+            // Return sorted and grouped elements back to variable.
+            $form[$form_elements_name]{$form['language']['#default_value']}['#options'] = $sorted_elements;
+          }
+          // Process for custom form items without language.
+          // For more details, please see the "For developers" section from the
+          // README.txt file.
+          elseif (!empty($form[$form_elements_name])) {
+            // Get form elements.
+            $elements = $form[$form_elements_name]['#options'];
+            // Sort and group elements.
+            $sorted_elements = _select_option_sort_sort_elements($order_by, $sort_order, $elements);
+
+            if (!empty($sorted_elements['_none'])) {
+              // Set - None - value on top of options.
+              $sorted_elements = array('_none' => $sorted_elements['_none']) + $sorted_elements;
+            }
+            // Return sorted and grouped elements back to variable.
+            $form[$form_elements_name]['#options'] = $sorted_elements;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_node_view_alter().
+ */
+function select_option_sort_node_view_alter(&$build) {
+  // Check user permission.
+  if (user_access('administer select option sort field settings')) {
+    $rows = _select_option_sort_get_database_records();
+    if ($rows) {
+      foreach ($rows as $rows_value) {
+        if (!empty($build[$rows_value->field_name])) {
+          // Get children items.
+          $items = element_children($build[$rows_value->field_name]);
+
+          $options = array();
+          foreach ($items as $items_value) {
+            foreach ($build[$rows_value->field_name][$items_value] as $children_items_value) {
+              // Get children items options.
+              $options[] = $children_items_value;
+            }
+          }
+          // Reorder default values.
+          $sorted_elements = array_values(_select_option_sort_sort_elements('text', $rows_value->sort_order, $options));
+          foreach ($sorted_elements as $sorted_elements_key => $sorted_elements_value) {
+            // Set back reordered options.
+            $build[$rows_value->field_name][$sorted_elements_key] = array('#markup' => $sorted_elements_value);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function select_option_sort_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'form_alter') {
+    // Reorder the implementation of select_option_sort module.
+    $group = $implementations['select_option_sort'];
+    unset($implementations['select_option_sort']);
+    $implementations['select_option_sort'] = $group;
+  }
+}
+
+/**
+ * Helper function used to sort array elements.
+ */
+function _select_option_sort_sort_elements($order_by, $sort_order, $elements) {
+  if ($order_by == 'text') {
+    // Variation: order by text, sort - ascending.
+    if ($sort_order == 'asc') {
+      natcasesort($elements);
+    }
+    // Variation: order by text, sort - descending.
+    elseif ($sort_order == 'desc') {
+      natcasesort($elements);
+      $elements = array_reverse($elements, TRUE);
+    }
+  }
+  elseif ($order_by == 'value') {
+    // Variation: order by value, sort - ascending.
+    if ($sort_order == 'asc') {
+      uksort($elements, 'strnatcasecmp');
+    }
+    // Variation: order by value, sort - descending.
+    elseif ($sort_order == 'desc') {
+      uksort($elements, 'strnatcasecmp');
+      $elements = array_reverse($elements, TRUE);
+    }
+  }
+
+  return $elements;
+}
+
+/**
+ * Helper function. Check if field exists in select_option_sort table.
+ */
+function _select_option_sort_check_field_exist($field_name = NULL) {
+  $table = 'select_option_sort';
+  $row = array();
+
+  if (db_table_exists($table)) {
+    $query = db_select('select_option_sort', 'sos');
+    $query->fields('sos');
+    if ($field_name != NULL) {
+      $query->condition('field_name', $field_name, "LIKE");
+    }
+    $row = $query->execute()->fetchAssoc();
+  }
+
+  return $row;
+}
+
+/**
+ * Helper function. Get select_option_sort table records.
+ */
+function _select_option_sort_get_database_records() {
+  $rows = array();
+  if (db_table_exists('select_option_sort')) {
+    $result = db_query('SELECT * FROM {select_option_sort}');
+    // Fetch next row as a stdClass object.
+    $record = $result->fetchAll();
+  }
+
+  return $record;
+}
+
+/**
+ * Helper function. Save settings to select_option_sort table.
+ */
+function _select_option_sort_change_db_row($action, $field_name, $order_by, $sort_order) {
+  switch ($action) {
+    case 'update':
+      $table = 'select_option_sort';
+      $row = _select_option_sort_check_field_exist($field_name);
+
+      $fields = new stdClass();
+      $fields->field_name = $field_name;
+      $fields->order_by = $order_by;
+      $fields->sort_order = $sort_order;
+
+      if ($row) {
+        $fields->id = $row['id'];
+        // Update records (data) in the database.
+        drupal_write_record($table, $fields, 'id');
+        watchdog('select_option_sort', 'Update data in select_option_sort table. Fields: <pre>%data</pre>', array('%data' => print_r($fields, TRUE)));
+      }
+      else {
+        // Insert records (data) into the database.
+        drupal_write_record($table, $fields);
+        watchdog('select_option_sort', 'Insert data in select_option_sort table. Fields: <pre>%data</pre>', array('%data' => print_r($fields, TRUE)));
+      }
+      break;
+
+    case 'delete':
+      // Delete only if row exist in select_option_sort table.
+      if (_select_option_sort_check_field_exist($field_name)) {
+        db_delete('select_option_sort')
+          ->condition('field_name', $field_name)
+          ->execute();
+        watchdog('select_option_sort', 'Delete field %name from select_option_sort table.', array('%name' => $field_name));
+      }
+
+      break;
+  }
+}

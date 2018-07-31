@@ -1,0 +1,475 @@
+<?php
+
+/**
+ * @file
+ * Commons For Colombia. Integration with Socrata.
+ * @see
+ * https://colombia-mintic.data.socrata.com
+ */
+ 
+/**
+ * Implements hook_menu().
+ */
+function c4c_socrata_menu() {
+  $items['admin/config/c4c-socrata'] = array(
+    'title' => 'Commons for Colombia - Socrata',
+    'description' => 'Settings for Socrata integration',
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer c4c socrata'),
+    'position' => 'right',
+    'weight' => -20,
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+  $items['admin/config/c4c-socrata/settings'] = array(
+    'title' => 'Socrata - Settings',
+    'description' => 'Configure settings for Socrata.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('c4c_socrata_settings'),
+    'access arguments' => array('administer c4c socrata'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'includes/c4c_socrata_settings.settings.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function c4c_socrata_permission() {
+  return array(
+    'administer c4c socrata' => array(
+      'title' => t('Administer Socrata'),
+      'description' => t('Configure settings for Socrata.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_libraries_info().
+ *
+ * @todo
+ * Get library version from file to replace version callback, if possible.
+ */
+function c4c_socrata_libraries_info() {
+  $libraries['soda-php'] = array(
+    'name' => 'Soda-PHP',
+    'vendor url' => 'https://github.com/socrata/soda-php',
+    'download url' => 'https://github.com/socrata/soda-php/archive/master.zip',
+    'version callback' => 'c4c_socrata_socrata_version_callback',
+    'path' => 'public',
+    'files' => array(
+      'php' => array('socrata.php'),
+    ),
+  );
+  return $libraries;
+}
+
+/**
+ * Allow pass version for Soda-PHP.
+ *
+ * @see c4c_socrata_libraries_info()
+ */
+function c4c_socrata_socrata_version_callback() {
+  return TRUE;
+}
+
+/**
+ * Get connection parameters.
+ */
+function c4c_socrata_get_access_data() {
+  $data = array(
+    'view_uid' => variable_get('c4c_socrata_view_uid', ''),
+    'root_url' => variable_get('c4c_socrata_root_url', ''),
+    'token' => variable_get('c4c_socrata_token', ''),
+    'username' => variable_get('c4c_socrata_username', ''),
+    'password' => variable_get('c4c_socrata_password', ''),
+  );
+  
+  return $data;
+}
+
+/**
+ * Get object instance.
+ */
+function c4c_socrata_get_instance() {
+  $lib = libraries_load('soda-php');
+  
+  // Get username, password and other tokens:
+  $data = c4c_socrata_get_access_data();
+  
+  $socrata = new Socrata($data['root_url'], $data['token'], $data['username'], $data['password']);
+  
+  return $socrata;
+}
+
+/**
+ * Maque a query.
+ */
+function c4c_socrata_query($params, $view_uid, $socrata = NULL) {
+  if (!$socrata) {
+    $socrata = c4c_socrata_get_instance();
+  }
+ 
+  if (count($params) > 0) {
+    $response = $socrata->get($view_uid, $params);
+    return $response;
+  }
+  return array();
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function c4c_socrata_block_info() {
+  $blocks['c4c_socrata_query_results'] = array(
+    'info' => t('C4C Socrata: Query results'),
+    'cache' => DRUPAL_CACHE_PER_PAGE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function c4c_socrata_block_configure($delta = '') {
+  $form = array();
+  if ($delta == 'c4c_socrata_query_results') {
+    $form['c4c_socrata_query_aof'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Add selected choices on the fly.'),
+      '#default_value' => variable_get('c4c_socrata_query_aof', 0),
+    );
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function c4c_socrata_block_save($delta = '', $edit = array()) {
+  if ($delta == 'c4c_socrata_query_results') {
+    variable_set('c4c_socrata_query_aof', $edit['c4c_socrata_query_aof']);
+  }
+}
+
+
+
+/**
+ * Implements hook_block_view().
+ */
+function c4c_socrata_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'c4c_socrata_query_results':
+      $block['subject'] = t('C4C Socrata: Query results');
+      $block['content'] = drupal_get_form('c4c_socrata_form_select_results');
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Custom form to set selected resources.
+ */
+function c4c_socrata_form_select_results($form, &$form_state) {
+  $header = array('result_id' => t('No.'), 'result_data' => t('Fetched data'));
+  $rows = array();
+
+  $results = (isset($_SESSION['c4c']['socrata']['data']) && count($_SESSION['c4c']['socrata']['data']) > 0) ? $_SESSION['c4c']['socrata']['data'] : NULL;
+  $data_type = isset($_SESSION['c4c']['socrata']['filters']['data_type']) ? $_SESSION['c4c']['socrata']['filters']['data_type'] : 'DATASET';
+  
+  $form['filters'] = array(
+    '#prefix' => '<div id="socrata-filters">',
+    '#suffix' => '</div>',
+  );
+  $form['filters']['data_type'] = array(
+    '#type' => 'select',
+    '#title' => t('Data type'),
+    '#options' => array(
+      'DATASET' => t('Dataset'),
+      'CHALLENGE' => t('Challenge'),
+    ),
+    '#default_value' =>  $data_type,
+  );
+  $default_query = isset($_SESSION['c4c']['socrata']['params']["\$q"]) ? $_SESSION['c4c']['socrata']['params']["\$q"] : '';
+  $form['filters']['query'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Search'),
+    '#default_value' => $default_query,
+  );
+  $form['filters']['query_execute'] = array(
+    '#type' => 'submit',
+    '#value' => t('Search'),
+    '#submit' => array('_c4c_socrata_results_filter'),
+  );
+  
+  
+  if ($results) {
+    $form['filters']['results_add'] = array(
+      '#type' => 'submit',
+      '#value' => t('Add selected'),
+      '#submit' => array('_c4c_socrata_choosen_results_add'),
+    );
+    $per_page = 15;
+    $current_page = pager_default_initialize(count($results), $per_page);
+    
+    foreach($results as $key => $values) {
+      $vkey = $key + 1;
+      $items = array();
+      foreach($values as $item_name => $item_value) {
+        // Some items may return an array...
+        if (is_array($item_value)) {
+          $sub_items = array();
+          foreach($item_value as $ivk => $ivalue) {
+            $ivalue = substr($ivalue, 0, 4 ) === 'http' ? l($ivalue, $ivalue, array('attributes' => array('target' => '_blank'))) : $ivalue;
+            $sub_items[] = $ivalue;
+          }
+          $item_value = theme('item_list', array('items' => $sub_items));
+        }
+        
+        $item_value = substr($item_value, 0, 4 ) === 'http' ? l($item_value, $item_value, array('attributes' => array('target' => '_blank'))) : $item_value;
+        $items[] = '<span class="socrata-key">' . filter_xss($item_name) . ': </span><span class="socrata-value">' . filter_xss($item_value) . '</span>';
+      }
+      $is_choosen = c4c_socrata_result_is_choosen($vkey);
+      $row_class = $is_choosen ? 'added' : 'not-added';
+      $rows[$vkey] = array(
+        'result_id' => $vkey,
+        'result_data' => theme('item_list', array('items' => $items)),
+        '#attributes' => array('class' => array($row_class)),
+      );
+    }
+  
+    // Split array into page sized chunks:
+    $chunks = array_chunk($rows, $per_page, TRUE);
+  
+    $form['results'] = array(
+      '#prefix' => '<div id="socrata-results" class="socrata-results-type data-type-' . $data_type . '">',
+      '#suffix' => '</div>',
+    );
+    $form['results']['results_table'] = array(
+      '#type' => 'tableselect',
+      '#header' => $header,
+      '#options' => $chunks[$current_page],
+      '#js_select' => TRUE,
+      '#attributes' => array(),
+      '#empty' => t('No results found')
+    );
+    /*
+    $form['results']['results_type'] = array(
+      '#type' => 'select',
+      '#title' => t('Add as'),
+      '#options' => array('CHALLENGE' => t('Challenge'), 'DATASET' => t('Dataset')),
+      '#default_value' => 'DATASET',
+    );
+    */
+    $form['results']['results_pager'] = array(
+      '#markup' => theme('pager', array('quantity',count($rows))),
+    );
+    if (!variable_get('c4c_socrata_query_aof', 0)) {
+      $form['continue'] = array(
+        '#type' => 'submit',
+        '#value' => t('Continue'),
+        '#submit' => array('_c4c_socrata_results_continue'),
+      );
+    }
+  }
+  else {
+    $form['empty'] = array(
+      '#markup' => t('No results to display.'),
+    );
+  }
+  return $form;
+}
+
+/**
+ * Form helper function to add an option to the choosen list.
+ */
+function _c4c_socrata_choosen_results_add($form, &$form_state) {
+  $selected = array_filter($form_state['values']['results_table']);
+  $type = $form_state['values']['data_type'];
+  
+  if (count($selected) == 0) {
+    drupal_set_message(t('You must select at least one choice.'), 'error');
+  }
+  
+  foreach($selected as $key => $index) {
+    $kaux = $index;
+    $is_choosen = c4c_socrata_result_is_choosen($kaux);
+    if (!$is_choosen) {
+      $status = c4c_socrata_result_set_choosen($kaux - 1, $type);
+    }
+    else {
+      $status = c4c_socrata_result_remove_choosen($kaux);
+    }
+  }
+  
+  if (variable_get('c4c_socrata_query_aof', 0)) {
+    rules_invoke_event('c4c_socrata_fetch_data');
+  }
+}
+
+/**
+ * When we need to fetch data.
+ */
+function _c4c_socrata_results_continue($form, &$form_state) {
+  rules_invoke_event('c4c_socrata_fetch_data');
+}
+
+/**
+ * When we need to search/filter data.
+ */
+function _c4c_socrata_results_filter($form, &$form_state) {
+  //$params = isset($_SESSION['c4c']['socrata']['params']) ? $_SESSION['c4c']['socrata']['params'] : c4c_socrata_get_default_filters();
+  
+  $data_type = $form_state['values']['data_type'];
+  $params = c4c_socrata_get_default_filters($data_type);
+  
+  if ($form_state['values']['query']) {
+    $params["\$q"] = $form_state['values']['query'];
+  }
+  else {
+    unset($params["\$q"]);
+  }
+  
+  $view_uid = $data_type == 'DATASET' ? variable_get('c4c_socrata_view_uid', '') : variable_get('c4c_socrata_view_uid_ext0', '');
+  if ($view_uid) {
+    $query = c4c_socrata_query($params, $view_uid);
+  }
+  else {
+    $query = array();
+  }
+  
+  $_SESSION['c4c']['socrata'] = array(
+    'filters' => array(
+      'data_type' => $data_type,
+    ),
+    'params' => $params,
+    'data' => $query,
+  );
+}
+
+/**
+ * Validate if is already added.
+ */
+function c4c_socrata_result_is_choosen($key) {
+  return isset($_SESSION['c4c']['socrata']['choosen'][$key]);
+}
+
+/**
+ * Add an option to the choosen list.
+ */
+function c4c_socrata_result_set_choosen($key, $type = 'DATASET') {
+  $status = 'UNPROCESSED';
+  if (isset($_SESSION['c4c']['socrata']['data'][$key])) {
+    $_SESSION['c4c']['socrata']['choosen'][$key] = $_SESSION['c4c']['socrata']['data'][$key];
+    $_SESSION['c4c']['socrata']['choosen'][$key]['data_type'] = $type;
+    $status = 'ADDED';
+  }
+  else {
+    $status = 'ERROR SETTING VALUE';
+  }
+  
+  return $status;
+}
+
+/**
+ * Remove an option from the choosen list.
+ */
+function c4c_socrata_result_remove_choosen($key) {
+  $status = 'UNPROCESSED';
+  if (isset($_SESSION['c4c']['socrata']['choosen'][$key])) {
+    unset($_SESSION['c4c']['socrata']['choosen'][$key]);
+    $status = 'REMOVED';
+  }
+  else {
+    $status = 'ERROR REMOVING';
+  }
+  
+  return $status;
+}
+
+/**
+ * Get all choosen data.
+ */
+function c4c_socrata_get_all_choosen() {
+  return isset($_SESSION['c4c']['socrata']['choosen']) ? $_SESSION['c4c']['socrata']['choosen'] : array();
+}
+
+/**
+ * Get all results.
+ */
+function c4c_socrata_get_all_results() {
+  return isset($_SESSION['c4c']['socrata']['data']) ? $_SESSION['c4c']['socrata']['data'] : array();
+}
+
+/**
+ * Validate if we have results.
+ */
+function c4c_socrata_validate_results() {
+  if (isset($_SESSION['c4c']['socrata']['data'])) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Get default filter values.
+ */
+function c4c_socrata_get_default_filters($type = 'DATASET') {
+  switch($type) {
+    case 'DATASET':
+      $params = array(
+        "\$where" => "type='table' and public='true'",
+        "\$limit" => 500, 
+        "\$select" => "name,dataset_link",
+      );
+      break;
+      
+    case 'CHALLENGE':
+      $params = array(
+        "\$limit" => 500, 
+        "\$select" => "nombre,url",
+      );
+      break;
+      
+    default:
+      $params = array();
+      break;
+  }
+  return $params;
+}
+
+
+/**
+ * Implement hook_form_alter
+ */
+
+function c4c_socrata_form_alter(&$form, &$form_state, $form_id){
+  switch ($form_id) {
+    /*
+    case 'news_node_form':
+      global $user;
+      if(!in_array('administrator', $user->roles)){
+        $form['field_ref_to']['#access'] = FALSE;
+      }
+      break;
+      */
+    case 'group_member_overview_form':
+      $remove_options = array('approve', 'decline');
+      if (isset($form['options']['operation']['#options'])) {
+        foreach($form['options']['operation']['#options'] as $key => $option) {
+          if (is_array($option)) {
+            foreach($option as $skey => $svalue) {
+              if (in_array($skey, $remove_options)) {
+                unset($form['options']['operation']['#options'][$key][$skey]);
+              }
+            }
+          }
+        }
+      }
+      break;
+  }
+}

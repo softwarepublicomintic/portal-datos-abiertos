@@ -1,0 +1,83 @@
+@media only screen and (max-width : 1189px) {
+  .node-type-tools {
+    // Bloque secundario de herramientas
+    .view-display-id-block_2 {
+      .views-row {
+        margin-right: 2%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  .node-type-tools {
+    .view-display-id-block_2 {
+      padding: 2em 2%;
+
+      .views-row {
+        display: block;
+        overflow: hidden;
+        margin-bottom: 1em;
+        width: 100%;
+
+        .views-field-field-tool-icon {
+          float: left;
+          overflow: hidden;
+          margin-right: 2%;
+          width: 100px;
+        }
+
+        .views-field-field-tool-title,
+        .views-field-field-tool-description {
+          width: 100%;
+        }
+
+        .views-field-field-tool-title {
+          min-height: 22px;
+          line-height: 1;
+
+          .part {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $size-break1) {
+  .node-type-tools {
+    .view-display-id-block_2 {
+      .views-row {
+        .views-field-field-tool-description {
+          .field-item {
+            max-height: 73px;
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 360px) {
+  .node-type-tools {
+    .view-display-id-block_2 {
+      .views-row {
+        margin-bottom: 1em;
+
+        .views-field-field-tool-icon,
+        .views-field-field-tool-title,
+        .views-field-field-tool-description {
+          float: none;
+          margin: 0 auto;
+        }
+
+        .views-field-field-tool-icon {
+          margin-bottom: .5em;
+          width: 120px;
+        }
+      }
+    }
+  }
+}

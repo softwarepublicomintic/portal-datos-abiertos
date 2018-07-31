@@ -1,0 +1,26 @@
+/* webfont */
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('../fonts/awesome/fonts/fontawesome-webfont.eot');
+	src: url('../fonts/awesome/fonts/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/awesome/fonts/fontawesome-webfont.woff2') format('woff2'),
+	url('../fonts/awesome/fonts/fontawesome-webfont.woff') format('woff'),
+	url('../fonts/awesome/fonts/fontawesome-webfont.ttf') format('truetype'),
+	url('.../fonts/awesome/fonts/fontawesome-webfont.svg#allerregular') format('svg');
+}
+
+
+@font-face {
+	font-family: 'OpenSans';
+	src: url('../fonts/OpenSans-Regular-webfont.eot');
+	src: url('../fonts/proxima-nova/proxima_nova_bold-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/OpenSans-Regular-webfont.woff2') format('woff2'),
+	url('../fonts/OpenSans-Regular-webfont.woff') format('woff'),
+	url('../fonts/OpenSans-Regular.ttf') format('truetype'),
+	url('../fonts/OpenSans-Regular-webfont.svg#allerregular') format('svg');
+}
+
+@font-face {
+	font-family: 'OpenSansBold';
+	src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
+}

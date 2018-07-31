@@ -1,0 +1,45 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the select_option_sort module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function select_option_sort_schema() {
+  $schema['select_option_sort'] = array(
+    'description' => 'The base table for select option sort module.',
+    'fields' => array(
+      'id' => array(
+        'description' => 'The primary identifier for a field.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'field_name' => array(
+        'description' => 'The {field_name} of select option.',
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'order_by' => array(
+        'description' => 'The {order_by} of select option.',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'sort_order' => array(
+        'description' => 'The {sort_order} of select option.',
+        'type' => 'varchar',
+        'length' => 10,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}

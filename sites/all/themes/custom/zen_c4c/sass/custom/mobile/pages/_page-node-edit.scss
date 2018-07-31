@@ -1,0 +1,225 @@
+@media only screen and (max-width : 768px) {
+  .page-node-edit,
+  .page-node-add-news,
+  .page-user,
+  .page-user-edit {
+    .overlay-processed,
+	.field-name-field-user-picture {
+      // Field upload image or file
+      .field-widget-file-generic,
+      .form-field-name-field-tools-banner,
+      .form-field-name-field-image,
+      .field-name-field-image,
+      .form-field-name-field-tool-icon,
+      .field-name-field-tool-icon,
+  	  .form-type-managed-file {
+        .image-widget-data,
+        .form-managed-file {
+          .zen-c4c--file-upload {
+            width: 75%;
+            margin-right: 2%;
+
+            .zen-c4c-filename {
+              color: $color-magenta;
+            }
+          }
+
+          .form-file {
+            width: 75%;
+          }
+
+          .form-submit {
+            width: 23%;
+          }
+        }
+      }
+
+	  .form-type-managed-file {
+        .image-widget-data {
+          width: 100%;
+
+  		.form-file {
+  			margin-bottom: 1em;
+  		}
+        }
+      }
+
+      // Select category and type page in news and edit
+      .form-field-name-field-category,
+      .form-field-name-field-tool-page-type {
+        .chosen-container-single {
+          width: 100% !important;
+        }
+      }
+
+      // Tables for add bocks and videos
+      .form-field-name-field-tools-open-data,
+      .form-field-name-field-tools-options,
+      .form-field-name-field-tools-video-carousel {
+        tbody {
+          td {
+
+            // Second td
+            &:nth-child(2) {
+
+              // inputs and selects
+              .field-name-field-tool-title,
+              .field-name-field-tool-destination-url,
+              .field-name-field-tools-data-options,
+              .field-name-field-tool-youtube-url,
+              .field-name-field-tool-destination-ur,
+              .field-name-field-category,
+              .field-name-field-tool-type {
+                input,
+                .chosen-container-single {
+                  width: 100% !important;
+                }
+              }
+
+              // Inputs url
+              .field-name-field-tool-youtube-url,
+              .field-name-field-tool-destination-url {
+                width: 100%;
+              }
+
+              .field-name-field-tool-youtube-url {
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 480px) {
+  .page-node-edit,
+  .page-node-add-news,
+  .page-user-edit {
+    .overlay-processed,
+	.field-name-field-user-picture {
+      // Field upload image or file
+      .field-widget-file-generic,
+      .form-field-name-field-tools-banner,
+      .form-field-name-field-image,
+      .field-name-field-image,
+      .form-field-name-field-tool-icon,
+      .field-name-field-tool-icon,
+  	  .form-type-managed-file {
+        .image-widget-data,
+        .form-managed-file {
+          height: auto;
+
+          .image-preview {
+            float: none;
+          }
+
+          .zen-c4c--file-upload {
+            margin: 0 0 .5em;
+            width: 100%;
+
+            .zen-c4c-filename {
+              color: $color-magenta;
+            }
+          }
+
+          .form-file {
+            width: 100%;
+          }
+
+          .form-submit {
+            width: 100%;
+          }
+        }
+      }
+
+      // Tables for add bocks and videos
+      .form-field-name-field-tools-open-data,
+      .form-field-name-field-tools-options,
+      .form-field-name-field-tools-video-carousel {
+        tbody {
+          td {
+
+            // Second td
+            &:nth-child(2) {
+              .field-name-field-tool-icon,
+              .field-name-field-image {
+                .image-preview {
+                  float: none;
+                }
+              }
+
+              // Inputs url
+              .field-name-field-tool-youtube-url,
+              .field-name-field-tool-destination-url {
+                display: block;
+                width: 100%;
+                margin: 0;
+              }
+
+              // last button of delete
+              >.form-submit {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        // button add new item
+        .field-add-more-submit {
+          width: 100%;
+        }
+      }
+
+      // button save or delete all
+      .form-actions {
+        float: none !important;
+
+        .form-submit {
+          width: 100% !important;
+        }
+
+        #edit-submit {
+          margin: 0 0 .5em;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 360px) {
+  .page-node-edit,
+  .page-node-add-news,
+  .page-user-edit {
+    .overlay-processed,
+	.field-name-field-user-picture {
+      // Field upload image or file
+      .field-widget-file-generic,
+      .form-field-name-field-tools-banner,
+      .form-field-name-field-image,
+      .field-name-field-image,
+      .form-field-name-field-tool-icon,
+      .field-name-field-tool-icon,
+  	  .form-type-managed-file {
+        .image-widget-data,
+        .form-managed-file {
+          text-align: center;
+
+          .zen-c4c--file-upload {
+            margin: 0 0 .5em;
+            width: 100%;
+
+            .zen-c4c-button {
+              display: none;
+            }
+
+            .zen-c4c-filename {
+              font-size: .9em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

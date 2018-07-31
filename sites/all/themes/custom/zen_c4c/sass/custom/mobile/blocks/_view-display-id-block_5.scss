@@ -1,0 +1,48 @@
+@media only screen and (max-width: $size-break2) {
+	.node-type-tools {
+		.view-display-id-block_5 {
+			.views-fieldset {
+				float: none;
+				width: auto;
+
+				&:nth-child(1) {
+					min-height: inherit;
+				}
+
+				&.video-content {
+					position: inherit;
+					margin: 0;
+					width: 100%;
+					height: auto;
+				}
+			}
+
+			.views-field-field-tool-description,
+			.views-field-field-tool-title {
+				margin: 0 0 .5em;
+			}
+
+			.views-field-field-tool-youtube-url {
+				padding-bottom: 71%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $size-break1) {
+	.node-type-tools {
+		.view-display-id-block_5 {
+			padding: 20px 4%;
+
+			.views-field-field-tool-title {
+				.field-content {
+					font-size: 1.2em;
+				}
+			}
+
+			.views-field-field-tool-description {
+				font-size: 1em;
+			}
+		}
+	}
+}

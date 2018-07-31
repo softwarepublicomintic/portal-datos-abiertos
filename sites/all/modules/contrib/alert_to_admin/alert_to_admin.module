@@ -1,0 +1,122 @@
+<?php
+
+/**
+ * @file
+ * Provides a alert to site administrators, not regular users.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function alert_to_admin_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#alert_to_admin':
+      $help_text = array(
+        t('The <em>Alert To Administrator</em> module allows you to show site administrators a alert message above most forms on the site. It can be used to help prevent these users from accidentally making destructive changes, either because they forgot they were logged in as an administrator or because they forgot they were logged in to the live site (as opposed to a development server).'),
+        t('On this page, you can change the text of the alert message that site administrators see and configure a list of forms that you do not want the message to appear on. To configure the user roles who will see this message, assign these roles the "see the site administrator alert" permission on the <a href="@permissions_url">user permissions page</a>.', array('@permissions_url' => url('admin/people/permissions', array('fragment' => 'module-alert_to_admin')))),
+      );
+      return theme('alert_to_admin_help', $help_text);
+  }
+}
+
+/**
+ * Implements hook_permission().
+ */
+function alert_to_admin_permission() {
+  return array(
+    'administer admin alert' => array(
+      'title' => t('administer Alert To Admin'),
+      'description' => t('administer Alert To Admin.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function alert_to_admin_menu() {
+  $items = array();
+  $items['admin/config/user-interface/alert_to_admin'] = array(
+    'title' => 'Administrator alert message',
+    'description' => 'Configure the alert message shown to site administrators.',
+    'page callback' => 'alert_to_admin_settings_page',
+    'access callback' => 'user_access',
+    'access arguments' => array('administer admin alert'),
+    'file' => 'alert_to_admin.admin.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function alert_to_admin_form_alter(&$form, $form_state, $form_id) {
+  // Only show the alert to site administrators viewing one of the
+  // non-excluded forms.
+  if (user_access('administer admin alert') && !in_array($form_id, alert_to_admin_excluded_forms(), TRUE)) {
+    $form['alert_to_admin_message'] = array(
+      '#prefix' => '<div>',
+      '#markup' => theme('alert_to_admin_message', array('message' => filter_xss_admin(alert_to_admin_settings('alert_to_admin_message_text')))),
+      '#suffix' => '</div>',
+      // This should make it appear at the top of most forms (unless they
+      // use drupal_render to display part of the form first?).
+      '#weight' => -1000,
+    );
+  }
+}
+
+/**
+ * Returns an array of form IDs for which the admin warning will not printed.
+ */
+function alert_to_admin_excluded_forms() {
+  $excluded_form_text = alert_to_admin_settings('alert_to_admin_excluded_form_ids');
+  // Adapted from profile.module.
+  $excluded_form_lines = explode("\r\n", $excluded_form_text);
+  $excluded_form_ids = array();
+  foreach ($excluded_form_lines as $line) {
+    $excluded_form_ids[] = $line;
+  }
+  return $excluded_form_ids;
+}
+
+/**
+ * Helper function to store this module's variable_get() all in one place.
+ */
+function alert_to_admin_settings($variable_name) {
+  switch ($variable_name) {
+    case 'alert_to_admin_message_text':
+      $default_value = t('Warning: You are logged on to the live site as an administrator. Please think carefully about your changes before submitting this form.');
+      break;
+
+    case 'alert_to_admin_excluded_form_ids':
+      $default_excluded_form_ids = array(
+        // It is highly unlikely that the administrator can cause any damage
+        // to the site by submitting the search form, so we exclude that by
+        // default.
+        'search_form',
+        'search_block_form',
+        'search_theme_form',
+      );
+      $default_value = implode("\r", $default_excluded_form_ids);
+      break;
+  }
+  if (isset($default_value)) {
+    return variable_get($variable_name, $default_value);
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function alert_to_admin_theme() {
+  return array(
+    'alert_to_admin_message' => array(
+      'variables' => array('message' => NULL),
+      'file' => 'alert_to_admin.admin.inc',
+    ),
+    'alert_to_admin_help' => array(
+      'variables' => array('help_text' => NULL),
+      'file' => 'alert_to_admin.admin.inc',
+    ),
+  );
+}

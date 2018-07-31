@@ -1,0 +1,7 @@
+name = C4C Socrata
+description = Integration with https://colombia-mintic.data.socrata.com
+core = 7.x
+dependencies[] = libraries
+dependencies[] = rules
+package = Commons For Colombia
+

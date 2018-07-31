@@ -1,0 +1,1340 @@
+
+.gtranslate_b select option {
+    color: black;
+}
+
+.gtranslate_b select {
+    color: black;
+    border: none;
+}
+
+/*  Level 2 */
+.panel-pane.pane-views.pane-view-use-data {
+    max-width: 1350px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    padding-bottom: 39px;
+    background-color: #fbfbfb;
+}
+
+.pane-view-use-data .pane-title {
+  display: none;
+}
+
+.pane-view-use-data .fieldset {
+  border: none;
+}
+
+/*
+.pane-view-use-data .fieldset.views-fieldset {
+    padding-top: 60px;
+}*/
+
+.pane-view-use-data .fieldset .fieldset-wrapper {
+    display: table-row;
+}
+
+
+.node-type-uses .layout-3col__full h1 {
+  display: none;
+}
+
+.fieldset .fieldset-legend {
+  display: none;
+}
+
+.pane-view-use-data .pane-content {
+  background-color: #f2f2f2;
+}
+
+.pane-view-use-data .pane-content .view-content {
+  margin-left: 114px;
+  margin-right: 87px;
+}
+
+.view-view-use-data .views-field-title span{
+  font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #81214F;
+}
+
+
+.view-view-use-data .fieldset.views-fieldset {
+    display: table;
+}
+
+ .view-view-use-data .field-name-field-image img {
+    border-radius: 19px 19px 19px 19px;
+    -moz-border-radius: 19px 19px 19px 19px;
+    -webkit-border-radius: 19px 19px 19px 19px;
+    border: 1px solid #f2f2f2;
+}
+
+.view-view-use-data fieldset.fieldset-title-row1.views-fieldset {
+    border: none;
+    display: table;
+    padding-left: 0px;
+    padding-bottom: 0px;
+}
+
+
+.view-view-use-data .tble_row1 {
+    display: table;
+    width: 100%;
+}
+
+.view-view-use-data .col1_row1 {
+    display: table-cell;
+    width: 38%;
+}
+
+
+.view-view-use-data span.ttle1 {
+    font-weight: bold;
+    color: black;
+}
+
+.view-view-use-data .col2_row1 {
+    display: table-cell;
+    width: 38.8%;
+}
+
+.view-view-use-data span.ttle2 {
+    font-weight: bold;
+    color: black;
+}
+
+.view-view-use-data  .col3_row1 {
+    display: table-cell;
+    width: 43%;
+}
+
+.view-view-use-data span.ttle3 {
+    font-weight: bold;
+    color: black;
+}
+
+.view-view-use-data .fieldset-title-row1 .views-field.views-field-nothing {
+    display: block !important;
+    width: 100% !important;
+}
+
+.view-view-use-data .field.field-name-field-image.field-type-image.field-label-hidden {
+    display: table-cell;
+    position: relative;
+
+}
+
+
+
+.view-view-use-data .fieldset-databasic {
+  border: none;
+  position: relative;
+      display: table-cell;
+      padding-left: 33px;
+      vertical-align: top;
+}
+
+.pane-view-use-data .filedset-description-use {
+  border: none;
+  position: relative;
+  padding: 1.825rem 0 0.6rem;
+}
+
+.view-view-use-data .filedset-description-use legend {
+  display: none;
+}
+
+.view-view-use-data .fieldset-detail {
+    border: none;
+    display: table;
+    position: relative;
+    padding: 0 0 0.6rem;
+  /*  top: -68px; */
+}
+
+.view-view-use-data .fieldset-detail legend {
+  display: none;
+}
+
+.view-view-use-data .wr-cdate {
+    display: table-cell;
+    width: 26.4%;
+}
+
+.view-view-use-data .wr-cdate span {
+  font-weight: bold;
+}
+
+.view-view-use-data .wr-cdate .field-items span {
+  font-size: 14px;
+font-weight: 300;
+}
+
+.view-view-use-data .wr-city {
+    display: table-cell;
+    width: 43%;
+}
+
+.view-view-use-data .wr-city span {
+  font-weight: bold;
+}
+
+.fieldset-detail span.views-label.views-label-nothing {
+    font-weight: bold;
+}
+
+.fieldset-detail .views-field.views-field-nothing {
+    display: table-cell;
+    width: 43%;
+}
+
+.view-view-use-data .wr-city .field-items span {
+    font-weight: normal !important;
+}
+
+.view-view-use-data .field.field-name-field-municipio.field-type-taxonomy-term-reference.field-label-hidden {
+  /*  width: 141px; */
+}
+
+
+
+.view-view-use-data .Fieldset-detail-row1  {
+    border: none;
+  /*  display: table; */
+  padding-left: 0px;
+  padding-top: 0px;
+}
+
+.Fieldset-detail-row1 .fieldset-wrapper {
+    display: table;
+    width: 100%
+}
+
+
+.view-view-use-data .field-name-field-municipio .taxonomy-term.count-1 {
+    display: table-cell;
+    width:  63.5%;
+}
+
+.view-view-use-data .field-name-field-municipio .taxonomy-term.count-2 {
+    display: table-cell;
+    width: 250px;
+}
+
+
+.view-view-use-data .fieldset-detail-row1 legend {
+  display: none;
+}
+
+.view-view-use-data .fieldset-detail-row1 .fieldset-wrapper {
+    display: table-row;
+}
+
+.view-view-use-data .Fieldset-detail-row2  {
+    border: none;
+    display: table;
+    padding: 0.96rem 0 0.6rem;
+}
+
+.view-view-use-data .fieldset-detail-row2 legend {
+  display: none;
+}
+
+
+.view-view-use-data .wr-cat {
+    display: table-cell;
+    width: 42.2%
+}
+
+.view-view-use-data .wr-cat span {
+  font-weight: bold;
+}
+
+.view-view-use-data .wr-cat .field-items span {
+    font-weight: normal !important;
+}
+
+.field.field-name-field-product-type.field-type-taxonomy-term-reference.field-label-hidden {
+    width: 150px;
+}
+
+
+
+.view-view-use-data .wr-ptype {
+    display: table-cell;
+    width: 43%;
+}
+
+.view-view-use-data .wr-ptype span {
+  font-weight: bold;
+}
+
+.view-view-use-data .wr-ptype .field-items span {
+    font-weight: normal !important;
+}
+
+
+.view-view-use-data .wr-author {
+    display: table-cell;
+    width: 43%;
+    position: relative;
+    /*left: 16px;*/
+}
+
+.view-view-use-data .wr-author span {
+  font-weight: bold;
+}
+
+.view-view-use-data .wr-author .field-items span {
+    font-weight: normal !important;
+}
+
+.field.field-name-field-author.field-type-text.field-label-hidden {
+    width: 150px;
+}
+
+.fieldset-dataset.views-fieldset {
+    border: none;
+    position: relative;
+  /*  top: -100px; */
+      padding: 0.3rem 0 0.6rem;
+}
+
+.fieldset-dataset.views-fieldset legend {
+  display: none;
+}
+
+
+
+.fieldset-dataset .fieldset-wrapper span {
+/*    padding-top: 31px; */
+    display: none;
+    font-weight: bold;
+    color: black;
+}
+
+
+.view-view-use-data .field-collection-view-final {
+ border-radius: 19px 19px 19px 19px;
+  -moz-border-radius: 19px 19px 19px 19px;
+  -webkit-border-radius: 19px 19px 19px 19px;
+  border-width: 1px;
+border-style: solid;
+border-color: #f2f2f2;
+border-collapse: unset;
+background: white;
+}
+
+.field-collection-view-final th {
+    background-color: #ffffff !important;
+}
+
+
+
+.field-collection-view-final .odd .field_title {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f2f2f2;
+}
+
+.field-collection-view-final .even .field_title {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f2f2f2;
+}
+
+.field-collection-view-final .odd .field_url {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f2f2f2;
+}
+
+.field-collection-view-final .even .field_url {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #f2f2f2;
+}
+
+.field.field-name-field-title.field-type-text.field-label-hidden {
+    text-align: center;
+    color: black;
+}
+
+.field.field-name-field-url.field-type-link-field.field-label-hidden {
+    text-align: center;
+}
+
+.field-collection-view-final th.field_title {
+    color: #81214F !important;
+    font-weight: bold;
+    font-size: 21px;
+    width: 30%;
+}
+
+.field-collection-view-final th.field_url {
+    color: #81214F !important;
+    font-weight: bold;
+    font-size: 21px;
+    width: 70%;
+}
+
+.view-view-use-data .wr-license {
+    position: relative;
+  /*  top: -88px; */
+}
+
+.view-view-use-data .wr-license span {
+    font-weight: bold;
+}
+
+.clearfix.fivestar-average-stars.fivestar-average-text {
+/*    height: 53px; */
+}
+
+.view-view-use-data .field.field-name-field-resume.field-type-text.field-label-hidden {
+    margin-top: 12px;
+}
+
+
+/* Add Uses */
+
+.page-node-add-use .layout- {
+    background-color: #f2f2f2 !important;
+}
+
+.page-node-add-use .form-item-field-image-und-0 .image-preview {
+    border-radius: 29px 29px 29px 29px;
+    -moz-border-radius: 29px 29px 29px 29px;
+    -webkit-border-radius: 29px 29px 29px 29px;
+    border: 2px solid #C4C2C3;
+}
+
+.page-node-add-uses div.field-name-field-titulo {
+    display: table-cell;
+    width: 50%;
+}
+
+.page-node-add-uses div.field-name-field-url {
+    display: table-cell;
+    width: 50%;
+    padding-left: 20px;
+}
+
+
+
+.view-view-use-data .wr-social {
+    display: table;
+    padding: 0.96rem 0 0.6rem;
+}
+
+.view-view-use-data .wr-social span {
+    font-weight: bold;
+    color: black;
+}
+
+.fivestar-average-stars .form-item .description, .fivestar-average-stars .form-item .clearfix {
+  color: black;
+  font-size: 14px;
+  font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+
+}
+
+.views-field-field-rating-1 .clearfix {
+  color: #812250;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.views-field-field-rating-1 span.fs_count_votes {
+    display: none;
+}
+
+
+.views-field-field-rating-1 .fs_count_total {
+      background: url(/sites/all/themes/custom/zen_c4c/images/person16.svg) no-repeat transparent !important;
+      color: transparent;
+      width: 16px;
+}
+
+.field-name-field-rating .fivestar-summary.fivestar-summary-average-count {
+    display: none;
+}
+
+.field-name-field-rating .fivestar-widget-static span {
+  background: url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -134px -114px transparent !important;
+}
+
+.field-name-field-rating div.fivestar-widget-static .star span.on {
+  background: url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -108px -114px transparent !important;
+}
+
+.pane-view-use-data .field.field-name-field-resume.field-type-text.field-label-hidden, .pane-view-use-data .field.field-name-field-body.field-type-text-long.field-label-hidden {
+    color: black;
+}
+
+.wr-cdate , .wr-city , .wrcu-ptype  , .wr-cat , .wr-ptype , .wr-author, .wr-license {
+  color: black;
+}
+
+.fieldset-detail span.views-label.views-label-nothing {
+  color: black;
+}
+
+.pane-view-use-data .field.field-name-field-body.field-type-text-long.field-label-hidden {
+  text-align: justify;
+}
+
+.pane-view-use-data .field.field-name-field-body.field-type-text-long.field-label-hidden p {
+    color: black;
+}
+
+
+.pane-view-use-data .field-content.field_depto {
+    color: black;
+}
+
+.pane-view-use-data  .field.field-name-field-social-impact-description.field-type-text.field-label-hidden {
+  color:black;
+}
+
+.view.view-view-use-data.view-id-view_use_data.view-display-id-block {
+  background: #fbfbfb;
+}
+
+
+.pane-view-use-data .views-field-service-links {
+    padding-top: 34px;
+}
+
+.pane-view-use-data .Fieldset_ds.views-fieldset {
+    display: table-row;
+}
+
+fieldset.fieldset-databasic.views-fieldset legend {
+    display: none;
+}
+
+.page-node-add-uses #field-other-datasets-values td {
+    padding-bottom: 1em;
+}
+
+.pane-view-use-data .fivestar-widget .on a {
+    background:  url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -108px -114px !important;
+    text-decoration: none;
+    color:transparent;
+}
+
+.pane-view-use-data .fivestar-widget .hover a {
+    background:  url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -108px -114px !important;
+      text-decoration: none;
+      color:transparent;
+}
+
+.pane-view-use-data .fivestar-widget .star a {
+  /*  background: url(/sites/all/modules/contrib/fivestar/widgets/default/staruva.gif) no-repeat 0 0; */
+    background: none;
+    text-decoration: none;
+    color:transparent;
+}
+
+
+.pane-view-use-data div.fivestar-widget .star {
+  /*  background: none !important; */
+  background: url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat -134px -114px transparent !important;
+  height: 17px !important;
+}
+
+.pane-view-use-data .fivestar-widget.clearfix.fivestar-widget-5 {
+    float: left;
+}
+
+
+.pane-view-use-data .fivestar-widget div.chosen-processed {
+    display: none !important;
+
+}
+
+.pane-view-use-data  .field.field-name-field-rating.field-type-fivestar.field-label-hidden {
+    height: 23px;
+}
+
+.pane-view-use-data  .form-item {
+     margin: 0 0;
+}
+
+.pane-view-use-data .field-collection-view-final tr {
+  background: transparent !important;
+  height: 3em;
+}
+
+.pane-view-use-data .field-collection-view-final tr th {
+  background: transparent !important;
+}
+
+.pane-view-use-data .field-collection-view-final td.field_title, th.field_title {
+    border-right-width: 1px;
+    border-right-color: #f2f2f2;
+    border-right-style: solid;
+}
+
+.pane-view-use-data .field-type-text-long p {
+    text-align: justify;
+}
+
+
+.pane-view-use-data div.fivestar-widget-static .star {
+  background: none;
+    height: 16px;
+}
+
+.pane-view-use-data .views-field.views-field-field-product-url {
+    display: table-cell;
+    width: 26%;
+}
+
+.pane-view-use-data .wr-attach {
+    display: table-cell;
+    width: 43%;
+}
+
+.pane-view-use-data .wr-attach span.title_attach {
+    font-weight: bold;
+    color: black;
+}
+
+.pane-view-use-data span.views-label.views-label-field-product-url {
+    font-weight: bold;
+    color: black;
+}
+
+.pane-view-use-data .fieldset-row3.views-fieldset {
+    border: none;
+    display: table;
+    padding: 0.96rem 0 0.6rem;
+    width: 100%;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-facebook a, .pane-view-use-data .views-field-service-links .links li.service-links-google-plus a, .pane-view-use-data .views-field-service-links .links li.service-links-linkedin a, .pane-view-use-data .views-field-service-links .links li.service-links-twitter a {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    background: url(/sites/all/themes/custom/zen_c4c/images/spritevector.svg) no-repeat !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-facebook a {
+    background-position: -374px -184px !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-facebook a:hover {
+    background-position: -374px -223px !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-google-plus a {
+    background-position: -523px -184px !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-google-plus a:hover {
+    background-position: -523px -223px !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-linkedin a {
+    background-position: -474px -184px !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-linkedin a:hover {
+    background-position: -474px -223px !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-twitter a {
+    background-position: -424px -184px !important;
+}
+
+.pane-view-use-data .views-field-service-links .links li.service-links-twitter a:hover {
+    background-position: -424px -223px !important;
+}
+
+
+.pane-view-use-data  .field-name-field-image img {
+    max-width: none !important;
+}
+
+.field-name-field-attachment .field-item.even {
+    width: 267px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.field-name-field-license ul.terms-hierarchy {
+    list-style-type: none;
+    margin-top: 0;
+    -webkit-padding-start: 0px;
+}
+
+.field-name-field-license li.taxonomy-term.count-2 {
+    padding-left: 21px;
+}
+
+
+
+/* Node Add Uses Styling */
+
+.page-node-add-uses .layout-center {
+    background-color: #fbfbfb;
+}
+
+.page-node-add-uses div#overlay-content {
+  background-color: #fbfbfb !important;
+}
+
+.page-node-add-uses .layout-3col__full h1 {
+    display: none;
+}
+
+.input#edit-field-social-impact-description-und-0-value {
+  width: 100%
+}
+
+.page-node-add-uses  .lbl_title_main {
+    background-color: #853079;
+    color: white;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    text-align: center;
+    font-size: 21px;
+    vertical-align: middle;
+    height: 37px;
+}
+
+.page-node-add-uses .lbl_title_main label {
+    padding-top: 4px;
+}
+
+.page-node-add-uses .form-item.form-type-select.form-item-language {
+    display: none;
+}
+
+.page-node-add-uses div#edit-field-image label {
+    display: none;
+}
+
+.page-node-add-uses .form-field-name-field-image img.upload-preview {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9b9b9b;
+    border-radius: 23px;
+}
+
+
+.page-node-add-uses .image-widget-data span.zen-c4c--file-upload {
+    width: 278px;
+    height: 207px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #9b9b9b;
+    border-radius: 23px;
+    display: block;
+    padding-left: 20px;
+    padding-top: 12px;
+}
+
+.page-node-add-uses .image-widget-data span.zen-c4c-button {
+    display: none;
+}
+
+.page-node-add-uses .image-widget-data input#edit-field-image-und-0-upload {
+    margin-top: 20px;
+    width: 228px;
+}
+
+.page-node-add-uses .form-item-field-image-und-0 .description {
+    display: none;
+}
+
+.page-node-add-uses div#edit-field-image-und-0-ajax-wrapper {
+    width: 100%;
+}
+
+.page-node-add-uses div#edit-field-image {
+    width: 366px;
+    display: table-cell;
+}
+
+.page-node-add-uses div#edit-field-imagen {
+  width: 366px;
+    display: table-cell;
+}
+
+.page-node-add-uses .row_main_data {
+    display: table-cell;
+    padding-left: 31px;
+    position: relative;
+    top: 14px;
+    width: 100%
+}
+
+.page-node-add-uses input#edit-title-field-es-0-value {
+    width: 100%;
+}
+
+
+.page-node-add-uses .form-item.form-type-textfield.form-item-title {
+    width: 553px;
+}
+
+.page-node-add-uses .form-item.form-type-textfield.form-item-field-resume {
+    width: 420px;
+}
+
+.page-node-add-uses .row_main_data input {
+    border-radius: 21px;
+}
+
+.page-node-add-uses .row_main_data textarea#edit-field-resume {
+    height: 151px;
+    border-radius: 21px;
+}
+
+.page-node-add-uses .form-field-name-field-body .form-type-textarea textarea#edit-field-body-und-0-value {
+    border-radius: 21px;
+}
+
+.page-node-add-uses label[for=edit-field-fecha-de-creaci-n-und-0] {
+    display: none;
+}
+
+.page-node-add-uses label[for=edit-field-fecha-de-creaci-n-und-0-value] {
+    display: none;
+}
+
+.page-node-add-uses .form-item.form-type-textfield.form-item-field-fecha-de-creaci-n-time {
+   display: none;
+}
+
+.page-node-add-uses div#edit-field-fecha-de-creaci-n {
+    display: table-cell;
+        width: 42%;
+}
+
+.page-node-add-uses input#edit-field-fecha-de-creaci-n-datepicker-popup-0 {
+    border-radius: 21px;
+        width: 341px;
+}
+
+.page-node-add-uses .form-item-field-fecha-de-creaci-n-date .description {
+  display: none;
+}
+
+.page-node-add-uses label[for="edit-field-fecha-de-creaci-n"] {
+    display: none;
+}
+
+.page-node-add-uses label[for="edit-field-fecha-de-creaci-n-datepicker-popup-0"]:after {
+    content: "de Creación";
+}
+
+.page-node-add-uses .container-inline-date {
+    width: 368px;
+    display: table-cell;
+}
+
+.page-node-add-uses div#edit-field-author {
+    display: table-cell;
+}
+
+.page-node-add-uses input#edit-field-author-und-0-value {
+    border-radius: 21px;
+    width: 100%;
+}
+
+.page-node-add-uses select#edit-field-municipio-und-0-tid-select-1, .page-node-add-uses select#edit-field-municipio-und-0-tid-select-2, .page-node-add-uses select#edit-field-municipio-und-0-tid-select-3  {
+    margin-right: 33px;
+    border-radius: 21px;
+}
+
+.page-node-add-uses  div#edit-field-sector {
+
+  width: 325px;
+    display: table-cell;
+    padding-right: 30px;
+}
+
+.page-node-add-uses .form-field-name-field-other-datasets legend {
+    display: none;
+}
+
+.page-node-add-uses fieldset#edit-field-other-datasets-und-0 {
+    border: none;
+    padding: 0;
+}
+
+.page-node-add-uses a.chosen-single {
+    border-radius: 21px;
+}
+
+.page-node-add-uses div#edit-field-product-type {
+    width: 341px;
+    display: table-cell;
+}
+
+.page-node-add-uses pan.zen-c4c-button {
+    display: none;
+}
+
+.page-node-add-uses  div#edit-field-social-impact {
+    display: table-cell;
+    width: 230px;
+}
+
+.page-node-add-uses div#edit-field-social-impact-description {
+    display: table-cell !important;
+        width: 85%;
+}
+
+
+.page-node-add-uses  input#edit-field-social-impact-description-und-0-value
+{
+  border-radius: 21px;
+    width: 100%;
+}
+
+.page-node-add-uses .form-item.form-type-textfield.form-item-field-author-und-0-value {
+    width: 577px;
+}
+
+.page-node-add-uses label[for="edit-field-municipio-und-0-tid"]:before {
+    content: "Departamento / ";
+}
+
+.node-type-uses .field.field-name-field-titulo.field-type-text.field-label-hidden {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    background: white;
+    color: black;
+}
+
+.node-type-uses .field-name-field-other-datasets .field-item.even,
+.node-type-uses .field-name-field-other-datasets .field-item.odd {
+    display: table;
+    width: 100%;
+}
+
+.node-type-uses .field.field-name-field-url.field-type-link-field.field-label-hidden {
+    text-align: center;
+    display: table-cell;
+    width: 50%;
+    background: white;
+}
+
+.form-managed-file .zen-c4c--file-upload span.zen-c4c-button {
+    display: none;
+}
+
+/* solo visible para admin */
+
+div#edit-field-estado {
+    display: none;
+}
+
+div#edit-field-action {
+    display: none;
+}
+
+.node-options-vtabs {
+    display: none;
+}
+
+input#edit-preview {
+    display: none;
+}
+
+input#edit-preview {
+    display: none;
+}
+
+/* fin solo administrador */
+
+/* End Node Add Uses Styling
+
+
+/* datasets display */
+
+.page-node .fieldset-dataset .fieldset-wrapper span {
+    display: block;
+}
+
+.page-node .header_ds p {
+    color: black;
+    font-weight: bold;
+}
+
+.page-node .tble_dsrow1 {
+    display: table;
+    width: 100%;
+}
+
+.page-node .col1_dsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+}
+
+.page-node .col2_dsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+}
+
+.page-node .dsttle1 {
+    color: #81214F !important;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.page-node .dsttle2 {
+    color: #81214F !important;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.node-inventario header {
+    background: white;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-weight: 300;
+    display: table-cell;
+    width: 50%;
+}
+
+
+.page-node .node.node-inventario {
+    display: table;
+    width: 100%;
+    background: white;
+}
+
+.page-node .node.node-inventario {
+    background: white;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-weight: 300;
+      width: 100%;
+}
+
+.page-node .field.field-name-field-dataset-er {
+    display: table;
+    width: 100%;
+}
+
+
+.node-inventario header h2 {
+  text-align: center;
+  color: black;
+  width: 100%;
+  font-size: 14px;
+  border-style: solid;
+  border-color: #fbfbfb;
+}
+
+.page-node .field.field-name-field-endpoint {
+    background: white;
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    font-weight: 300;
+    display: table-cell;
+    width: 50%;
+    border-style: solid;
+    border-color: #fbfbfb;
+}
+
+.page-node .header_ods p {
+    color: black;
+    font-weight: bold;
+}
+
+
+
+.page-node .views-field.views-field-nothing-2 {
+    padding-top: 33px;
+}
+
+.page-node .field.field-name-field-autor.field-type-text.field-label-hidden {
+    display: none;
+}
+
+
+.page-node .tble_odsrow1 {
+    display: table;
+    width: 100%;
+}
+
+.page-node .col1_odsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+}
+
+.page-node .col2_odsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+}
+
+.page-node .odsttle1 {
+    color: #81214F !important;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.page-node .odsttle2 {
+    color: #81214F !important;
+    font-weight: bold;
+    font-size: 21px;
+  }
+
+.page-node  .wr-license {
+    padding-top: 32px;
+}
+
+.page-node .tble_dsrow1 {
+    background-color: white;
+
+}
+
+.page-node .tble_odsrow1 {
+    background-color: white;
+
+}
+
+.page-node .col1_dsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fbfbfb;
+}
+
+.page-node .col2_dsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fbfbfb;
+}
+
+.page-node .col1_odsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fbfbfb;
+}
+
+.page-node .col2_odsrow1 {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fbfbfb;
+}
+
+.page-node .field-name-field-other-datasets .field.field-name-field-titulo.field-type-text.field-label-above {
+    display: table-cell;
+    width: 50%;
+}
+
+.page-node .field-name-field-other-datasets .field.field-name-field-url.field-type-link-field.field-label-above {
+    display: table-cell;
+    width: 50%;
+}
+
+.page-node .field-name-field-other-datasets .field-label {
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fbfbfb;
+    color: #81214F !important;
+    font-weight: bold;
+    font-size: 21px;
+    background-color: white;
+}
+
+.page-node .fieldset-dataset span {
+    color: black;
+    font-weight: bold;
+}
+
+.page-node .field-name-field-other-datasets .field-items > .field-item.even {
+    text-align: center;
+    background-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fbfbfb;
+    color: black;
+    font-weight: 300;
+}
+.page-node .field-name-field-other-datasets .field-items > .field-item.odd {
+    text-align: center;
+    background-color: white;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #fbfbfb;
+    color: black;
+    font-weight: 300;
+}
+.node-type-uses .odd .field-items > .field-item.even {
+  background: white !important;
+}
+
+.page-node .field.field-name-field-dataset-er.field-type-entityreference.field-label-hidden {
+    padding-bottom: 35px;
+}
+
+/* GTranslate */
+
+.gtranslate_b .active-result {
+    background: none !important;
+}
+
+.gtranslate_b  {
+    float: left;
+}
+
+ .language-switcher-container {
+    display: none !important;
+}
+
+/*
+.gtranslate_b .chosen-container.chosen-container-single.chosen-processed {
+    border-color: #8f2651;
+    border-style: solid;
+    border-width: 1px;
+}
+*/
+
+.gtranslate_b span {
+    font-size: 12px;
+    font-weight: normal;
+    color: Black;
+}
+
+.gtranslate_b .chosen-single {
+    background-color: white !important;
+}
+
+.gtranslate_b {
+/*  display: none; */
+}
+
+ .gtranslate_b {
+  display: block !important;
+}
+
+.view-view-use-data .field-name-field-resume .field-item.even {
+    color: black;
+}
+
+.page-node-add-uses div.ctools-modal-content .modal-header {
+  background-color: #853079;
+    padding: 0 .25em 0 1em;
+}
+
+.page-node-add-uses div#edit-field-municipio {
+    display: table-cell;
+    width: 40%;
+}
+
+.page-node-add-uses .form-type-managed-file label {
+    width: 10%;
+}
+
+.page-node-add-uses div#edit_field_sector_und_chosen {
+    width: 348px !important;
+}
+
+.page-node-add-uses textarea#edit-field-social-impact-description-und-0-value {
+    border-radius: 29px;
+}
+
+.page-node-add-uses select#edit-field-license-es-0-tid-select-1 {
+    border-radius: 29px;
+}
+
+.page-node-add-uses select#edit-field-license-es-0-tid-select-2 {
+    border-radius: 29px;
+}
+
+.page-node-add-uses  input#edit-field-fecha-de-creaci-n-und-0-value-datepicker-popup-0 {
+    border-radius: 29px;
+}
+
+.page-node-add-uses  textarea#edit-field-resume-und-0-value {
+    border-radius: 29px;
+}
+
+.page-node-add-uses input#edit-title--2 {
+    width: 100%;
+}
+
+.page-node-add-uses .chosen-container-active.chosen-with-drop .chosen-single, .page-node-add-uses  .chosen-container-single .chosen-single {
+  border-radius: 29px !important;
+}
+
+.page-node-add-uses .chosen-container-active.chosen-with-drop .chosen-single div b, .page-node-add-uses  .chosen-container-single .chosen-single div b {
+  background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+
+}
+
+ .wr-social .field-item.even {
+    color: black;
+}
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
+    .pane-view-use-data .pane-content .view-content {
+      margin-left: 41px;
+      margin-right: 41px;
+  }
+
+.page-node .panel-pane.pane-block.pane-asopendata-core-header {
+    width: 100%;
+}
+
+.page-node .layout-3col__full {
+      width: 98vh !important;
+}
+
+.page-node .view-content .views-row.views-row-1 {
+  /*  width: 97vh;
+    left: 12px; */
+    position: relative;
+}
+
+.page-node .pd-1col {
+    width: 112vh;
+}
+
+  }
+
+@media only screen and (min-width: 300px) and (max-width: 1300px) {
+  .view-view-use-data .wr-cat {
+        width: 41.8%;
+  }
+  .view-view-use-data .wr-ptype {
+      width: 41.8%;
+  }
+}

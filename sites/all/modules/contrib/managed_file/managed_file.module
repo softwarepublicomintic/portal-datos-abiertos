@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Managed File.
+ */
+
+require_once 'includes/managed_file.common.inc';
+
+/**
+ * Implements hook_menu().
+ */
+function managed_file_menu() {
+  $routes = [];
+
+  $routes['managed_file/get_fid_by_uri'] = [
+    'type' => MENU_CALLBACK,
+    'file' => 'includes/managed_file.pages.inc',
+    'page callback' => 'managed_file_get_fid_by_uri',
+    'access arguments' => ['access content'],
+  ];
+
+  return $routes;
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function managed_file_element_info_alter(array &$types) {
+  $types['managed_file'] += [
+    // Could be "imce" or "ckfinder".
+    '#widget' => FALSE,
+    '#preview' => TRUE,
+    // WARNING! If this will be set to TRUE, then on form submit will be an
+    // array of values instead of file ID.
+    '#styles' => FALSE,
+  ];
+
+  // Store default callback to custom property.
+  $types['managed_file']['#default_value_callback'] = $types['managed_file']['#value_callback'];
+  // Override default callback for obtaining the value.
+  $types['managed_file']['#value_callback'] = 'managed_file_element_value';
+  // Must be executed by the first due to low-level processing.
+  array_unshift($types['managed_file']['#process'], 'managed_file_element_process');
+}

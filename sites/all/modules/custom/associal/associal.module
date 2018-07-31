@@ -1,0 +1,165 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function associal_menu() {
+    $items['social/auth/%'] = array(
+      'title' => 'Autorización Facebook',
+      'page callback' => 'social_FBAuth',
+      'access callback' => TRUE,
+      'page arguments' => array(2),
+      'file' => 'includes/Social_FBLogin.inc',
+    );
+
+    return $items;
+
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function associal_theme(){
+
+   //$module_path = drupal_get_path('module', 'agios_core');
+
+  return array(
+  'social' => array(
+     'template' => 'socialmodern',
+      'variables' => array(),
+   )
+  );
+}
+
+function associal_block_info() {
+  $blocks['social'] = array(
+    'info' => t('Social Login'),
+  );
+  return $blocks;
+}
+
+function associal_block_configure($delta = '') {
+  // This example comes from node.module.
+  $form = array();
+  if ($delta == 'social') {
+        $form['social_tabs'] = array(
+            '#type' => 'vertical_tabs',
+            '#default_tab' => 'edit-fbtab',
+            );
+            $form['fbtab'] = array(
+              '#type' => 'fieldset',
+              '#title' => t('Facebook'),
+              '#collapsible' => TRUE,
+              '#group' => 'social_tabs',
+            );
+                $form['fbtab']['FAppID'] = array(
+                  '#type' => 'textfield',
+                  '#title' => t('Ingrese el identificador de la aplicación asignado por Facebook'),
+                  '#default_value' => variable_get('FAppID', '0'),
+                 );
+
+                $form['fbtab']['FAppSecret'] = array(
+                   '#type' => 'textfield',
+                   '#title' => t('Ingrese la clave secreta de la aplicación asignado por Facebook'),
+                   '#default_value' => variable_get('FAppSecret', '0'),
+                  );
+            $form['gtab'] = array(
+              '#type' => 'fieldset',
+              '#title' => t('Google'),
+              '#collapsible' => TRUE,
+              '#group' => 'social_tabs',
+            );
+                $form['gtab']['GAppID'] = array(
+                  '#type' => 'textfield',
+                  '#title' => t('Ingrese el identificador de la aplicación asignado por Google'),
+                  '#default_value' => variable_get('GAppID', '0'),
+                );
+
+                $form['gtab']['GAppSecret'] = array(
+                 '#type' => 'textfield',
+                 '#title' => t('Ingrese la clave secreta de la aplicación asignado por Google'),
+                 '#default_value' => variable_get('GAppSecret', '0'),
+               );
+            $form['ltab'] = array(
+                 '#type' => 'fieldset',
+                 '#title' => t('Linkedin'),
+                 '#collapsible' => TRUE,
+                 '#group' => 'social_tabs',
+               );
+               $form['ltab']['LAppID'] = array(
+                 '#type' => 'textfield',
+                 '#title' => t('Ingrese el identificador de la aplicación asignado por Linkedin'),
+                 '#default_value' => variable_get('LAppID', '0'),
+                );
+
+                $form['ltab']['LAppSecret'] = array(
+                  '#type' => 'textfield',
+                  '#title' => t('Ingrese la clave secreta de la aplicación asignado por Linkedin'),
+                  '#default_value' => variable_get('LAppSecret', '0'),
+                 );
+          $form['ttab'] = array(
+                      '#type' => 'fieldset',
+                      '#title' => t('Twitter'),
+                      '#collapsible' => TRUE,
+                      '#group' => 'social_tabs',
+                    );
+                    $form['ttab']['TAppID'] = array(
+                      '#type' => 'textfield',
+                      '#title' => t('Ingrese el Consumer Key de la aplicación asignado por Twitter'),
+                      '#default_value' => variable_get('TAppID', '0'),
+                     );
+                   $form['ttab']['TAppSecret'] = array(
+                       '#type' => 'textfield',
+                       '#title' => t('Ingrese el Consumer Secret de la aplicación asignado por Twitter'),
+                       '#default_value' => variable_get('TAppSecret', '0'),
+                      );
+                    $form['ttab']['TCallBack'] = array(
+                        '#type' => 'textfield',
+                        '#title' => t('Ingrese la URL hacia donde se dirige luego del login'),
+                        '#default_value' => variable_get('TCallBack', ''),
+                       );
+
+  };
+
+
+  return $form;
+}
+
+  function associal_block_save($delta = '', $edit = array()) {
+  // We need to save settings from the configuration form.
+  // We need to check $delta to make sure we are saving the right block.
+  if ($delta == 'social') {
+    // Have Drupal save the string to the database.
+    var_dump($edit);
+    variable_set('FAppID', $edit['FAppID']);
+    variable_set('FAppSecret', $edit['FAppSecret']);
+    variable_set('GAppID', $edit['GAppID']);
+    variable_set('GAppSecret', $edit['GAppSecret']);
+    variable_set('LAppID', $edit['LAppID']);
+    variable_set('LAppSecret', $edit['LAppSecret']);
+    variable_set('TAppID', $edit['TAppID']);
+    variable_set('TAppSecret', $edit['TAppSecret']);
+    variable_set('TCallBack', $edit['TCallBack']);
+  };
+
+}
+
+
+function associal_block_view($delta = ''){
+
+  switch ($delta) {
+    case 'social':
+       $block['subject'] =t('Social Login');
+       $block['content'] = array(
+         '#theme' => 'social'
+       );
+       return $block;
+      break;
+
+        }
+}
+
+// Crea las url para la conexion por redes sociales
+
+?>

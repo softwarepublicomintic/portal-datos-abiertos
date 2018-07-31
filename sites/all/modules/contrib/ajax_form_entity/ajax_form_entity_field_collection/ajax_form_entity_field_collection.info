@@ -1,0 +1,14 @@
+name = "Ajax form entity field collection formatter"
+description = "Adds specific field formatter to edit field collection entities"
+core = "7.x"
+version = "7.x-1.0"
+dependencies[] = "field_collection"
+dependencies[] = "ajax_form_entity"
+package = "Administration"
+
+; Information added by Drupal.org packaging script on 2015-03-02
+version = "7.x-1.0-alpha3+4-dev"
+core = "7.x"
+project = "ajax_form_entity"
+datestamp = "1425284283"
+

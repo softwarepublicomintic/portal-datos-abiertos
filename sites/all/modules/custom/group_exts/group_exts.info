@@ -1,0 +1,7 @@
+name = Group Extras
+description = Some tweaks for Group.
+core = 7.x
+dependencies[] = group
+dependencies[] = gnode
+package = Commons For Colombia
+

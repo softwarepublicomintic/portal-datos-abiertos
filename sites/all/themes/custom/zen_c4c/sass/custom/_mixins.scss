@@ -1,0 +1,221 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+}
+
+@mixin box-shadow($vars) {
+  -webkit-box-shadow: $vars;
+     -moz-box-shadow: $vars;
+          box-shadow: $vars;
+
+      -ms-box-shadow: $vars;
+       -o-box-shadow: $vars;
+}
+
+@mixin boton-base($width-mobile, $height-mobile, $width-tablet, $height-tablet, $width-desktop, $height-desktop, $color, $color-hover) {
+  display: inline-block;
+  width: $width-desktop;
+  height: $height-desktop;
+  border: 0;
+  background: $color;
+  color: $color-blanco;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 2.3em;
+
+  @include border-radius(0);
+
+  &:hover {
+    background: $color-hover;
+  }
+
+  @media only screen and (min-width: $size-break1) and (max-width: $size-break2) {
+    width: $width-tablet;
+    height: $height-tablet;
+    line-height: $height-tablet;
+  }
+
+  @media only screen and (max-width: $size-break1) {
+    width: $width-mobile;
+    height: $height-mobile;
+    line-height: $height-desktop;
+  }
+}
+
+@mixin btn-menu-secundario {
+  @include boton-base(140px, 40px, 231px, 40px, 267px, 40px, $color-magenta, $color-amarillo);
+}
+
+@mixin btn-noticias-eventos {
+  @include boton-base(130px, 30px, 150px, 30px, 150px, 30px, $color-magenta, $color-amarillo);
+}
+
+@mixin btn-proyectos-noticias {
+  @include boton-base(250px, 30px, 250px, 30px, 250px, 30px, $color-magenta, $color-amarillo);
+}
+
+@mixin btn-contacto {
+  position: relative;
+  border: 1px solid $color-blanco;
+  font-weight: bold;
+
+  @include boton-base(120px, 40px, auto, 40px, 110px, 40px, $color-magenta, $color-amarillo);
+
+  &::before {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    z-index: 1;
+    border: 1px solid $color-blanco;
+    content: ' ';
+  }
+}
+
+@mixin btn-noticias-links {
+  @include boton-base(190px, 30px, 190px, 30px, 190px, 30px, $color-magenta, $color-amarillo);
+}
+
+@mixin inline-menu {
+
+  ul.language-switcher-locale-url,
+  ul.menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+
+    li {
+      display: inline-block;
+
+      a {
+        display: block;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@mixin width-correction ($marg) {
+  margin: $marg;
+  max-width: $size-break3;
+  width: 100%;
+
+  @media only screen and (min-width: $size-break1) and (max-width: $size-break2) {
+    padding: 0 10px;
+  }
+
+  @media only screen and (max-width: $size-break1) {
+    padding: 0 10px;
+  }
+}
+
+@mixin block-main-section-tools($txtcolor, $txtsize, $txtalign, $bdbordertop, $bdborderleft) {
+  width: 100%;
+  overflow: hidden;
+
+  .block-sobre-datos {
+    display: inline-block;
+    padding-right: 10px;
+    width: 30%;
+
+    .views-field-field-tool-icon {
+      margin: 0 auto;
+      width: 130px;
+
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    .views-field-title {
+      width: 70%;
+      margin: 0 auto;
+
+      h1 {
+        margin: 0;
+        color: $txtcolor;
+        text-align: $txtalign;
+        font-family: 'OpenSansBold';
+        font-size: $txtsize;
+        line-height: 1.4;
+
+        &:first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .views-field-body {
+    display: inline-block;
+    float: right;
+    padding: 36px 3%;
+    width: 70%;
+    border-top: $bdbordertop;
+    border-left: $bdborderleft;
+    background-color: $color-gris-tools;
+    vertical-align: top;
+
+    p {
+      color: black;
+      font-weight: normal;
+	    font-size: 17px;
+      line-height: 1.3;
+
+      span {
+        font-size: 17px !important;
+      }
+    }
+  }
+}
+
+@mixin tools-colors($color) {
+	/*
+	.view-display-id-block_1 .views-row .block-sobre-datos .views-field-title h1,
+	.view-display-id-block_1 .views-row .views-field-body {
+		color: $color;
+	}*/
+
+	.chosen-container-active.chosen-with-drop .chosen-drop li.highlighted,
+	.chosen-container-single .chosen-drop li.highlighted,
+	.views-exposed-form .views-exposed-widget label,
+	.views-field-field-tool-title a,
+	.view-display-id-block_4 .view-header .views-field-field-tool-title .field-content {
+		color: $color;
+	}
+
+	.view-display-id-block_4 .views-widget-filter-field_tool_title_value:after,
+	.jspDrag {
+		background-color: $color;
+	}
+
+  .views-widget-filter-field_tool_title_value,
+  .views-widget-filter-field_category_tid_selective {
+    .chosen-single,
+    input {
+      border-color: $color !important;
+    }
+
+    .chosen-container-active {
+      .chosen-drop {
+        border-top: 1px solid $color;
+      }
+    }
+  }
+
+	.views-widget-filter-field_category_tid_selective .chosen-single div b,
+  .view-filters .views-submit-button input {
+		background-color: $color !important; // el chosen nos obliga a usar absolute
+	}
+}

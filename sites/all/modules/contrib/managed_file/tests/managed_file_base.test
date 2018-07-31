@@ -1,0 +1,166 @@
+<?php
+
+/**
+ * @file
+ * Managed File Base (Test).
+ */
+
+/**
+ * Class ManagedFileBase.
+ */
+class ManagedFileBase extends \DrupalWebTestCase {
+
+  /**
+   * The name of module functionality of which will be tested.
+   */
+  const MODULE = '';
+  /**
+   * Relative path to module directory.
+   *
+   * @var string
+   */
+  protected $path = '';
+  /**
+   * Real path to module directory.
+   *
+   * @var string
+   */
+  protected $realPath = '';
+  /**
+   * Parents of a form element. Needed to generate field names.
+   *
+   * @var string[]
+   */
+  protected $elementParents = [];
+  /**
+   * Use all parents or only last for generating the names for fields.
+   *
+   * @var bool
+   */
+  protected $useElementParents = FALSE;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function setUp(array $modules = [], array $permissions = []) {
+    array_unshift($modules, static::MODULE);
+    array_unshift($permissions, 'access content');
+
+    parent::setUp($modules);
+
+    $this->path = drupal_get_path('module', static::MODULE);
+    $this->realPath = drupal_realpath($this->path);
+
+    $this->drupalLogin($this->drupalCreateUser($permissions));
+  }
+
+  /**
+   * Check that field has a value.
+   *
+   * @param string|array $name
+   *   Field name.
+   * @param mixed|null $value
+   *   Field value.
+   *
+   * @return bool
+   *   TRUE on pass, FALSE on fail.
+   */
+  protected function assertFieldValue($name, $value = NULL) {
+    return $this->assertFieldByXpath($this->getFieldXpath($name), $value);
+  }
+
+  /**
+   * Check that field has not a value.
+   *
+   * @param string|array $name
+   *   Field name.
+   * @param mixed|null $value
+   *   Field value.
+   *
+   * @return bool
+   *   TRUE on pass, FALSE on fail.
+   */
+  protected function assertNoFieldValue($name, $value = NULL) {
+    return $this->assertNoFieldByXpath($this->getFieldXpath($name), $value);
+  }
+
+  /**
+   * Prefix the "name" attribute.
+   *
+   * @code
+   * $this->useElementParents = FALSE;
+   * $this->elementName(); // menu_image
+   * $this->elementName('upload_button'); // menu_image_upload_button
+   * $this->elementName('[fid]'); // menu_image[fid]
+   *
+   * $this->useElementParents = TRUE;
+   * $this->elementName(); // options[menu_image]
+   * $this->elementName('upload_button'); // options_menu_image_upload_button
+   * $this->elementName('[fid]'); // options[menu_image][fid]
+   * @endcode
+   *
+   * @param string $suffix
+   *   The suffix of "name" attribute.
+   *
+   * @return string
+   *   Full value of the "name" attribute.
+   */
+  protected function elementName($suffix = '') {
+    // Needed to split array values.
+    $glue = '_';
+    // Needed to separate parents and suffix.
+    $separator = '';
+
+    $this->useElementParents &= count($this->elementParents) > 1;
+
+    if ('' !== $suffix) {
+      // Get the first symbol of a suffix.
+      $symbol = substr($suffix, 0, 1);
+      $separator = $glue;
+
+      if ('[' === $symbol) {
+        // Split array values by "[".
+        $glue = $symbol;
+        // Remove first symbol from the suffix.
+        $suffix = ltrim($suffix, $symbol);
+        $separator = $this->useElementParents ? '][' : '[';
+      }
+    }
+
+    $name = ($this->useElementParents ? implode($glue, $this->elementParents) : end($this->elementParents)) . $separator . $suffix;
+    $this->assert('debug', $name, 'Debug');
+
+    return $name;
+  }
+
+  /**
+   * Get the file ID of latest uploaded file.
+   *
+   * @return int
+   *   File ID.
+   */
+  protected static function getLatestFid() {
+    return db_select('file_usage', 'fu')
+      ->fields('fu', ['fid'])
+      ->condition('module', static::MODULE)
+      ->condition('type', 'menu')
+      // Get latest file.
+      ->range(1, 1)
+      ->execute()
+      ->fetchField();
+  }
+
+  /**
+   * Returns field XPath.
+   *
+   * @param string $name
+   *   Field name.
+   *
+   * @return string
+   *   Field XPath.
+   */
+  private function getFieldXpath($name) {
+    return sprintf("//*[@name='%s']", $this->elementName($name));
+  }
+
+}

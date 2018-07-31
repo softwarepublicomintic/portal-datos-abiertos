@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Managed File (Test).
+ */
+
+/**
+ * Class ManagedFileTestCase.
+ *
+ * @group managed_file
+ */
+class ManagedFileTestCase extends \ManagedFileBase {
+
+  /**
+   * {@inheritdoc}
+   */
+  const MODULE = 'managed_file_test';
+  /**
+   * {@inheritdoc}
+   */
+  protected $elementParents = ['managed_file_test'];
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function getInfo() {
+    return [
+      'name' => t('Managed File'),
+      'group' => t('Form'),
+      'description' => t('Testing extended API of "managed_file" widget.'),
+    ];
+  }
+
+  /**
+   * Test integrity of the widget.
+   */
+  public function testWidgetIntegrity() {
+    $this->useElementParents = FALSE;
+
+    $this->drupalGet(static::MODULE);
+    // Upload (via AJAX) an image.
+    $this->drupalPost(NULL, [sprintf('files[%s]', $this->elementName()) => "$this->realPath/files/image.png"], t('Upload'));
+    // Ensure that "managed_file" widget works correctly and we see
+    // the "Remove" button after uploading.
+    $this->assertFieldValue('remove_button');
+    // Ensure that preview of uploaded image displaying.
+    $this->assertFieldByXPath("//img[@class='upload-preview']");
+    // Save the configuration with chosen image style.
+    $this->drupalPost(NULL, [$this->elementName('[style]') => 'thumbnail'], t('Save configuration'));
+    // Ensure that everything saved properly.
+    $this->assertRaw(t('The configuration options have been saved.'));
+    // Get the latest file ID and ensure that it is a value of needed field.
+    $this->assertFieldValue('[fid]', static::getLatestFid());
+    // Check that selected style is saved correctly.
+    $this->assertFieldValue('[style]', 'thumbnail');
+    // Remove uploaded file.
+    $this->drupalPost(NULL, [], t('Remove'));
+    // Ensure that file removed and "Upload" button exists.
+    $this->assertFieldValue('upload_button');
+  }
+
+}

@@ -1,0 +1,15 @@
+diff --git a/modules/gnode/gnode.module b/modules/gnode/gnode.module
+index a373479..106e3d6 100644
+--- a/modules/gnode/gnode.module
++++ b/modules/gnode/gnode.module
+@@ -464,6 +464,10 @@ function gnode_form_node_form_alter(&$form, $form_state) {
+  * @see gnode_form_node_form_alter()
+  */
+ function gnode_node_validate($node, $form, &$form_state) {
++  if (!isset($form_state['values']['group_settings'])) {
++    return;
++  }
++
+   $values = $form_state['values']['group_settings'];
+ 
+   if (!empty($values['group'])) {

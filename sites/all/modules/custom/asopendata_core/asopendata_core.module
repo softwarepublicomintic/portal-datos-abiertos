@@ -1,0 +1,67 @@
+<?php
+
+
+function asopendata_core_theme(){
+
+  return array(
+  'languaje_switcher' => array(
+     'template' => 'languaje_switcher',
+      'variables' => array(),
+   ),
+   'header_opendata' => array(
+      'template' => 'header',
+       'variables' => array(),
+    ),
+    'footer_opendata' => array(
+       'template' => 'footer',
+        'variables' => array(),
+     )
+  );
+}
+
+function asopendata_core_block_info() {
+  $blocks['languaje'] = array(
+    'info' => t('My Languaje Switcher'),
+  );
+  $blocks['header'] = array(
+    'info' => t('OpenData Header'),
+  );
+  $blocks['footer'] = array(
+    'info' => t('OpenData Footer'),
+  );
+  return $blocks;
+}
+
+
+function asopendata_core_block_view($delta = ''){
+
+  switch ($delta) {
+    case 'languaje':
+      $block['subject'] = t('My Languaje Switcher');
+      $block['content'] = array(
+            '#theme' => 'languaje_switcher'
+            );
+      return $block;
+      break;
+   case 'header':
+        $block['subject'] = t('OpenData Header');
+        $block['content'] = array(
+              '#theme' => 'header_opendata'
+              );
+        return $block;
+        break;
+  case 'footer':
+             $block['subject'] = t('OpenData Footer');
+             $block['content'] = array(
+                   '#theme' => 'footer_opendata'
+                   );
+             return $block;
+             break;
+
+   }
+
+}
+
+
+
+?>

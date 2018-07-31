@@ -1,0 +1,10 @@
+name = Alert To Administrator
+description = Provides a alert to site administrators reminding them that they are logged in as administrators, not regular users.
+core = 7.x
+
+; Information added by Drupal.org packaging script on 2016-08-11
+version = "7.x-1.1"
+core = "7.x"
+project = "alert_to_admin"
+datestamp = "1470932403"
+

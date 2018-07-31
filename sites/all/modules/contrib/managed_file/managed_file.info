@@ -1,0 +1,17 @@
+name = Managed File
+description = Provides an API to attach file managers to "managed_file" form field.
+package = Form
+core = 7.x
+php = 5.4
+
+files[] = tests/managed_file.test
+files[] = tests/managed_file_base.test
+
+dependencies[] = image
+
+; Information added by Drupal.org packaging script on 2017-01-29
+version = "7.x-1.2"
+core = "7.x"
+project = "managed_file"
+datestamp = "1485720187"
+

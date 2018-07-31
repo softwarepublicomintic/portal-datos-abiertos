@@ -1,0 +1,262 @@
+.pane-view-control-change .pane-title.pane__title {
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    background-color: #781d58;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 2.0em;
+}
+
+.view-view-control-change .description {
+      display: none;
+}
+
+.view-view-control-change .view-content .active {
+    color: #781d58 !important;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* DETAILS */
+.view-view-control-change .views-field.views-field-view-node {
+    color: #781d58 !important;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.view-view-control-change .views-row-first td {
+    font-size: 14px;
+    color: #5F5856;
+    /*text-align: center;*/
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: initial;
+}
+
+.view-view-control-change .field-items .field-item.even {
+    font-size: 14px;
+    color: #5F5856;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-weight: initial;
+    text-align: center;
+}
+
+.view-view-control-change .views-field-view-node a {
+    color: #5F5856;
+    position: relative;
+    text-align: center;
+}
+
+/*CENTRAR FECHA-AUTOR-ACCION*/
+.view-view-control-change .views-table .active {
+    /*position: relative;
+    left: -25px; */
+}
+
+
+
+.panel-pane.pane-views.pane-view-control-change {
+  background-color: #fbfbfb;
+max-width: 1350px;
+margin-right: auto;
+margin-left: auto;
+width: 100%;
+}
+
+.page-control-change .pd-1col {
+    background-color: #fbfbfb;
+}
+
+.view-view-control-change .views-field.views-field-view-node {
+    text-align: center;
+}
+
+
+
+.view-view-control-change .views-table tbody {
+    border-top-color: #A5AAAD;
+    border-top-style: solid;
+    height: 160px;
+}
+
+.view-view-control-change td {
+    border-top-color: #A5AAAD;
+    border-top-style: solid;
+}
+
+.view-view-control-change .views-table td {
+    background-color: transparent;
+    width: 152px;
+    height: 52px;
+}
+
+.view-view-control-change .field-items a {
+    color: #5F5856;
+    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+
+.view-view-control-change .chosen-container-single .chosen-single {
+  height: 43px !important;
+border-width: 1px !important;
+border-color: #D8DAD9 !important;
+border-style: solid !important;
+background-color: #ffffff !important;
+}
+
+.view-view-control-change .views-widget-filter-field_product_type_tid label {
+    /*display: table-cell;
+    width: 30%;
+    color: #781d58;
+    font-weight: bold;
+    font-size: 16px;
+    left: 340px;
+    position: relative;*/
+}
+
+.view-view-control-change .chosen-single div b {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+}
+
+
+.view-view-control-change .views-exposed-widget label {
+  display: table-cell;
+  width: 30%;
+  color: #781d58;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.view-view-control-change .views-widget .form-item.form-type-textfield.form-item-field-author-value {
+ /*    position: relative; */
+    /*left: 450px;*/
+  /*  border: none; */
+}
+
+.view-view-control-change .views-widget input {
+
+  width: 99.8%;
+border: none;
+height: 40px;
+}
+
+.view-view-control-change .views-widget-filter-field_author_value label {
+  color: transparent;
+background-image: url(/sites/all/themes/custom/zen_c4c/images/lupa.svg);
+background-repeat: no-repeat;
+background-position: center;
+background-color: #822250;
+width: 28px;
+display: table-cell;
+}
+
+.view-view-control-change .active img {
+  /*  background: url(/sites/all/themes/custom/zen_c4c/images/spritUvaPostu.png) no-repeat -429px -117px transparent !important;*/
+  width: 21px;
+  height: 21px;
+  position: relative;
+  left: 5px;
+}
+
+.view-view-control-change .field.field-name-field-author.field-type-text.field-label-hidden {
+    width: 100% !important;
+}
+
+.view-view-control-change .field.field-name-field-product-type.field-type-taxonomy-term-reference.field-label-hidden {
+    width: 100% !important;
+}
+
+.view-view-control-change #edit-field-product-type-tid-wrapper {
+
+}
+
+.view-view-control-change .views-widget #edit_field_product_type_tid_chosen {
+        width: 100% !important;
+
+}
+
+.view-view-control-change .chosen-search {
+    display: none;
+}
+
+.view-view-control-change .active-result.result-selected {
+    color: #781d58;
+}
+
+.view-view-control-change .views-exposed-form #edit-field-product-type-tid-wrapper {
+    position: relative;
+    width: 290px;
+}
+
+.view-view-control-change .chosen-container-active.chosen-with-drop .chosen-drop li.highlighted, .chosen-container-single .chosen-drop li.highlighted {
+    background: #fff;
+    color: #812250 !important;
+}
+
+.view-view-control-change .chosen-container-active.chosen-with-drop .chosen-single div b, .chosen-container-single .chosen-single div b {
+    background: url(/sites/all/themes/custom/zen_c4c/images/spriteuva.png) no-repeat -429px -117px transparent !important;
+}
+
+
+.view.view-view-control-change.view-id-view_control_change {
+      background: #fbfbfb;
+}
+
+
+.view-view-control-change .views-exposed-form {
+    display: table;
+    width: 100%;
+}
+
+.view-view-control-change .views-widget-filter-field_author_value {
+    position: relative;
+    top: 33px;
+    width: 862px;
+}
+
+.views-widget-filter-field_author_value .views-widget {
+    width: 100%;
+    border-color: #D8DAD9;
+    border-style: solid;
+    border-width: 1px;
+        display: table-cell;
+}
+
+.view-view-control-change .view-filters {
+    margin: 0 auto;
+    min-width: 1140px;
+    padding-left: 111px;
+    height: 100px;
+}
+
+.view-view-control-change  .view-content {
+    padding-left: 111px;
+    min-width: 1244px;
+    width: 1250px;
+}
+
+.view-view-control-change .views-table tbody tr:hover {
+    background-color: #F1F0F2 !important;
+}
+
+
+.page-control-change .layout-3col__full h1 {
+    display: none;
+}
+
+.view-view-control-change .view-content .views-table th img[alt="orden ascendente"] {
+    content: url(/sites/all/themes/custom/zen_c4c/images/arrow-asc.png);
+}
+
+.view-view-control-change .view-content .views-table th img[alt="orden descendente"] {
+    content: url(/sites/all/themes/custom/zen_c4c/images/arrow-desc.png);
+}
+
+.view-view-control-change .view-content .views-table th img[alt="sort ascending"] {
+    content: url(/sites/all/themes/custom/zen_c4c/images/arrow-asc.png);
+}
+
+.view-view-control-change .view-content .views-table th img[alt="sort descending"] {
+    content: url(/sites/all/themes/custom/zen_c4c/images/arrow-desc.png);
+}

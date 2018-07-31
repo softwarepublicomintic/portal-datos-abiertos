@@ -1,0 +1,77 @@
+<?php
+
+function socrata_import_cron() {
+
+
+  // Load node.module from the node module.
+module_load_include('module', 'node', 'node');
+/*
+$content_types = array('inventario');
+
+ $results = db_select('node', 'n')
+              ->fields('n', array('nid'))
+              ->condition('type', $content_types, 'IN')
+              ->orderRandom()
+              ->execute();
+  foreach ($results as $result) {
+    $nids[] = $result->nid;
+  }
+
+  if(!empty($nids)) {
+    node_delete_multiple($nids);
+
+  } */
+
+  // Trae los datos de la vista y llena los datos del nodos
+
+  $view = views_get_view('asset_inventory');
+  $view->set_display('Inventario');
+  $view->pre_execute();
+  $view->execute();
+
+
+   foreach ($view->result as $result) {
+     $key = $result->id;
+
+
+     $nodo = (object) NULL;
+
+     $nodo->type = 'inventario';
+     $nodo->uid = 0;
+     $nodo->title = $result->titulo;
+     $nodo->field_endpoint['und'][0]['value']= $result->url;
+     $nodo->field_autor['und'][0]['value'] = $result->autor;
+     $nodo->status = 1;
+     $nodo->created = strtotime("now");
+     $nodo->changed = strtotime("now");
+     $nodo->comment = 0;
+     $nodo->language = 'es';
+
+  /*   node_object_prepare($nodo);
+      node_save($nodo); */
+
+     /* Verifica si existe */
+   if (isset($result->id)) {
+       $results_ds = db_select('field_revision_field_dataset_id','d')
+                      ->fields('d', array('field_dataset_id_value'))
+                      ->condition('field_dataset_id_value', $key, 'IN')
+                      ->orderRandom()
+                      ->execute();
+
+      if (!isset($results_ds)) {
+
+       node_object_prepare($nodo);
+        node_save($nodo);
+      }
+  }
+
+
+
+   }
+
+
+
+
+
+}
+ ?>

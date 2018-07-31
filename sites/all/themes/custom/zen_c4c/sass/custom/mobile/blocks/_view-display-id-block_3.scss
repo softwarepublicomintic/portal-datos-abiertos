@@ -1,0 +1,179 @@
+@media only screen and (max-width : 768px) {
+  .node-type-tools {
+    .view-display-id-block_3 {
+      padding: 0 0 2em !important;
+
+      // Campos de filtrado
+      .view-filters {
+
+        // Buscador
+        .views-widget-filter-combine {
+          margin-bottom: 1em;
+        }
+
+        // Campos de filtrado
+        // Desplegables por (Tipo)
+        .views-widget-filter-field_tool_type_value {
+          width: 60%;
+        }
+
+        // Botón aplicar filtro
+        .views-submit-button {
+          width: 14%;
+        }
+      }
+
+      .view-content {
+        .views-table {
+          tbody {
+            tr {
+              display: block;
+              overflow: hidden;
+              padding: 1em 0;
+              height: auto;
+
+              .views-field-field-image {
+                display: inline-block;
+                float: left;
+                margin-bottom: .5em;
+                padding-right: 2%;
+                width: auto;
+
+                .field-name-field-image {
+                  display: table;
+                  margin: 0;
+                  padding: 0;
+
+                  .field-item {
+                    img {
+                      vertical-align: middle;
+                    }
+                  }
+                }
+              }
+
+              .views-field-field-tool-title,
+              .views-field-field-tool-description {
+                display: block;
+                margin-bottom: .5em;
+                padding-right: 3%;
+                width: 100%;
+              }
+
+              .views-field-field-tool-title {
+                font-weight: bold;
+              }
+
+              td {
+                &:last-child {
+                  display: block;
+                  float: right;
+                  padding: 7px 3%;
+                  width: 100%;
+                  text-align: right;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : $size-break1) {
+  .node-type-tools {
+    .view-display-id-block_3 {
+
+      // Campos de filtrado
+      .view-filters {
+
+        // Buscador
+        .views-widget-filter-combine {
+          margin-bottom: .5em;
+        }
+
+        // Campos de filtrado
+        // Desplegables por (Tipo)
+        .views-widget-filter-field_tool_type_value {
+          width: 100%;
+
+          label {
+            font-size: 1em;
+            text-align: left;
+          }
+
+          .views-widget {
+            float: none;
+            width: 100%;
+
+            .chosen-container-single {
+              .chosen-single {
+                width: 100% !important;
+              }
+
+              .chosen-drop {
+                width: 100%;
+              }
+            }
+          }
+        }
+
+        // Botón aplicar filtro
+        .views-submit-button {
+          width: 100%;
+
+          input {
+            width: 100%;
+          }
+        }
+      }
+
+      // Tabla de libros
+      .view-content {
+        .views-table {
+          tbody {
+            tr {
+              td {
+                display: block;
+                width: 100% !important;
+                font-size: 1em;
+
+                &:last-child {
+                  text-align: center;
+
+                  a {
+                    display: block;
+                  }
+                }
+              }
+
+              .views-field-field-image {
+                margin-bottom: .5em;
+                padding: 0;
+
+                .field-name-field-image {
+                  margin: 0 auto;
+                  padding-bottom: .5em;
+                  width: auto;
+                }
+              }
+
+              .views-field-field-tool-title {
+                margin-bottom: .5em;
+                padding: 0 2%;
+                text-align: center;
+              }
+
+              .views-field-field-tool-description {
+                margin-bottom: 1em;
+                padding: 0 2%;
+                width: 47%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

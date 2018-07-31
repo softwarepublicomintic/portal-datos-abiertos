@@ -1,0 +1,7 @@
+.user-actions.noselect {
+  display: none !important;
+}
+
+.panel-pane.pane-block.pane-menu-menu-login-register-options.login-register-links.panel-pane.login-register-menu {
+  display: block !important;
+}

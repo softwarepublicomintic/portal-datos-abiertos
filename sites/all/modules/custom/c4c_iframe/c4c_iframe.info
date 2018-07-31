@@ -1,0 +1,5 @@
+name = C4C Iframe
+description = Custom block with the Iframe content for the app with data
+core = 7.x
+package = Commons For Colombia
+

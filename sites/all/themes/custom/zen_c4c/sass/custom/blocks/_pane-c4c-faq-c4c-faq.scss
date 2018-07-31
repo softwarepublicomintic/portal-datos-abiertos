@@ -1,0 +1,207 @@
+.node-type-tools {
+  // Sección preguntas frecuentes
+  .pane-c4c-faq-c4c-faq {
+    // Bloque de la izquierda con el búscador y lista de categorías
+    #faq-left {
+      display: inline-block;
+      padding: 15px 20px 20px;
+      width: 33.75%;
+      background-color: $color-gris-tools;
+      vertical-align: top;
+
+      #faq-search-block {
+        position: relative;
+
+        // Buscador
+        .form-type-textfield {
+          margin: 0 0 25px;
+
+          label {
+            display: none;
+          }
+
+          input[type='text'] {
+            padding-left: 50px;
+            height: 39px;
+            outline: inherit;
+            border: none;
+            background-color: $color-fondo-tools;
+            text-transform: capitalize;
+          }
+        }
+
+        // Botón buscar
+        input[type='submit'] {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 42px;
+          height: 39px;
+          outline: inherit;
+          background: url('../images/lupa.jpg') no-repeat;
+          color: transparent;
+        }
+
+        .ajax-progress-throbber {
+          position: absolute;
+          top: 8px;
+          right: 10px;
+        }
+      }
+
+      // Lista de categorías
+      .form-radios {
+        .form-item {
+          position: relative;
+          margin-bottom: 15px;
+          padding-left: 15px;
+
+          .ajax-progress-throbber {
+            position: absolute;
+            right: 0;
+            font-size: .8em;
+          }
+
+          input[type='radio'] {
+            display: none;
+          }
+
+          label {
+            color: black;
+            font-size: 1.1em;
+            cursor: pointer;
+          }
+        }
+      }
+
+      // Ocultar select de categorías para mostrarlo en 768px
+      .form-type-select {
+        display: none;
+      }
+    }
+
+    // Bloque de la derecha con lista de preguntas
+    #ajax-reloaded-faq-list {
+      display: inline-block;
+      padding: 1em 0 2em 2%;
+      width: 66.25%;
+
+      >a {
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: $color-morado-tools;
+        color: white;
+
+        &:hover {
+          background-color: $color-amarillo;
+          color: black;
+        }
+      }
+
+      ul {
+        margin: 30px 0 0;
+        padding: 0;
+        list-style: none;
+        // Clase para la lista de preguntas donde no haya resultados por categoría
+        .li-not {
+          padding-left: 20px;
+          line-height: 60px;
+        }
+
+        // Clase para los elementos de la lista, cuando se muestra la respuesta
+        .open {
+          .question {
+            margin: 1em 0;
+          }
+
+          .answer {
+            line-height: 1.3;
+          }
+        }
+
+        li {
+          padding: 8px 5px 8px 0;
+          color: black;
+
+          &:nth-child(2n+1) {
+            background-color: $color-gris-tools-dark;
+          }
+
+          .position {
+            display: inline-block;
+            width: 13%;
+            color: $color-morado-tools;
+            vertical-align: middle;
+            text-align: center;
+            font-weight: bold;
+            font-size: 2em;
+          }
+
+          .question {
+            display: inline-block;
+            padding-right: 30px;
+            width: 65%;
+            vertical-align: middle;
+            font-size: 1.1em;
+            line-height: 1.3;
+          }
+
+          .link {
+            display: inline-block;
+            padding: 10px 0;
+            width: 22%;
+            border-radius: 5px;
+            background-color: $color-gris-tools-light;
+            text-align: center;
+            font-weight: bold;
+
+            a {
+              color: $color-morado-tools;
+              font-size: 1em;
+            }
+          }
+
+          .answer {
+            padding: 0 5% 2em 13%;
+            color: black;
+
+            p {
+              color: black;
+            }
+          }
+        }
+      }
+
+      .item-list {
+        .pager {
+          clear: both;
+          padding: 0;
+          text-align: center;
+
+          li {
+            background-color: inherit;
+            padding: 0 .5em;;
+          }
+
+          .pager-item {
+            display: inline-block;
+            list-style-type: none;
+            background-image: none;
+
+            a {
+              text-decoration: none;
+              color: $color-gris-claro2;
+            }
+          }
+
+          .pager-current {
+            border-radius: 50px;
+            display: inline-block;
+            color: $color-magenta;
+            border: 1px solid $color-magenta;
+          }
+        }
+      }
+    }
+  }
+}

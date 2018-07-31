@@ -1,0 +1,37 @@
+.page-novedades {
+	// Ocultar breadcrumbs
+	.pane-easy-breadcrumb-easy-breadcrumb {
+		display: none;
+	}
+
+	.pane-page-title {
+		display: none;
+	}
+
+	.pane-c4c-news-events {
+		padding-left: 30px;
+		padding-right: 30px;
+
+		.pane__title {
+			background: #F1F0F2;
+			padding: 0 15px;
+			margin-bottom: 0;
+			padding-bottom: 5px;
+			font-size: 26px;
+			font-weight: bold;
+		}
+
+		.views-field-title {
+			padding-top: .5em;
+		}
+
+		.field-name-body {
+			max-height: 36px;
+			overflow: hidden;
+
+			p {
+				color: #595959;
+			}
+		}
+	}
+}

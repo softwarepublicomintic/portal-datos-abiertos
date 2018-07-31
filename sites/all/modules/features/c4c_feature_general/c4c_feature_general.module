@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the c4c_feature_general feature.
+ */
+
+include_once 'c4c_feature_general.features.inc';

@@ -1,0 +1,55 @@
+.page-user-edit {
+  .pane-form {
+    max-width: 1200px !important;
+
+    .pane-title {
+      text-transform: capitalize;
+      font-size: 2em;
+      margin-top: 2em;
+      color: $color-magenta !important;
+    }
+
+    input {
+      width: 30%;
+    }
+
+    .chosen-container-single {
+      width: 30% !important;
+    }
+
+    label {
+      font-family: 'OpenSansBold';
+    }
+
+    #edit-locale {
+      padding: 0;
+      border: none;
+
+      legend {
+        display: none;
+      }
+
+      .form-type-radios {
+        margin: 0;
+
+        .option {
+          font-family: 'OpenSans';
+        }
+
+        input {
+          width: auto;
+        }
+      }
+    }
+
+    .form-actions {
+      input {
+        width: auto;
+      }
+    }
+  }
+}
+
+body:not(.node-type-news) .pane-page-tabs li:nth-of-type(3) { display: none; }
+.pane-page-tabs li:last-child { display: none; }
+.page-user .pane-user-profile h2 { margin-top: 30px; }

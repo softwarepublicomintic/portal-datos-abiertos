@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Socrata Mintic feature.
+ */
+
+include_once 'socrata_mintic.features.inc';

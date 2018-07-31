@@ -1,0 +1,257 @@
+// Sección preguntas frecuentes
+@media only screen and (max-width : 800px) {
+  .node-type-tools {
+    .pane-c4c-faq-c4c-faq {
+      // Bloque de la derecha con lista de preguntas
+      #ajax-reloaded-faq-list {
+        ul {
+          // Mostrar respuesta
+          .open {
+            .position,
+            .question {
+              vertical-align: top;
+            }
+
+            .position {
+              margin-top: .6em;
+            }
+
+            .question {
+              margin: 1em 0;
+            }
+          }
+
+          li {
+            // Botón mostrar respuesta
+            .link {
+              padding: 4px 10px;
+              vertical-align: middle;
+              line-height: 1.3;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 768px) {
+  .node-type-tools {
+    .pane-c4c-faq-c4c-faq {
+      // Bloque de la izquierda con el búscador y lista de categorías
+      #faq-left {
+        display: block;
+        width: 100%;
+
+        //Buscador
+        #faq-search-block {
+          position: relative;
+          display: inline-block;
+          margin-right: 4%;
+          width: 48%;
+
+          .form-type-textfield {
+            margin: 0;
+          }
+        }
+
+        // Ocultar lista de categorías para reemplazar por el select
+        #edit-category {
+          display: none;
+        }
+
+        // Mostrar select de categorías
+        .form-type-select {
+          display: inline-block;
+          margin: 0;
+          width: 48%;
+          height: 39px;
+          vertical-align: top;
+
+          .ajax-progress-throbber {
+            display: none;
+          }
+
+          .chosen-container-single {
+            width: 100% !important;
+
+            .chosen-single {
+              padding-left: 10px;
+              background-color: $color-fondo-tools;
+
+              div {
+                margin-right: 0;
+                width: 42px;
+
+                b {
+                  background: url(../images/arrow-top-bottom.png) no-repeat 2px -50px !important;
+                  background-color: $color-morado-tools !important;
+                }
+              }
+            }
+
+            &.chosen-container-active {
+              div {
+                b {
+                  background: url(../images/arrow-top-bottom.png) no-repeat 2px 7px !important;
+                  background-color: $color-morado-tools !important;
+                }
+              }
+            }
+
+            .chosen-drop {
+              padding: 1px;
+
+              .chosen-search {
+                display: none;
+              }
+
+              .chosen-results {
+                margin: 0;
+                padding: 0 5px;
+                background-color: $color-fondo-tools;
+                overflow: scroll;
+
+                li {
+                  outline: inherit;
+
+                  &.result-selected,
+                  &.highlighted {
+                    color: $color-morado-tools;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      #ajax-reloaded-faq-list {
+        display: block;
+        padding: 2em 0;
+        width: 100%;
+
+        ul {
+          // Elementos de la lista, cuando la respuesta esta oculta
+          .open {
+            .position,
+            .question {
+              vertical-align: middle;
+            }
+
+            .position {
+              margin-top: 0;
+            }
+
+            .question {
+              margin: 1em 0;
+            }
+          }
+
+          li {
+            .link {
+              padding: 10px 0;
+              vertical-align: inherit;
+              line-height: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : $size-break1) {
+  .node-type-tools {
+    .pane-c4c-faq-c4c-faq {
+      // Bloque de la derecha con lista de preguntas
+      #ajax-reloaded-faq-list {
+        ul {
+          // Elementos de la lista, cuando la respuesta esta oculta
+          // Mostrar respuesta
+          .open {
+            .position,
+            .question {
+              vertical-align: top;
+            }
+
+            .position {
+              margin-top: .6em;
+            }
+
+            .question {
+              margin: 1em 0;
+            }
+          }
+
+          li {
+            // Botón mostrar respuesta
+            .link {
+              padding: 4px 10px;
+              vertical-align: middle;
+              line-height: 1.3;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width : 400px) {
+  .node-type-tools {
+    .pane-c4c-faq-c4c-faq {
+      // 100% del contenedor buscador
+      #faq-left {
+        #faq-search-block {
+          display: block;
+          width: 100%;
+          margin: 0 0 .5em 0;
+        }
+
+        // 100% del contendor select
+        .form-type-select {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      #ajax-reloaded-faq-list {
+        ul {
+          .open {
+            .position,
+            .question {
+              margin: 0;
+              vertical-align: middle;
+            }
+
+            .question {
+              margin: .5em 0;
+            }
+
+            .answer {
+              margin-top: .5em;
+              padding: 0 2%;
+              display: block;
+              word-wrap: break-word;
+            }
+          }
+
+          li {
+            .question {
+              width: 86%;
+              font-size: 1em;
+              padding-right: 5px;
+            }
+
+            .link {
+              padding: 10px 0;
+              width: 97%;
+              margin: .5em 2% 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
