@@ -246,7 +246,10 @@ try {
   $filen = file_load($imagen);
   $miimagen = $filen->filename;
   $imagen = "https://herramientas.datos.gov.co/sites/default/files/styles/uses_images/public/".$miimagen;
-  $titulo = $form_state['values']['title'];
+  $titulo = $form_state['values']['title_field']['es'][0]['value'];
+  /*$message = 'Título with data: <pre>@data</pre>';
+  $variables = array('@data' => print_r($form_state['values'], TRUE));
+  watchdog('uses', $message, $variables, WATCHDOG_NOTICE);*/
   $lenguaje = $form_state['values']['language'];
   if ($lenguaje=='und') {
     $lenguaje='Neutral';
@@ -382,7 +385,7 @@ try {
  $txtlic =  taxonomy_term_load($tx_tlicencia);
  $Tip_licencia = $txtlic->name;
 
- $tx_status = $form_state['values']['field_estado']['und'][0]['tid'] ;
+ $tx_status = $form_state['values']['field_estado']['und'][0]['tid'];
  $tax_status = taxonomy_term_load($tx_status);
  $Status = $tax_status->name;
 
@@ -507,10 +510,58 @@ function uses_validate($form, $form_state) {
       return $form;
     }
   }
+}
 
+function uses_node_grants($account, $op) {
+  $grants = array();
+  // First grant a grant to the author for own content.
+  if ($account->uid) {
+    $grants['uses_author'] = array($account->uid);
+  }
+  if ($op == 'view' && user_access('access content', $account)) {
+    $grants['uses'] = array(8888, 8889);
+  }
+  return $grants;
+}
+function uses_node_access_records($node) {
+  $grants = array();
+  // For NodeAccessBaseTableTestCase, only set records for private nodes.
+  //if (!variable_get('uses_private') || $node->private) {
+    if($node->type == 'uses'){
+      // For the author realm, the GID is equivalent to a UID, which
+      // means there are many many groups of just 1 user.
+      if ($node->status == 1) {
+        $grants[] = array(
+          'realm' => 'uses',
+          'gid' => 8888,
+          'grant_view' => 1,
+          'grant_update' => 0,
+          'grant_delete' => 0,
+          'priority' => 0,
+        );
+        $grants[] = array(
+          'realm' => 'uses',
+          'gid' => 8889,
+          'grant_view' => 1,
+          'grant_update' => 0,
+          'grant_delete' => 0,
+          'priority' => 0,
+        );
+      }
+      if ($node->uid) {
+        $grants[] = array(
+          'realm' => 'uses_author',
+          'gid' => $node->uid,
+          'grant_view' => 1,
+          'grant_update' => 1,
+          'grant_delete' => 1,
+          'priority' => 0,
+        );
+      }
+    }
+  //}
 
-
-
+  return $grants;
 }
 
 ?>

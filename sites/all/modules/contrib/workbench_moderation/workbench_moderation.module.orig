@@ -518,10 +518,6 @@ function _workbench_moderation_access($op, $node) {
     $access &= !empty($next_states);
   }
 
-  if ($op == 'view revisions') {
-    $access = $access || user_access('view revisions');
-  }
-
   // Allow other modules to change our rule set.
   drupal_alter('workbench_moderation_access', $access, $op, $node);
 

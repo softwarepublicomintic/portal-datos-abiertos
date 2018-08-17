@@ -3990,9 +3990,9 @@ body:not(.node-type-news) .pane-page-tabs li:nth-of-type(3) {
   display: none;
 }
 
-.pane-page-tabs li:last-child {
+/*.pane-page-tabs li:last-child {
   display: none;
-}
+}*/
 
 .page-user .pane-user-profile h2 {
   margin-top: 30px;

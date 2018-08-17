@@ -1,0 +1,15 @@
+diff --git a/workbench_moderation.module b/workbench_moderation.module
+index 93cb8be..28218b0 100644
+--- a/workbench_moderation.module
++++ b/workbench_moderation.module
+@@ -480,6 +480,10 @@ function _workbench_moderation_access($op, $node) {
+     $access &= !empty($next_states);
+   }
+ 
++  if ($op == 'view revisions') {
++    $access = $access || user_access('view revisions');
++  }
++
+   // Allow other modules to change our rule set.
+   drupal_alter('workbench_moderation_access', $access, $op, $node);
+ 
